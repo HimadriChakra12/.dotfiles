@@ -1,0 +1,32 @@
+[Options]
+
+# General
+no_confirmation = false         # Ask for confirmation (set to true to skip)
+noconfirm_makepkg = true        # Don't ask for build confirmation
+noconfirm_edit_pkgbuild = true  # Don't ask to edit PKGBUILD
+noconfirm_edit_install_file = true
+noedit = true                   # Don't ask to edit files
+use_trash = true                # Move to trash instead of deleting
+clean_after = true              # Clean build dirs after install
+
+# Output
+color = true
+pager = false                   # Disable pager for better output handling
+quiet = false                   # Show all output (good for debugging)
+
+# AUR
+check_aur_updates = true        # Enable automatic AUR update checks
+check_aur_conflicts = true      # Detect conflicts with AUR packages
+check_aur_untracked = true      # Warn if AUR packages are not tracked
+build_dir = /tmp/pikaur_build   # Optional: Use tmpfs for faster builds
+
+# Parallel Builds
+makepkg_conf = /etc/makepkg.conf  # Use system-wide makepkg config
+makepkg_args = -s --noconfirm --needed
+
+# Dependencies
+devel = true                    # Auto-update development (e.g. `-git`) packages
+rebuild = ask                   # Ask to rebuild broken packages
+
+# UI
+interactive = true
