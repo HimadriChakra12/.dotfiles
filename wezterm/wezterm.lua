@@ -12,7 +12,8 @@ end)
 return {
   default_cursor_style = "BlinkingBlock",
   colors = {
-    background = "#282828", -- Gruvbox dark background
+    --background = "#282828", -- Gruvbox dark background
+    background = "#292828", -- Gruvbox dark background
     foreground = "#ebdbb2", -- Gruvbox dark foreground
     cursor_bg = "#d4be98",
     cursor_fg = "#282828",
@@ -21,9 +22,9 @@ return {
   },
 	-- font
 	font = wezterm.font("JetBrains Mono", { weight = "Medium" }),
-	font_size = 10,
+	font_size = 8,
 	line_height = 1,
-	window_background_opacity = 0.98,
+--	window_background_opacity = 0.98,
 	-- tab bar
 	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = true,
