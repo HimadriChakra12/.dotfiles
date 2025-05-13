@@ -38,6 +38,8 @@ vim.keymap.set("n", "<leader>.", ":Zt<CR>", { noremap = true, silent = true })
 -- Option 1: Mapping to Clear Highlighting (e.g., <CR> after search)
 vim.api.nvim_set_keymap('n', '<CR>', ':noh<CR>', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true })
+
 
 -- Option 3: Mapping to a Custom Key (e.g., <Leader>h)
 vim.api.nvim_set_keymap('n', '<Leader>h', ':noh<CR>', { noremap = true, silent = true })

@@ -19,6 +19,7 @@ require("startups.startup1")
 --require("plugins.shell")
 require('plugins.pcmp').setup()
 require("plugins.bufshift")
+require("plugins.markdown")
 -- require("plugins.tree") --[Replaced with explorer.lua]
 require("plugins.explo")
 require("plugins.zox").setup() 
@@ -28,3 +29,19 @@ require("plugins.termim").setup()
 -- require("plugins.ff") [Replaced by telescope.nvim]
 -- require("plugins.explorer")
 -- require("scope").setup() [Replaced with telescope.nvim]
+
+
+require("zen-mode").setup {
+  window = {
+    backdrop = 0.98,
+    width = 100,  -- adjust width to your liking
+    height = 40,
+  },
+  plugins = {
+    options = {
+      enabled = true,
+      ruler = false,
+      showcmd = false,
+    },
+  },
+}

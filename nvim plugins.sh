@@ -9,6 +9,7 @@ declare -A plugins=(
   ["neogit"]="https://github.com/xsoder/neogit"
   ["buffer-manager"]="https://github.com/xsoder/buffer-manager.nvim"
   ["fzf-lua"]="https://github.com/ibhagwan/fzf-lua"
+  ["zen-mode"]="https://github.com/folke/zen-mode"
 )
 
 # Target installation directory
