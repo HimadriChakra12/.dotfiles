@@ -10,7 +10,7 @@ packages = (
     "neovim"
 )
 
-yay -S "${packages[@]}"
+yay -S --noconfirm "${packages[@]}"
 
 
 
