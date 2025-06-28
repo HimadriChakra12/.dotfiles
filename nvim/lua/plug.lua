@@ -31,17 +31,3 @@ require("plugins.termim").setup()
 -- require("scope").setup() [Replaced with telescope.nvim]
 
 
-require("zen-mode").setup {
-  window = {
-    backdrop = 0.98,
-    width = 100,  -- adjust width to your liking
-    height = 40,
-  },
-  plugins = {
-    options = {
-      enabled = true,
-      ruler = false,
-      showcmd = false,
-    },
-  },
-}
