@@ -1,5 +1,4 @@
 set $mod Mod1
-set $win Mod4
 
 # gaps inner 8
 # gaps outer 8
@@ -18,6 +17,7 @@ exec xsetroot -cursor_name left_ptr &
 #AUTO START
 exec --no-startup-id bash -c 'cd /home/csode/devenv/scripts && bash autostart'
 exec_always --no-startup-id bash -c 'cd /home/csode/devenv/scripts && bash rerun'
+
 exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
 
@@ -45,18 +45,6 @@ bindsym $mod+a focus parent
 bindsym ctrl+space exec --no-startup-id dmenu_run
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
-
-## WORKSPACE RULE
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 ## SWITCH TO WORKSPACE
 bindsym $mod+1 workspace number $ws1
@@ -97,12 +85,12 @@ client.background        $grey_unfocused
 exec --no-startup-id sleep 1 && feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wallpaper.jpg
 
 bar {
-		font pango: Noto Sans Regular 10
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position top
-		    tray_padding 0
-            strip_workspace_numbers yes
-            strip_workspace_name no
+        font pango: Noto Sans Regular 10
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        position top
+        tray_padding 0
+        strip_workspace_numbers yes
+        strip_workspace_name no
 }
 
 ## WINDOW RULE
