@@ -13,7 +13,7 @@ declare -A plugins=(
 )
 
 # Target installation directory
-install_dir="$HOME/.local/share/nvim/site/pack/himadri/start"
+install_dir="$HOME/.local/share/nvim/site/pack/manual/start"
 
 # Create directory if it doesn't exist
 mkdir -p "$install_dir"

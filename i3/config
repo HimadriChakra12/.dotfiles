@@ -1,0 +1,146 @@
+set $mod Mod1
+
+# gaps inner 8
+# gaps outer 8
+font pango:Iosevka 16
+
+## KEYBIND BRIGHTNESS AND VOLUME
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+exec xsetroot -cursor_name left_ptr &         
+#AUTO START
+exec --no-startup-id bash -c 'cd /home/csode/devenv/scripts && bash autostart'
+exec_always --no-startup-id bash -c 'cd /home/csode/devenv/scripts && bash rerun'
+
+exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
+exec --no-strtup-id /usr/bin/dunst
+
+## WINDOW NAVIGATION 
+floating_modifier $mod
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+
+# MOVEMENT WINDOW
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# ADDITIONAL LAYOUT
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym ctrl+space exec --no-startup-id dmenu_run
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+r restart
+
+## SWITCH TO WORKSPACE
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+## MOVE FOCUSED 
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+## BORDER RULE
+set $blue_focused #31748f     
+set $grey_unfocused #6e6a86     
+
+client.focused           $blue_focused  $blue_focused  #e0def4  $blue_focused  $blue_focused
+client.focused_inactive  $grey_unfocused  $grey_unfocused  #908caa  $grey_unfocused  $grey_unfocused
+client.unfocused         $grey_unfocused  $grey_unfocused  #6e6a86  $grey_unfocused  $grey_unfocused
+client.urgent            $blue_focused  $blue_focused  #e0def4  $blue_focused  $blue_focused
+client.placeholder       $grey_unfocused  $grey_unfocused  #e0def4  $grey_unfocused  $grey_unfocused
+client.background        $grey_unfocused
+
+#wallpaper
+exec --no-startup-id sleep 1 && feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wallpaper.jpg
+
+bar {
+        font pango: Noto Sans Regular 10
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        position top
+        tray_padding 0
+        strip_workspace_numbers yes
+        strip_workspace_name no
+}
+
+## WINDOW RULE
+for_window [class=".*"] border pixel 0
+for_window [class="obs"] move to workspace $ws9
+for_window [class="nvim"] move to workspace $ws3, fullscreen enable
+for_window [class="firefox"] move to workspace $ws2
+for_window [class="nemo"] move to workspace $ws4
+for_window [class="wallpaper"] move to workspace $ws1
+
+
+
+## APPLICATION KEYBIND
+bindsym $mod+b workspace $ws2; , exec firefox
+bindsym $mod+n workspace $ws4; , exec nemo
+bindsym $mod+Shift+f workspace $ws4;exec dolphin
+bindsym $mod+Return ; exec wezterm
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+Tab focus next
+bindsym $mod+Shift+Tab focus prev
+bindsym $mod+Shift+e exec --no-strtup-id ~/.config/i3/scripts/powermenu
+bindsym $mod+bracketright workspace next
+bindsym $mod+o workspace $ws9 exec obs
+bindsym $mod+c workspace $ws2, exec emacsclient -c -a "emacs"
+
+
+
+## CUSTOM SCRIPTS
+bindsym $mod+Shift+z exec --no-startup-id bash -c 'cd /home/csode/packages/boomer && ./boomer'
+bindsym $mod+Shift+y exec --no-startup-id ~/work/script/select
+bindsym $mod+Shift+t exec --no-startup-id ~/scripts/select.sh
+bindsym $mod+y exec --no-startup-id ~/scripts/toggle_focus.sh
+bindsym $mod+t exec --no-startup-id ~/scripts/todo-popup.sh
+bindsym $mod+Shift+s exec ~/work/script/screenshot
+bindsym $mod+Shift+p exec --no-startup-id bash -c 'cd /home/csode/work/script && bash screenshot ato ato'
+
+#Endeavour Flavours
+gaps inner 6
+gaps outer 3
+
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym Shift+space exec --no-startup-id rofi -modi drun -show drun \
+		-config ~/.config/rofi/rofidmenu.rasi
