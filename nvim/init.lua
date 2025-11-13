@@ -1,5 +1,6 @@
--- vim.keymap.set("n", "<leader>cd", require("telescope").extensions.zoxide.list)
-require('plug')
+require('rho')
+require('dx')
+
 
 -- Line Numbers
 vim.opt.number = true
@@ -46,6 +47,20 @@ vim.cmd [[
 
 vim.opt.termguicolors = true  -- Enable 24-bit colors
 vim.opt.background = "dark"   -- Set to dark mode
-vim.cmd("colorscheme gruvbox")  -- Load Gruvbox
+vim.cmd("colorscheme gruvbox")
 
+vim.keymap.set("n", "<leader>pm", function()
+    require("pacman.maze").open()
+end, { desc = "Plugin Manager GUI" })
 
+vim.keymap.set("n", "<leader>e", function()
+    require("netwr").open()
+end, { desc = "Plugin Manager GUI" })
+local sqlite_preview = require("sql")
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.sql",
+  callback = function()
+    sqlite_preview.preview()
+  end,
+})
