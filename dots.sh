@@ -1,16 +1,16 @@
 dotfiles=(
-    "$HOME/.dotfiles/dunst:$HOME/dunst"
-    "$HOME/.dotfiles/gh:$HOME/gh"
-    "$HOME/.dotfiles/i3:$HOME/i3"
-    "$HOME/.dotfiles/lazygit:$HOME/lazygit"
-    "$HOME/.dotfiles/mpv:$HOME/mpv"
-    "$HOME/.dotfiles/nvim:$HOME/nvim"
-    "$HOME/.dotfiles/paru:$HOME/paru"
-    "$HOME/.dotfiles/pikaur:$HOME/pikaur"
-    "$HOME/.dotfiles/qimgv:$HOME/qimgv"
-    "$HOME/.dotfiles/rofi:$HOME/rofi"
-    "$HOME/.dotfiles/wezterm:$HOME/wezterm"
-    "$HOME/.dotfiles/git:$HOME/git"
+    "$HOME/.dotfiles/dunst:$HOME/.config/dunst"
+    "$HOME/.dotfiles/gh:$HOME/.config/gh"
+    "$HOME/.dotfiles/i3:$HOME/.config/i3"
+    "$HOME/.dotfiles/lazygit:$HOME/.config/lazygit"
+    "$HOME/.dotfiles/mpv:$HOME/.config/mpv"
+    "$HOME/.dotfiles/nvim:$HOME/.config/nvim"
+    "$HOME/.dotfiles/paru:$HOME/.config/paru"
+    "$HOME/.dotfiles/pikaur:$HOME/.config/pikaur"
+    "$HOME/.dotfiles/qimgv:$HOME/.config/qimgv"
+    "$HOME/.dotfiles/rofi:$HOME/.config/rofi"
+    "$HOME/.dotfiles/wezterm:$HOME/.config/wezterm"
+    "$HOME/.dotfiles/git:$HOME/.config/git"
     "$HOME/.dotfiles/.bashrc:$HOME/.bashrc"
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"
 )
@@ -20,7 +20,6 @@ for entry in "${dotfiles[@]}"; do
     src="${entry%%:*}"
     tgt="${entry##*:}"
     echo "Linking $src → $tgt"
-    rm "$tgt" -r
     ln -sf "$src" "$tgt"
 done
 
