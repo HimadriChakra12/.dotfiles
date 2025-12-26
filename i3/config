@@ -20,6 +20,7 @@ exec_always --no-startup-id bash -c 'cd /home/csode/devenv/scripts && bash rerun
 
 exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
+exec --no-strtup-id jdownloader
 
 ## WINDOW NAVIGATION 
 floating_modifier $mod
