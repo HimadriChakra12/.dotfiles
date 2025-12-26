@@ -86,15 +86,25 @@ client.background        $grey_unfocused
 #wallpaper
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper.jpg
 
+##[
+#bar {
+#        font pango: Noto Sans Regular 10
+#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#        position top
+#        tray_padding 0
+#        strip_workspace_numbers yes
+#        strip_workspace_name no
+#}
+##]
+
 bar {
         font pango: Noto Sans Regular 10
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command polybar # -c ~/.config/i3/i3blocks.conf
         position top
         tray_padding 0
         strip_workspace_numbers yes
         strip_workspace_name no
 }
-
 ## WINDOW RULE
 for_window [class=".*"] border pixel 0
 for_window [class="obs"] move to workspace $ws9
