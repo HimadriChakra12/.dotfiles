@@ -4,7 +4,7 @@ set $mod Mod1
 # gaps outer 8
 font pango:Iosevka 16
 
-## KEYBIND BRIGHTNESS AND VOLUME
+# KEYBIND BRIGHTNESS AND VOLUME
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -14,10 +14,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 exec xsetroot -cursor_name left_ptr &         
-#AUTO START
-exec --no-startup-id bash -c 'cd /home/csode/devenv/scripts && bash autostart'
-exec_always --no-startup-id bash -c 'cd /home/csode/devenv/scripts && bash rerun'
-
 exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id jdownloader
@@ -86,24 +82,14 @@ client.background        $grey_unfocused
 #wallpaper
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper.jpg
 
-##[
-#bar {
-#        font pango: Noto Sans Regular 10
-#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#        position top
-#        tray_padding 0
-#        strip_workspace_numbers yes
-#        strip_workspace_name no
-#}
-##]
-
 bar {
-        font pango: Noto Sans Regular 10
-        status_command polybar # -c ~/.config/i3/i3blocks.conf
-        position top
-        tray_padding 0
+        font pango: JetBrains Mono 8
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        position bottom
+        tray_padding 5
         strip_workspace_numbers yes
         strip_workspace_name no
+        tray_output primary
 }
 ## WINDOW RULE
 for_window [class=".*"] border pixel 0
@@ -135,23 +121,26 @@ bindsym $mod+Shift+z exec --no-startup-id bash -c 'cd /home/csode/packages/boome
 bindsym $mod+Shift+y exec --no-startup-id ~/work/script/select
 bindsym $mod+Shift+t exec --no-startup-id ~/scripts/select.sh
 bindsym $mod+y exec --no-startup-id ~/scripts/toggle_focus.sh
-bindsym $mod+t exec --no-startup-id ~/scripts/todo-popup.sh
-bindsym $mod+Shift+s exec ~/work/script/screenshot
+bindsym $mod+Shift+s exec flameshot gui
+bindsym Print exec flameshot full
 bindsym $mod+Shift+p exec --no-startup-id bash -c 'cd /home/csode/work/script && bash screenshot ato ato'
+
+# Toggle floating for the focused window
+bindsym $mod+t floating toggle
 
 #Endeavour Flavours
 gaps inner 6
 gaps outer 3
 
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1:~"
+set $ws2 "2:@"
+set $ws3 "3:#"
+set $ws4 "4:#"
+set $ws5 "5:%"
+set $ws6 "6:^"
+set $ws7 "7:&"
+set $ws8 "8:*"
+set $ws9 "9:("
+set $ws10 "10:)"
 
 bindsym Shift+space exec --no-startup-id rofi -modi drun -show drun

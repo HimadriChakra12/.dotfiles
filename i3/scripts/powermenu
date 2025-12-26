@@ -1,33 +1,28 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-res=$(echo \
-"lock
-exit
-poweroff
-reboot
-suspend" \
-| rofi -dmenu -p "system")
+# Options for the menu
+options="Shutdown\nReboot\nLogout\nSuspend\nLock"
 
-which systemctl >/dev/null 2>&1
-if [ "$?" -eq 0 ]; then
-    login_manager="systemctl"
-else
-    login_manager="loginctl"
-fi
+# Show dmenu and get the selection
+choice=$(echo -e $options | dmenu -i -p "Power Menu:")
 
-case $res in
-"lock")
-    ~/.scripts/i3lock_run;;
-"exit")
-    for window in $(xdotool search --onlyvisible --name ".*"); do
-      xdotool windowfocus $window
-      xdotool key --window $window alt+F4 # try gently closing
-    done
-    bspc quit || i3-msg exit;;
-"poweroff")
-    $login_manager poweroff;;
-"reboot")
-    $login_manager reboot;;
-"suspend")
-    $login_manager suspend;;
-esac 
+# Execute based on the selection
+case "$choice" in
+    Shutdown)
+        systemctl poweroff
+        ;;
+    Reboot)
+        systemctl reboot
+        ;;
+    Logout)
+        # For example, if using i3
+        i3-msg exit
+        ;;
+    Suspend)
+        systemctl suspend
+        ;;
+    Lock)
+        # Example using i3lock
+        i3lock
+        ;;
+esac
