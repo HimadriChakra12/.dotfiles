@@ -59,15 +59,15 @@ close(SENSORS);
 $temperature eq -9999 and die 'Cannot find temperature';
 
 if ($temperature < 45) {
-  $label = '';
+  $label = 't';
 } elsif ($temperature < 55) {
-  $label = '';
+  $label = 'T';
 } elsif ($temperature < 65) {
-  $label = '';
+  $label = '|';
 } elsif ($temperature < 75) {
-  $label = '';
+  $label = '?';
 } else {
-  $label = '';
+  $label = '!';
 }
 # Print short_text, full_text
 print "${label}";
