@@ -1,4 +1,5 @@
 set $mod Mod1
+set $super Mod4
 
 # gaps inner 8
 # gaps outer 8
@@ -18,6 +19,9 @@ exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id /usr/local/bin/volume-monitor
 exec --no-strtup-id jdownloader
+
+bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/pomodoro/pomo_runner.py
+
 
 ## WINDOW NAVIGATION 
 floating_modifier $mod
@@ -113,11 +117,9 @@ for_window [class="wallpaper"] move to workspace $ws1
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
 bindsym $mod+n workspace $ws4; , exec nemo
-bindsym $mod+Shift+f workspace $ws4;exec dolphin
 bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
-bindsym $mod+Shift+Tab focus prev
 bindsym $mod+bracketright workspace next
 bindsym $mod+o workspace $ws9 exec obs
 
@@ -125,15 +127,12 @@ bindsym $mod+g exec bash $HOME/.config/i3/scripts/grayscale
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 
-
+## SCREENSHOTS
 bindsym $mod+Shift+s exec flameshot gui
 bindsym Print exec flameshot full
 
 ## CUSTOM SCRIPTS
-bindsym $mod+Shift+z exec --no-startup-id bash -c 'cd /home/csode/packages/boomer && ./boomer'
-bindsym $mod+Shift+y exec --no-startup-id ~/work/script/select
-bindsym $mod+Shift+t exec --no-startup-id ~/scripts/select.sh
-bindsym $mod+y exec --no-startup-id ~/scripts/toggle_focus.sh
+bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 
 # Toggle floating for the focused window
 bindsym $mod+t floating toggle
