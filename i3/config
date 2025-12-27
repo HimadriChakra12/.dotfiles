@@ -82,13 +82,22 @@ client.background        $grey_unfocused
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper.jpg
 
 bar {
-        font pango: JetBrains Mono 8
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        position bottom
-        tray_padding 5
-        strip_workspace_numbers yes
-        strip_workspace_name no
-        tray_output primary
+    font pango: JetBrains Mono 8
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    position bottom
+    tray_padding 5
+    strip_workspace_numbers yes
+    strip_workspace_name no
+    tray_output primary
+
+    colors {
+        background #282828      # gruvbox dark bg
+        statusline #ebdbb2      # gruvbox fg
+        separator  #504945      # gruvbox gray
+
+        focused_workspace  #458588 #458588 #282828  # blue bg, dark text
+        inactive_workspace #3c3836 #3c3836 #a89984  # subtle inactive
+    }
 }
 ## WINDOW RULE
 for_window [class=".*"] border pixel 0
@@ -110,19 +119,20 @@ bindsym $mod+Tab focus next
 bindsym $mod+Shift+Tab focus prev
 bindsym $mod+bracketright workspace next
 bindsym $mod+o workspace $ws9 exec obs
+
 bindsym $mod+g exec bash $HOME/.config/i3/scripts/grayscale
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
+bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 
 
+bindsym $mod+Shift+s exec flameshot gui
+bindsym Print exec flameshot full
 
 ## CUSTOM SCRIPTS
 bindsym $mod+Shift+z exec --no-startup-id bash -c 'cd /home/csode/packages/boomer && ./boomer'
 bindsym $mod+Shift+y exec --no-startup-id ~/work/script/select
 bindsym $mod+Shift+t exec --no-startup-id ~/scripts/select.sh
 bindsym $mod+y exec --no-startup-id ~/scripts/toggle_focus.sh
-bindsym $mod+Shift+s exec flameshot gui
-bindsym Print exec flameshot full
-bindsym $mod+Shift+p exec --no-startup-id bash -c 'cd /home/csode/work/script && bash screenshot ato ato'
 
 # Toggle floating for the focused window
 bindsym $mod+t floating toggle
