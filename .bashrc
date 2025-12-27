@@ -2,8 +2,11 @@
 # ~/.bashrc
 export FZF_COMPLETION_TRIGGER='..'
 
+export PATH="$HOME/sayarchi/script:$PATH"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+eval "$(zoxide init bash)"
 
 pb(){
     cd "$HOME/penboot"
@@ -21,6 +24,7 @@ alias update="yay"
 alias ep="nvim ~/.bashrc"
 alias sour="source $HOME/.bashrc"
 alias l="ls -lah"
+alias cd="z"
 
 alias i="sudo pacman -S"
 
