@@ -20,8 +20,12 @@ exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id /usr/local/bin/volume-monitor
 exec --no-strtup-id jdownloader
 
-bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/pomodoro/pomo_runner.py
+#wallpaper
+exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper
 
+## CUSTOM SCRIPTS
+bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
+bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
 
 ## WINDOW NAVIGATION 
 floating_modifier $mod
@@ -83,8 +87,6 @@ client.urgent            $blue_focused  $blue_focused  #e0def4  $blue_focused  $
 client.placeholder       $grey_unfocused  $grey_unfocused  #e0def4  $grey_unfocused  $grey_unfocused
 client.background        $grey_unfocused
 
-#wallpaper
-exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper.jpg
 
 bar {
     font pango: JetBrains Mono 8
@@ -131,8 +133,6 @@ bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 bindsym $mod+Shift+s exec flameshot gui
 bindsym Print exec flameshot full
 
-## CUSTOM SCRIPTS
-bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 
 # Toggle floating for the focused window
 bindsym $mod+t floating toggle

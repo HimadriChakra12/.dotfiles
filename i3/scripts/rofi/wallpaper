@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/.config/i3/Wallpaper"
+SYMLINK="$HOME/.config/i3/Wallpaper/Wallpaper"
+
+# List image files
+selected=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \
+  \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
+  -printf "%f\n" | sort | rofi -dmenu -p "Select Wallpaper")
+
+# Exit if nothing selected
+[ -z "$selected" ] && exit 0
+
+# Update symlink
+ln -sf "$WALLPAPER_DIR/$selected" "$SYMLINK"
+
+# Apply wallpaper
+feh --bg-scale "$SYMLINK"
+
