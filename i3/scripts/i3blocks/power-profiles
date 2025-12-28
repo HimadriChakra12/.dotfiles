@@ -1,17 +1,13 @@
 #!/bin/bash
 
 declare -A ICONS=(
-  [performance]="⚡ Performance"
-  [balanced]="⚖ Balanced"
-  [power-saver]="🔋 Power Saver"
+  [performance]="[]"
+  [balanced]="{}"
+  [power-saver]="()"
 )
 
-case "$MENU" in
-  *Performance*) PROFILE="performance" ;;
-  *Balanced*) PROFILE="balanced" ;;
-  *Saver*) PROFILE="power-saver" ;;
-  *) exit 0 ;;
-esac
+# Get current power profile
+POWER=$(powerprofilesctl get)
 
-powerprofilesctl set "$PROFILE"
-notify-send "Power Profile" "Switched to $PROFILE"
+# Output icon for i3blocks
+echo "${ICONS}"
