@@ -14,7 +14,7 @@ return {
 	-- FONT CONFIGURATION
 	font = wezterm.font_with_fallback({
 		-- 1st choice: Your primary font
-		{ family = "JetBrains Mono", weight = "Medium" },
+		{ family = "JetBrainsMono Nerd Font", weight = "Medium" },
 
 		-- 2nd choice: Fallback for Emojis
 		{ family = "Noto Color Emoji" },

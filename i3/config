@@ -3,7 +3,7 @@ set $super Mod4
 
 # gaps inner 8
 # gaps outer 8
-font pango:Iosevka 16
+font pango:JetbrainsMono Nerd Font 16
 
 # KEYBIND BRIGHTNESS AND VOLUME
 set $refresh_i3status killall -SIGUSR1 i3status
