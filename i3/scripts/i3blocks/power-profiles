@@ -1,0 +1,17 @@
+#!/bin/bash
+
+declare -A ICONS=(
+  [performance]="⚡ Performance"
+  [balanced]="⚖ Balanced"
+  [power-saver]="🔋 Power Saver"
+)
+
+case "$MENU" in
+  *Performance*) PROFILE="performance" ;;
+  *Balanced*) PROFILE="balanced" ;;
+  *Saver*) PROFILE="power-saver" ;;
+  *) exit 0 ;;
+esac
+
+powerprofilesctl set "$PROFILE"
+notify-send "Power Profile" "Switched to $PROFILE"

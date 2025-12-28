@@ -27,6 +27,7 @@ exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wa
 bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
 bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
+bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
 
 ## WINDOW NAVIGATION 
 floating_modifier $mod
@@ -43,9 +44,9 @@ bindsym $mod+Shift+semicolon move right
 
 # ADDITIONAL LAYOUT
 bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
+bindsym $mod+Shift+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout toggle split
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 #bindsym ctrl+space exec --no-startup-id dmenu_run
@@ -119,7 +120,7 @@ for_window [class="wallpaper"] move to workspace $ws1
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
-bindsym $mod+n workspace $ws4; , exec nemo
+bindsym $mod+e workspace $ws4; , exec nemo
 bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
@@ -131,7 +132,7 @@ bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 
 ## SCREENSHOTS
-bindsym $mod+Shift+s exec flameshot gui
+bindsym $super+Shift+s exec flameshot gui
 bindsym Print exec flameshot full
 
 
