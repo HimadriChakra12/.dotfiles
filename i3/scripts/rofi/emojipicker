@@ -59,7 +59,6 @@ EOF
 selected_name="$(mylist | cut -d'|' -f1 | rofi -dmenu -i -p "Search Emoji Name" \
     -font "JetBrains Mono 12" \
     -theme-str 'window {width: 40%;} listview {lines: 15;}' \
-    -mesg "Choose Emoji")"
 
 # Exit if nothing selected
 [[ -z "$selected_name" ]] && exit
