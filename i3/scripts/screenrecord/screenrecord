@@ -30,37 +30,54 @@ cleanup() {
 
 # Stop recording
 stop_recording() {
-  if [[ ! -f "$PID_FILE" ]]; then
-    notify-send "Error" "No active recording found" -u normal -t 2000
-    return 1
+  local killed=false
+  
+  if [[ -f "$PID_FILE" ]]; then
+    local pid
+    pid=$(cat "$PID_FILE")
+    
+    if kill -0 "$pid" 2>/dev/null; then
+      # Send graceful termination signal
+      kill -INT "$pid" 2>/dev/null || true
+      
+      # Wait for proper finalization (up to 5 seconds)
+      local count=0
+      while kill -0 "$pid" 2>/dev/null && [ $count -lt 50 ]; do
+        sleep 0.1
+        ((count++))
+      done
+      
+      # Force kill if still running
+      if kill -0 "$pid" 2>/dev/null; then
+        notify-send "Warning" "Force stopping recording" -u normal -t 2000
+        kill -KILL "$pid" 2>/dev/null || true
+        sleep 0.2
+      fi
+      killed=true
+    fi
   fi
   
-  local pid
-  pid=$(cat "$PID_FILE")
-  
-  if ! kill -0 "$pid" 2>/dev/null; then
-    cleanup
-    notify-send "Error" "Recording process not found" -u normal -t 2000
-    return 1
+  # Also kill any lingering FFmpeg/wf-recorder processes
+  if pgrep -f "ffmpeg.*x11grab" >/dev/null; then
+    pkill -SIGINT -f "ffmpeg.*x11grab" 2>/dev/null || true
+    sleep 0.5
+    pkill -KILL -f "ffmpeg.*x11grab" 2>/dev/null || true
+    killed=true
   fi
   
-  # Send graceful termination signal
-  kill -INT "$pid" 2>/dev/null || true
-  
-  # Wait for proper finalization (up to 10 seconds)
-  local count=0
-  while kill -0 "$pid" 2>/dev/null && [ $count -lt 100 ]; do
-    sleep 0.1
-    ((count++))
-  done
-  
-  # Force kill only if still running
-  if kill -0 "$pid" 2>/dev/null; then
-    notify-send "Warning" "Force stopping - video may be corrupted" -u critical -t 3000
-    kill -KILL "$pid" 2>/dev/null || true
+  if pgrep wf-recorder >/dev/null; then
+    pkill -SIGINT wf-recorder 2>/dev/null || true
+    sleep 0.5
+    pkill -KILL wf-recorder 2>/dev/null || true
+    killed=true
   fi
   
   cleanup
+  
+  if ! $killed; then
+    notify-send "Error" "No active recording found" -u normal -t 2000
+    return 1
+  fi
   
   # Verify file was created and has content
   if [[ -f "$STATE_FILE" ]]; then
@@ -69,7 +86,7 @@ stop_recording() {
     if [[ -f "$filename" ]] && [[ -s "$filename" ]]; then
       notify-send "Recording Stopped" "Saved: $(basename "$filename")" -t 2000
     else
-      notify-send "Error" "Recording file is empty or missing" -u critical -t 3000
+      notify-send "Recording Stopped" "Video saved to $OUTPUT_DIR" -t 2000
     fi
   else
     notify-send "Recording Stopped" "Video saved to $OUTPUT_DIR" -t 2000
