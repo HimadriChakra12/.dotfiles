@@ -3,6 +3,7 @@ dotfiles=(
     "$HOME/.dotfiles/btop:$HOME/.config/btop"
     "$HOME/.dotfiles/darktable:$HOME/.config/darktable"
     "$HOME/.dotfiles/dunst:$HOME/.config/dunst"
+    "$HOME/.dotfiles/flameshot:$HOME/.config/flameshot"
     "$HOME/.dotfiles/gh:$HOME/.config/gh"
     "$HOME/.dotfiles/git:$HOME/.config/git"
     "$HOME/.dotfiles/i3:$HOME/.config/i3"
