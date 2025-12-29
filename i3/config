@@ -123,7 +123,7 @@ for_window [class="wallpaper"] move to workspace $ws1
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
-bindsym $mod+e workspace $ws4; , exec nemo
+bindsym $mod+e workspace $ws4; , exec pcmanfm
 bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
