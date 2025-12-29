@@ -28,6 +28,9 @@ bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
 bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
+bindsym $mod+g exec bash $HOME/.config/i3/scripts/grayscale
+bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
+bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 
 ## WINDOW NAVIGATION 
 floating_modifier $mod
@@ -127,9 +130,6 @@ bindsym $mod+Tab focus next
 bindsym $mod+bracketright workspace next
 bindsym $mod+o workspace $ws9 exec obs
 
-bindsym $mod+g exec bash $HOME/.config/i3/scripts/grayscale
-bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
-bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 
 ## SCREENSHOTS
 bindsym $super+Shift+s exec flameshot gui
