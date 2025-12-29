@@ -20,6 +20,7 @@ alias pi="pikaur -S"
 alias ys="yay -q"
 alias pks="pikaur -q"
 alias update="yay"
+alias exp="nvim $(pwd)"
 
 alias ep="nvim ~/.bashrc"
 alias sour="source $HOME/.bashrc"
