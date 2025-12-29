@@ -2,7 +2,7 @@
 # ~/.bashrc
 export FZF_COMPLETION_TRIGGER='..'
 
-export PATH="$HOME/sayarchi/script:$PATH"
+export PATH="$HOME/sayarchi/scripts:$PATH"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -39,6 +39,8 @@ fi
 open() {
   xdg-open "$@" >/dev/null 2>&1 &
 }
+alias cmus='tmux attach -t $(tmux ls 2>/dev/null | grep cmus | cut -d: -f1)'
+
 
 # Directories
 alias ..='cd ..'
@@ -283,4 +285,3 @@ gc() {
   git config --global user.name "$1"
   git config --global user.email "$2"
 }
-export GTK_THEME=Adwaita:dark

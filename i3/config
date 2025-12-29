@@ -5,6 +5,7 @@ set $super Mod4
 # gaps outer 8
 font pango:JetbrainsMono Nerd Font 16
 
+
 # KEYBIND BRIGHTNESS AND VOLUME
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -18,7 +19,8 @@ exec xsetroot -cursor_name left_ptr &
 exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id /usr/local/bin/volume-monitor
-exec --no-strtup-id jdownloader
+exec --no-strtup-id $HOME/sayarchi/scripts/cmus-init
+exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
 
 #wallpaper
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper
@@ -30,6 +32,7 @@ bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
 bindsym $mod+g exec bash $HOME/.config/i3/scripts/grayscale
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
+bindsym $mod+m exec bash $HOME/sayarchi/scripts/cmus-control
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 
 bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
