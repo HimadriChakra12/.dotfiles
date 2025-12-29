@@ -26,6 +26,7 @@ for entry in "${dotfiles[@]}"; do
     src="${entry%%:*}"
     tgt="${entry##*:}"
     echo "Linking $src → $tgt"
+    rm -rf $tgt
     ln -sf "$src" "$tgt"
 done
 
