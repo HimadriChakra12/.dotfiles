@@ -32,6 +32,11 @@ bindsym $mod+g exec bash $HOME/.config/i3/scripts/grayscale
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 
+bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
+for_window [class="btop"] floating enable
+for_window [class="btop"] resize set 1200 800, move position center
+
+
 ## WINDOW NAVIGATION 
 floating_modifier $mod
 bindsym $mod+Down focus down
