@@ -124,19 +124,17 @@ for_window [class=".*"] border pixel 0
 for_window [class="obs"] move to workspace $ws9
 for_window [class="nvim"] move to workspace $ws3, fullscreen enable
 for_window [class="firefox"] move to workspace $ws2
-for_window [class="nemo"] move to workspace $ws4
 for_window [class="wallpaper"] move to workspace $ws1
 
 
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
-bindsym $mod+e workspace $ws4; , exec pcmanfm
+bindsym $super+e workspace $ws4; , exec pcmanfm
 bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
 bindsym $mod+bracketright workspace next
-bindsym $mod+o workspace $ws9 exec obs
 
 
 ## SCREENSHOTS

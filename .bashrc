@@ -1,7 +1,9 @@
 #
 # ~/.bashrc
 export FZF_COMPLETION_TRIGGER='..'
-
+if [[ -f $HOME/wprfrc ]]; then
+    source $HOME/wprfrc
+fi
 export PATH="$HOME/sayarchi/scripts:$PATH"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -55,7 +57,8 @@ alias pi="pikaur -S"
 alias ys="yay -q"
 alias pks="pikaur -q"
 alias update="yay"
-alias exp="nvim $(pwd)"
+PWD=$(pwd)
+alias exp="nvim $PWD"
 
 alias ep="nvim ~/.bashrc"
 alias sour="source $HOME/.bashrc"
