@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# rofi-sticker.sh - Select a sticker and copy to clipboard
+
+STICKER_DIR="$HOME/stickers"
+
+# Check if sticker dir exists
+[[ ! -d "$STICKER_DIR" ]] && { echo "Directory not found: $STICKER_DIR"; exit 1; }
+
+# Get list of stickers
+STICKER=$(ls "$STICKER_DIR" | rofi -dmenu -i -p "Select Sticker")
+
+# Exit if no selection
+[[ -z "$STICKER" ]] && exit 0
+
+STICKER_PATH="$STICKER_DIR/$STICKER"
+
+# Copy to clipboard
+if command -v wl-copy >/dev/null 2>&1; then
+    wl-copy < "$STICKER_PATH"
+elif command -v xclip >/dev/null 2>&1; then
+    xclip -selection clipboard -t image/png -i "$STICKER_PATH"
+else
+    echo "⚠️  No clipboard tool found (install xclip or wl-clipboard)"
+    exit 1
+fi
+
+echo "✅ Copied $STICKER to clipboard"
+
