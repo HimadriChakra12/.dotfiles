@@ -10,6 +10,7 @@ dotfiles=(
     "$HOME/.dotfiles/lazygit:$HOME/.config/lazygit"
     "$HOME/.dotfiles/mpv:$HOME/.config/mpv"
     "$HOME/.dotfiles/paru:$HOME/.config/paru"
+    "$HOME/.dotfiles/pcmanfm:$HOME/.config/pcmanfm"
     "$HOME/.dotfiles/pikaur:$HOME/.config/pikaur"
     "$HOME/.dotfiles/qimgv:$HOME/.config/qimgv"
     "$HOME/.dotfiles/rofi:$HOME/.config/rofi"

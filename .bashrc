@@ -44,7 +44,9 @@ open() {
 }
 alias cmus='tmux attach -t $(tmux ls 2>/dev/null | grep cmus | cut -d: -f1)'
 
-
+fs() {
+    ls | grep "$@"
+}
 # Directories
 alias ..='cd ..'
 alias ...='cd ../..'
