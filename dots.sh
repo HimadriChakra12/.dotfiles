@@ -8,6 +8,7 @@ dotfiles=(
     "$HOME/.dotfiles/git:$HOME/.config/git"
     "$HOME/.dotfiles/i3:$HOME/.config/i3"
     "$HOME/.dotfiles/lazygit:$HOME/.config/lazygit"
+    "$HOME/.dotfiles/mpv:$HOME/.config/mpv"
     "$HOME/.dotfiles/paru:$HOME/.config/paru"
     "$HOME/.dotfiles/pikaur:$HOME/.config/pikaur"
     "$HOME/.dotfiles/qimgv:$HOME/.config/qimgv"
