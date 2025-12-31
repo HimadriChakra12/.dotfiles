@@ -9,6 +9,7 @@ export PATH="$HOME/sayarchi/scripts:$PATH"
 [[ $- != *i* ]] && return
 
 eval "$(zoxide init bash)"
+eval "$(starship init bash)"
 
 pb(){
     cd "$HOME/penboot"

@@ -21,6 +21,7 @@ dotfiles=(
     "$HOME/.dotfiles/.bashrc:$HOME/.bashrc"
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"
     "$HOME/.dotfiles/.vimrc:$HOME/.vimrc"
+    "$HOME/.dotfiles/startship.toml:$HOME/startship.toml"
 )
 
 echo "Linking dotfiles..."
