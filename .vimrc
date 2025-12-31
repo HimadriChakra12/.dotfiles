@@ -1,3 +1,48 @@
+" ===============================
+" vim-plug bootstrap (Vim)
+" ===============================
+
+let s:plug_path = expand('~/.vim/autoload/plug.vim')
+
+if empty(glob(s:plug_path))
+  silent execute '!curl -fLo ' . shellescape(s:plug_path) .
+        \ ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" ===============================
+" Plugins
+" ===============================
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+" ===============================
+" Auto-install missing plugins
+" ===============================
+
+function! s:PlugMissing() abort
+  if !exists('g:plugs')
+    return 0
+  endif
+
+  for plug in keys(g:plugs)
+    if !isdirectory(g:plugs[plug].dir)
+      return 1
+    endif
+  endfor
+
+  return 0
+endfunction
+
+autocmd VimEnter *
+  \ if s:PlugMissing()
+  \| silent! PlugInstall --sync | source $MYVIMRC
+  \| endif
+
 " Enable line numbers and relative line numbers
 set number              " Absolute line numbers
 set relativenumber      " Relative line numbers
@@ -62,14 +107,6 @@ set foldlevel=99        " Start with all code unfolded
 
 " Enable automatic code wrapping and spellcheck for markdown or text files
 autocmd FileType markdown,text setlocal spell " Enable spellchecking in markdown/text files
-
-" Plugins configuration (using vim-plug)
-call plug#begin('~/.vim/plugged')
-
-" Example plugin setup (using vim-plug)
-Plug 'junegunn/fzf.vim' " Fuzzy file search
-
-call plug#end()
 
 " Use <leader>e to open Oil file explorer
 nnoremap <leader>e :Explore<CR>
