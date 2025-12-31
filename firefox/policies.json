@@ -21,6 +21,12 @@
 			"Block": [
 			]
 		},
+        "Preferences": {
+            "services.sync.engine.tabs": {
+                "Value": false,
+                "Status": "locked"
+            }
+        },
 		"ExtensionSettings": {
 			"*": {
 				"blocked_install_message": "Extension installation is managed by your administrator."

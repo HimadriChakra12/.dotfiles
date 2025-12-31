@@ -18,6 +18,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 exec xsetroot -cursor_name left_ptr &         
 exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
+exec --no-strtup-id xclip
 exec --no-strtup-id /usr/local/bin/volume-monitor
 exec --no-strtup-id $HOME/sayarchi/scripts/cmus-init
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
@@ -27,10 +28,12 @@ exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wa
 
 ## CUSTOM SCRIPTS
 bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
+bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
 bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
 bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
 bindsym $mod+g exec bash $HOME/.config/i3/scripts/grayscale
+bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
 bindsym $mod+m exec bash $HOME/sayarchi/scripts/cmus-control
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
