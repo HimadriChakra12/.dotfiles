@@ -4,7 +4,10 @@ export FZF_COMPLETION_TRIGGER='..'
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
 fi
+
 export PATH="$HOME/sayarchi/scripts:$PATH"
+export PATH="$HOME/sayarchi/bin:$PATH"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
