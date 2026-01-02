@@ -32,8 +32,6 @@
     padding = 12
     horizontal_padding = 12
     text_icon_padding = 8
-    frame_width = 2
-    frame_color = "#d79921"
     gap_size = 4
     separator_color = frame
     sort = yes
@@ -119,5 +117,4 @@
     timeout = 10
     background = "#282828"
     foreground = "#ebdbb2"
-    frame_color = "#689d6a"
     script = ~/.config/dunst/scripts/flameshot-handler.sh
