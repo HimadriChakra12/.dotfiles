@@ -89,6 +89,7 @@ alias cd="z"
 alias i="sudo pacman -S"
 
 alias v="nvim"
+alias nano="nvim"
 alias q="exit"
 alias c="clear"
 alias gg="nvim -c Git"
