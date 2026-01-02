@@ -23,6 +23,7 @@ exec --no-strtup-id /usr/local/bin/volume-monitor
 exec --no-strtup-id $HOME/sayarchi/scripts/cmus-init
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
 exec --no-startup-id greenclip daemon
+exec --no-startup-id bash -c 'pgrep -x localsend > /dev/null || localsend --background --hidden'
 
 
 #WALLPAPER
