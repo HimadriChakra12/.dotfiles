@@ -203,3 +203,8 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 /** Minimal Browser Density(Compact) **/
 user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
 user_pref("browser.uidensity", 1);
+// Enable pinch zoom gestures
+user_pref("browser.gesture.pinch.in", "cmd_fullZoomEnlarge");
+user_pref("browser.gesture.pinch.out", "cmd_fullZoomReduce");
+user_pref("browser.gesture.pinch.end", "cmd_fullZoomReset");
+

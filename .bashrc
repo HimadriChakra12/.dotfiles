@@ -27,16 +27,33 @@ fi
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
 if command -v zoxide &> /dev/null; then
-  alias cd="zd"
-  zd() {
-    if [ $# -eq 0 ]; then
-      builtin cd ~ && return
-    elif [ -d "$1" ]; then
-      builtin cd "$1"
-    else
-      z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
+    alias cd="zd"
+    zd() {
+        if [ $# -eq 0 ]; then
+            builtin cd ~ && return
+        elif [ -d "$1" ]; then
+            builtin cd "$1"
+        else
+            z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
+        fi
+    }
+zo(){
+    local items
+    items=("..")
+    while IFS= read -r line; do
+        items+=("$line")
+    done < <(ls -1)
+    local selected_item
+    selected_item=$(printf '%s\n' "${items[@]}" | fzf --layout=reverse --header "$(pwd)" --height 90% --preview "eza --color=always {} -T")
+    if [[ -n "$selected_item" ]]; then
+        if [[ -d "$selected_item" ]]; then
+            cd "$selected_item" || return
+            zo  # recursively call zo
+        else
+            xdg-open "$selected_item" &>/dev/null &
+        fi
     fi
-  }
+}
 fi
 
 open() {
@@ -60,8 +77,10 @@ alias pi="pikaur -S"
 alias ys="yay -q"
 alias pks="pikaur -q"
 alias update="yay"
+
 PWD=$(pwd)
 alias exp="nvim $PWD"
+alias Exp="pcmanfm $PWD & disown"
 
 alias ep="nvim ~/.bashrc"
 alias sour="source $HOME/.bashrc"
@@ -193,29 +212,6 @@ flac(){
 alias gs="git status --short"
 #!/bin/bash
 
-zo(){
-    # List items, include parent directory ".."
-    local items
-    items=("..")
-    while IFS= read -r line; do
-        items+=("$line")
-    done < <(ls -1)
-
-    # Use fzf to select an item
-    local selected_item
-    selected_item=$(printf '%s\n' "${items[@]}" | fzf --layout=reverse --header "$(pwd)" --height 90% --preview "eza --color=always {} -T")
-
-    # If an item was selected
-    if [[ -n "$selected_item" ]]; then
-        if [[ -d "$selected_item" ]]; then
-            cd "$selected_item" || return
-            zo  # recursively call zo
-        else
-            # Open file with default application
-            xdg-open "$selected_item" &>/dev/null &
-        fi
-    fi
-}
 
 # Optionally, you can run it directly by calling:
 # zo
@@ -291,3 +287,4 @@ gc() {
   git config --global user.name "$1"
   git config --global user.email "$2"
 }
+export PATH="$HOME/.local/bin:$PATH"
