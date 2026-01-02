@@ -4,7 +4,7 @@
 options="Shutdown\nReboot\nLogout\nSuspend\nLock"
 
 # Show dmenu and get the selection
-choice=$(echo -e $options | dmenu -i -p "Power Menu:")
+choice=$(echo -e $options | rofi -dmenu -i -p "Power Menu:")
 
 # Execute based on the selection
 case "$choice" in
