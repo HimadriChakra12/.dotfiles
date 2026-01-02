@@ -19,6 +19,7 @@ dotfiles=(
     "$HOME/.dotfiles/okularrc:$HOME/.config/okularrc"
     "$HOME/.dotfiles/okularpartrc:$HOME/.config/okularpartrc"
     "$HOME/.dotfiles/starship.toml:$HOME/.config/starship.toml"
+    "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
 
     "$HOME/.dotfiles/.bashrc:$HOME/.bashrc"
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"

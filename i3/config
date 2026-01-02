@@ -1,8 +1,7 @@
 set $mod Mod1
 set $super Mod4
 
-# gaps inner 8
-# gaps outer 8
+#FONT
 font pango:JetbrainsMono Nerd Font 16
 
 
@@ -15,6 +14,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+#STARTUP
 exec xsetroot -cursor_name left_ptr &         
 exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
@@ -22,8 +22,10 @@ exec --no-strtup-id xclip
 exec --no-strtup-id /usr/local/bin/volume-monitor
 exec --no-strtup-id $HOME/sayarchi/scripts/cmus-init
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
+exec --no-startup-id greenclip daemon
 
-#wallpaper
+
+#WALLPAPER
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper
 
 ## CUSTOM SCRIPTS
@@ -37,6 +39,11 @@ bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
 bindsym $mod+m exec bash $HOME/sayarchi/scripts/cmus-control
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
+bindsym $mod+e exec bash $HOME/.config/i3/scripts/empty_workspace
+bindsym $super+Tab exec rofi -show window
+bindsym shift+space exec --no-startup-id rofi -show drun
+bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
+
 
 bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
 for_window [class="btop"] floating enable
@@ -64,7 +71,6 @@ bindsym $mod+s layout toggle split
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 #bindsym ctrl+space exec --no-startup-id dmenu_run
-bindsym Shift+space exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
