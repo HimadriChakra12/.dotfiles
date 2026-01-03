@@ -59,7 +59,7 @@ EOF
 
 # 1. Pipe only the NAMES (everything before the '|') to Rofi
 selected_name="$(mylist | cut -d'|' -f1 | rofi -dmenu -i -p "Search Emoji Name" \
-    -font "JetBrains Mono 12" \
+    -font "JetBrains Mono 15" \
     -theme-str 'window {width: 40%;} listview {lines: 15;}')"
 
 # Exit if nothing selected

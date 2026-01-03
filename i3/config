@@ -37,7 +37,7 @@ bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
 bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
-bindsym $mod+m exec bash $HOME/sayarchi/scripts/cmus-control
+bindsym $mod+m exec bash $HOME/.config/i3/scripts/rofi/cmus-control
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
 bindsym $mod+e exec bash $HOME/.config/i3/scripts/empty_workspace
 bindsym $super+Tab exec rofi -show window
