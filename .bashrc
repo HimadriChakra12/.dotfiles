@@ -72,7 +72,7 @@ clean_packages(){
 open() {
   xdg-open "$@" >/dev/null 2>&1 &
 }
-alias cmus='tmux attach -t $(tmux ls 2>/dev/null | grep cmus | cut -d: -f1)'
+alias cmus='cmus-init'
 
 fs() {
     ls | grep "$@"
