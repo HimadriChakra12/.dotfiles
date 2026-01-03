@@ -1,13 +1,16 @@
 #!/bin/bash
 
 # Options for the menu
-options="Shutdown\nReboot\nLogout\nSuspend\nLock"
+options="Kill\nShutdown\nReboot\nLogout\nSuspend\nLock"
 
 # Show dmenu and get the selection
 choice=$(echo -e $options | rofi -dmenu -i -p "Power Menu:")
 
 # Execute based on the selection
 case "$choice" in
+	Kill)
+        ps -u "$USER" -o pid,comm,%cpu,%mem | rofi -dmenu -i -c -l 10 -p Kill: | awk '{print $1}' | xargs -r kill 
+        ;;
     Shutdown)
         systemctl poweroff
         ;;

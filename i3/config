@@ -30,19 +30,22 @@ exec --no-startup-id bash -c 'pgrep -x localsend > /dev/null || localsend --back
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper
 
 ## CUSTOM SCRIPTS
-bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
-bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
-bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
-bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
-bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
-bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
-bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
+bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
 bindsym $mod+m exec bash $HOME/.config/i3/scripts/rofi/cmus-control
-bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/powermenu
-bindsym $mod+e exec bash $HOME/.config/i3/scripts/empty_workspace
+bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
+
+bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
 bindsym $super+Tab exec rofi -show window
-bindsym shift+space exec --no-startup-id rofi -show drun
+bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
+bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
+bindsym $super+m exec bash $HOME/.config/i3/scripts/rofi/musicpicker
+bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powermenu
+bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
+bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
+bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
+
+bindsym shift+space exec --no-startup-id rofi -show drun
 
 bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
 for_window [class="btop"] floating enable
