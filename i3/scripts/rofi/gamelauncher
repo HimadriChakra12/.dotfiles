@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 # -------- CONFIG --------
+source "$HOME/.winegame/env.sh"
 
 games=(
   "The Punisher:$HOME/Games/MagiPacks/The Punisher/pun.exe"
   "Blur:$HOME/Games/Blur_Win_EN_Full-Rip/BLUR/Blur.exe"
+  "Spider Man:$HOME/Games/Spider-Man Web of Shadows/image/pc/Spider-Man Web of Shadows.exe"
 )
 
 WINE_CMD="$HOME/.winegame/run-game"
@@ -24,7 +26,10 @@ for entry in "${games[@]}"; do
   path="${entry#*:}"
 
   if [[ "$name" == "$choice" ]]; then
-    exec $WINE_CMD "$path"
+    game_dir="$(dirname "$path")"
+    game_exe="$(basename "$path")"
+
+    cd "$game_dir" || exit 1
+    exec $WINE_CMD "$game_exe"
   fi
 done
-
