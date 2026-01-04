@@ -302,3 +302,10 @@ gc() {
   git config --global user.email "$2"
 }
 export PATH="$HOME/.local/bin:$PATH"
+
+mountit(){
+    name="$1"
+    mount="$2"
+    mkdir -p "/mnt/$2"
+    sudo mount -o loop,ro "$1" "/mnt/$2"
+}
