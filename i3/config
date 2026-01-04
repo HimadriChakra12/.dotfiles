@@ -42,7 +42,9 @@ bindsym $super+m exec bash $HOME/.config/i3/scripts/rofi/musicpicker
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powermenu
 bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
+bindsym $super+t exec bash $HOME/.config/i3/scripts/rofi/timer
 bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
+bindsym $super+Shift+d exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 
 bindsym shift+space exec --no-startup-id rofi -show drun
