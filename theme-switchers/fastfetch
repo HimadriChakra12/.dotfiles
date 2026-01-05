@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+    Path="$HOME/.config/fastfetch/ascii"
+    Selection=$(ls "$Path"/*.txt | fzf --preview 'cat {}')
+    ln -sf "$Selection" "$Path/art"
+
+    Path="$HOME/.config/fastfetch/template"
+    Selection=$(ls "$Path"/*.jsonc | fzf --preview 'fastfetch --config {}')
+    ln -sf "$Selection" "$Path/art"

@@ -20,11 +20,13 @@ exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id /usr/bin/xclip
 exec --no-strtup-id /usr/local/bin/volume-monitor
-exec --no-strtup-id $HOME/sayarchi/scripts/cmus-init
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
+exec --no-startup-id bash -c 'pgrep -x cmus-init > /dev/null || ~/sayarchi/scripts/cmus-init'
 exec --no-startup-id greenclip daemon
-exec --no-startup-id bash -c 'pgrep -x localsend > /dev/null || localsend --background --hidden'
 
+#WINDOW RULE
+for_window [class="messenger.com"] move to workspace $ws4
+for_window [class="instagram.com"] move to workspace $ws4
 
 #WALLPAPER
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper
@@ -47,6 +49,9 @@ bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
 bindsym $super+Shift+d exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 
+bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
+bindsym $super+f exec ~/.dotfiles/i3/scripts/browser https://messenger.com
+
 bindsym shift+space exec --no-startup-id rofi -show drun
 
 bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
@@ -64,10 +69,10 @@ bindsym $mod+Right focus right
 
 
 # MOVEMENT WINDOW
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # ADDITIONAL LAYOUT
 bindsym $mod+f fullscreen toggle
@@ -140,7 +145,6 @@ for_window [class="obs"] move to workspace $ws9
 for_window [class="nvim"] move to workspace $ws3, fullscreen enable
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="wallpaper"] move to workspace $ws1
-
 
 
 ## APPLICATION KEYBIND
