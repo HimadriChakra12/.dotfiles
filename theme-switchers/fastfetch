@@ -8,4 +8,4 @@ set -e
 
     Path="$HOME/.config/fastfetch/template"
     Selection=$(ls "$Path"/*.jsonc | fzf --preview 'fastfetch --config {}')
-    ln -sf "$Selection" "$Path/art"
+    ln -sf "$Selection" "$Path/../config.jsonc"

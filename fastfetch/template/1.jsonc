@@ -1,0 +1,87 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+      "type": "file",
+      "source": "/home/himadri/.config/fastfetch/ascii/art"
+  },
+  "display": {
+    "separator": " : ",
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "",
+    },
+    {
+      "type": "title",
+      "key": "  user",
+      "keycolor": "yellow",
+      "format": "{6} {7} {8}",
+    },
+    {
+      "type": "os",
+      "key": "  os",
+      "format": "{2}",
+      "keycolor": "red",
+    },
+    {
+      "type": "kernel",
+      "key": "  kernel",
+      "format": "{2}",
+      "keycolor": "red",
+    },
+    {
+      "type": "packages",
+      "key": "  packages",
+      "keycolor": "green",
+    },
+    {
+      "type": "display",
+      "key": "  display",
+      "format": "{1}x{2} @ {3}hz [{7}]",
+      "keycolor": "green",
+    },
+    {
+      "type": "terminal",
+      "key": "  terminal",
+      "keycolor": "yellow",
+    },
+    {
+      "type": "wm",
+      "key": "  wm",
+      "format": "{2}",
+      "keycolor": "yellow",
+    },
+    
+    
+    {
+      "type": "cpu",
+      "format": "{1}",
+      "key": "  cpu",
+      "keycolor": "blue",
+    },
+    {
+      "type": "gpu",
+      "format": "{1} {2}",
+      "key": "  gpu",
+      "keycolor": "blue",
+    },
+    {
+      "type": "memory",
+      "key": "  memory ",
+      "keycolor": "red",
+    },
+    {
+      "type": "command",
+      "key": "  os age ",
+      "keycolor": "red",
+      "text": "birth_install=$(stat -c %w /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+    },
+    {
+      "type": "uptime",
+      "key": "  uptime ",
+      "keycolor": "red",
+    },
+    
+  ],
+}
