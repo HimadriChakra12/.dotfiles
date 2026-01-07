@@ -7,12 +7,14 @@ fi
 
 export PATH="$HOME/sayarchi/scripts:$PATH"
 export PATH="$HOME/sayarchi/bin:$PATH"
+export PATH="$HOME/.dotfiles:$PATH"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+eval "$(fzf --bash)"
 
 pb(){
     cd "$HOME/penboot"

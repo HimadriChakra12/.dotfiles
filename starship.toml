@@ -9,6 +9,10 @@ success_symbol = "[&](yellow)"
 [directory]
 truncation_length = 2
 truncation_symbol = "…/"
+substitutions = {
+  "~/Downloads" = "󰉍 ",
+  "~/Music" = " ",
+}
 repo_root_style = "bold cyan"
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 

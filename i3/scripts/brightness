@@ -1,0 +1,15 @@
+#!/bin/bash
+
+command -v brightnessctl >/dev/null || exit 1
+command -v notify-send  >/dev/null || exit 0
+
+current=$(brightnessctl get)
+max=$(brightnessctl max)
+
+percent=$(( (current * 100 + max / 2) / max ))
+
+notify-send \
+  -a "Brightness" \
+  -h int:value:"$percent" \
+  -h string:x-dunst-stack-tag:brightness \
+  "Brightness" "${percent}%"

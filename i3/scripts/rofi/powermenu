@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Options for the menu
-options="Kill\nShutdown\nReboot\nLogout\nSuspend\nLock"
+options="Shutdown\nKill\nReboot\nLogout\nSuspend\nLock"
 
 # Show dmenu and get the selection
 choice=$(echo -e $options | rofi -dmenu -i -p "Power Menu:")
