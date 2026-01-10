@@ -4,8 +4,11 @@
 source "$HOME/.winegame/env.sh"
 
 games=(
-  "The Punisher:$HOME/Games/MagiPacks/The Punisher/pun.exe"
+  "The Punisher:$HOME/Games/The Punisher/pun.exe"
+  "Need For Speed:$HOME/Games/Need for Speed - Most Wanted/speed.exe"
   "Blur:$HOME/Games/Blur_Win_EN_Full-Rip/BLUR/Blur.exe"
+  "Darkest Of Days:$HOME/Games/Darkest of Days/darkestofdays.exe"
+  "Aliens VS Predator 2:$HOME/Games/Aliens versus Predator 2/AVP2.exe"
   "Spider Man:$HOME/Games/Spider-Man Web of Shadows/image/pc/Spider-Man Web of Shadows.exe"
 )
 

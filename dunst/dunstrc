@@ -8,7 +8,7 @@
     follow = none
 
     ### Geometry ###
-    width = (300, 400)
+    width = (350, 400)
     height = (0, 300)
     origin = bottom-right
     offset = (30, 40)
@@ -16,17 +16,16 @@
 
     ### Borders & Corners ###
     frame_width = 2
-    frame_color = "#1d2021"
-    corner_radius = 8
+    frame_color = "#504945"
+    corner_radius = 0
     corners = all
 
-    ### Progress bar (DISABLED GLOBALLY) ###
-    progress_bar = false
-    progress_bar_height = 10
+    progress_bar = true
+    progress_bar_height = 8
     progress_bar_frame_width = 0
     progress_bar_min_width = 150
     progress_bar_max_width = 300
-    progress_bar_corner_radius = 4
+    progress_bar_corner_radius = 0
     progress_bar_corners = all
 
     ### Visual ###
@@ -76,25 +75,25 @@
 # URGENCY STYLES
 # =========================
 
-# Low urgency — Gruvbox green accent
+# Low urgency
 [urgency_low]
     background = "#282828"
     foreground = "#ebdbb2"
-    frame_color = "#1d2021"
+    frame_color = "#504945"
     timeout = 4
 
-# Normal urgency — Gruvbox yellow accent
+# Normal urgency
 [urgency_normal]
     background = "#282828"
     foreground = "#ebdbb2"
-    frame_color = "#1d2021"
+    frame_color = "#504945"
     timeout = 6
 
-# VERY IMPORTANT — dark red, blended, not flashy
+# Critical urgency
 [urgency_critical]
     background = "#282828"
     foreground = "#ebdbb2"
-    frame_color = "#cc241d"
+    frame_color = "#504945"
     timeout = 0
 
 
@@ -106,19 +105,9 @@
     appname = "Brightness"
     urgency = low
 
-    ### Position override ###
-    geometry = "300x60-0+40"
-    origin = bottom-center
-
-    ### Progress bar ###
-    progress_bar = true
-    progress_bar_height = 8
-    progress_bar_frame_width = 0
-
-    ### Gruvbox blending ###
     background = "#282828"
     foreground = "#d5c4a1"
-    frame_color = "#d5c4a1"
+    frame_color = "#504945"
 
     timeout = 1
     set_stack_tag = "brightness"
@@ -141,4 +130,4 @@
     timeout = 10
     background = "#282828"
     foreground = "#ebdbb2"
-    frame_color = "#458588"
+    frame_color = "#504945"
