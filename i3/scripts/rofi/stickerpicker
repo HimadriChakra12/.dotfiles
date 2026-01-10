@@ -2,14 +2,27 @@
 # rofi-sticker.sh - Select a sticker and copy to clipboard
 
 STICKER_DIR="$HOME/stickers"
+ROFI_THEME="$HOME/.config/rofi/sticker.rasi"
 
-# Check if sticker dir exists
-[[ ! -d "$STICKER_DIR" ]] && { echo "Directory not found: $STICKER_DIR"; exit 1; }
+[[ ! -d "$STICKER_DIR" ]] && {
+    echo "Directory not found: $STICKER_DIR"
+    exit 1
+}
 
-# Get list of stickers
-STICKER=$(ls "$STICKER_DIR" | rofi -dmenu -i -p "Select Sticker")
+# Build rofi input with icons (image preview)
+ENTRIES=""
+while IFS= read -r -d '' file; do
+    name="$(basename "$file")"
+    ENTRIES+="$name\0icon\x1f$file\n"
+done < <(find "$STICKER_DIR" -maxdepth 1 -type f -print0)
 
-# Exit if no selection
+STICKER=$(printf "%b" "$ENTRIES" | rofi \
+    -dmenu \
+    -i \
+    -p "Select Sticker: " \
+    -theme "$ROFI_THEME" \
+    -show-icons)
+
 [[ -z "$STICKER" ]] && exit 0
 
 STICKER_PATH="$STICKER_DIR/$STICKER"
@@ -20,9 +33,8 @@ if command -v wl-copy >/dev/null 2>&1; then
 elif command -v xclip >/dev/null 2>&1; then
     xclip -selection clipboard -t image/png -i "$STICKER_PATH"
 else
-    echo "⚠️  No clipboard tool found (install xclip or wl-clipboard)"
+    echo "⚠️ No clipboard tool found (install wl-clipboard or xclip)"
     exit 1
 fi
 
-echo "✅ Copied $STICKER to clipboard"
-
+notify-send "Sticker copied" "$STICKER"

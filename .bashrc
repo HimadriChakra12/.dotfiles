@@ -8,6 +8,7 @@ fi
 export PATH="$HOME/sayarchi/scripts:$PATH"
 export PATH="$HOME/sayarchi/bin:$PATH"
 export PATH="$HOME/.dotfiles:$PATH"
+export PATH="$HOME/Music:$PATH"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -27,6 +28,7 @@ if command -v eza &> /dev/null; then
   alias lsa='ls -a'
   alias lt='eza --tree --level=2 --long --icons --git'
   alias lta='lt -a'
+  alias l='lt -lh -T -L 2'
 fi
 
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
