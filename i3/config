@@ -53,6 +53,21 @@ bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
 bindsym $super+f exec ~/.dotfiles/i3/scripts/browser https://messenger.com
 bindsym $super+y exec ~/.dotfiles/i3/scripts/browser https://youtube.com
 
+## SCREENSHOTS
+bindsym $super+Shift+s exec flameshot gui
+
+#bindsym $super+Shift+s exec sh -c '\
+#img="$HOME/Pictures/$(date +%F_%T).png" && \
+#flameshot full --clipboard --path "$img" && \
+#notify-send -a flameshot -i "$img" "Screenshot taken" "Copied to clipboard" \
+#'
+
+bindsym Print exec sh -c '\
+img="$HOME/Pictures/$(date +%F_%T).png" && \
+flameshot full --clipboard --path "$img" && \
+notify-send -a flameshot -i "$img" "Screenshot taken" "Copied to clipboard" \
+'
+
 bindsym shift+space exec --no-startup-id rofi -show drun
 
 bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
@@ -157,9 +172,6 @@ bindsym $mod+Tab focus next
 bindsym $mod+bracketright workspace next
 
 
-## SCREENSHOTS
-bindsym $super+Shift+s exec flameshot gui
-bindsym Print exec flameshot full
 
 
 # Toggle floating for the focused window

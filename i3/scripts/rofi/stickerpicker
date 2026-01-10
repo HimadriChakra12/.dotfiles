@@ -37,4 +37,4 @@ else
     exit 1
 fi
 
-notify-send "Sticker copied" "$STICKER"
+notify-send "Sticker copied" "$STICKER" -i "$STICKER_PATH"

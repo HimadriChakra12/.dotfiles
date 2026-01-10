@@ -11,8 +11,10 @@
     width = (350, 400)
     height = (0, 300)
     origin = bottom-right
-    offset = (30, 40)
+    offset = (20, 40)
     notification_limit = 8
+
+    enable_recursive_icon_lookup = true
 
     ### Borders & Corners ###
     frame_width = 2
@@ -29,12 +31,12 @@
     progress_bar_corners = all
 
     ### Visual ###
-    transparency = 0
+    transparency = 10
     separator_height = 2
     padding = 12
     horizontal_padding = 12
     text_icon_padding = 8
-    gap_size = 6
+    gap_size = 0
     separator_color = frame
     sort = yes
     idle_threshold = 120
