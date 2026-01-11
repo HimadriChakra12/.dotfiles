@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Options for the menu
-options="Shutdown\nKill\nReboot\nLogout\nSuspend\nLock"
+options="Shutdown\nKill\nReboot\nLogout\nzzz\nLock"
 
 # Show dmenu and get the selection
 choice=$(echo -e $options | rofi -dmenu -i -p "Power Menu:")
@@ -21,11 +21,11 @@ case "$choice" in
         # For example, if using i3
         i3-msg exit
         ;;
-    Suspend)
+    zzz)
         systemctl suspend
         ;;
     Lock)
         # Example using i3lock
-        i3lock
+        i3lock -i "$HOME/.dotfiles/i3/Wallpaper/Standing.png"
         ;;
 esac
