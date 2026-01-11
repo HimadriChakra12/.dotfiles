@@ -44,6 +44,7 @@ bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powermenu
 bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
 bindsym $super+t exec bash $HOME/.config/i3/scripts/rofi/timer
+bindsym $super+Shift+t exec bash $HOME/.config/i3/scripts/rofi/focus
 bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
 bindsym $super+Shift+d exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
@@ -154,8 +155,8 @@ bar {
         statusline #ebdbb2      # gruvbox fg
         separator  #504945      # gruvbox gray
 
-        focused_workspace  #458588 #458588 #282828  # blue bg, dark text
-        inactive_workspace #3c3836 #3c3836 #a89984  # subtle inactive
+        focused_workspace  #d5c4a1 #d5c4a1 #282828  # wheat bg, dark text
+        inactive_workspace #282828 #282828 #fbf1c7  # subtle inactive
     }
 }
 ## WINDOW RULE

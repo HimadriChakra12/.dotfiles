@@ -10,6 +10,7 @@ export LC_ALL=en_US.UTF-8
 # {{{ emoji list
 mylist() {
     cat <<'EOF'
+speak |🗣📣 
 hehe |😀 
 lmfao |🤣 
 melting |🫠 
@@ -52,6 +53,9 @@ shhhhhhh |🤫
 sus |🤨 
 slay |💅 
 rose |🌹 
+blush |☺️ 
+angry blush |😊 
+finger pookie |👉👈 
 EOF
 }
 # }}}
