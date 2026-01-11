@@ -23,11 +23,10 @@ exec --no-strtup-id /usr/local/bin/volume-monitor
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
 exec --no-startup-id bash -c 'pgrep -x cmus-init > /dev/null || ~/sayarchi/scripts/cmus-init'
 exec --no-startup-id greenclip daemon
+exec --no-startup-id bash $HOME/.config/i3/scripts/nightlight
+exec --no-startup-id ibus start
 
-#WINDOW RULE
-for_window [class="messenger.com"] move to workspace $ws4
-for_window [class="instagram.com"] move to workspace $ws4
-
+# Basic background run
 #WALLPAPER
 exec_always --no-startup-id feh --bg-scale /home/himadri/.config/i3/Wallpaper/Wallpaper
 
