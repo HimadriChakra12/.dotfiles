@@ -52,6 +52,10 @@ bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
 bindsym $super+f exec ~/.dotfiles/i3/scripts/browser https://messenger.com
 bindsym $super+y exec ~/.dotfiles/i3/scripts/browser https://youtube.com
+bindsym $super+Shift+m exec ~/.dotfiles/i3/scripts/browser https://open.spotify.com
+
+bindsym $super+l exec i3lock -i "$HOME/.dotfiles/i3/Wallpaper/Standing.png"
+
 
 ## SCREENSHOTS
 bindsym $super+Shift+s exec flameshot gui
