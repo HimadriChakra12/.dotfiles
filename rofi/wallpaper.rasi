@@ -24,7 +24,7 @@ bgt: #28282895;
    ====================== */
 window {
     fullscreen: true;
-    padding: 20% 15%;
+    padding: 14% 15%;
     transparency: "real";
     background-color: @bgt;
 }
