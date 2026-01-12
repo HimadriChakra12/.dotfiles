@@ -75,6 +75,33 @@ get_active_port() {
     '
 }
 
+# Force all applications to reconnect by corking and uncorking
+force_stream_reconnect() {
+    local sink_name="$1"
+    
+    # Get all sink input IDs that are currently playing
+    local sink_inputs
+    sink_inputs=$(pactl list short sink-inputs | awk '{print $1}')
+    
+    if [[ -z "$sink_inputs" ]]; then
+        return
+    fi
+    
+    # Cork (pause) all streams
+    while IFS= read -r input_id; do
+        [[ -z "$input_id" ]] && continue
+        pactl suspend-sink-input "$input_id" 1 2>/dev/null || true
+    done <<< "$sink_inputs"
+    
+    sleep 0.2
+    
+    # Uncork (resume) all streams - this forces reconnection
+    while IFS= read -r input_id; do
+        [[ -z "$input_id" ]] && continue
+        pactl suspend-sink-input "$input_id" 0 2>/dev/null || true
+    done <<< "$sink_inputs"
+}
+
 # Main function
 main() {
     # Get default sink
@@ -133,6 +160,9 @@ main() {
     
     # Switch to the selected port
     if pactl set-sink-port "$sink_name" "$selected_port"; then
+        # Force all streams to reconnect to pick up the new port
+        force_stream_reconnect "$sink_name"
+        
         notify-send "Audio Output Switched" "Now using: $selected_desc" -i audio-card
     else
         notify-send "Audio Port Switcher" "Failed to switch to: $selected_desc" -u critical

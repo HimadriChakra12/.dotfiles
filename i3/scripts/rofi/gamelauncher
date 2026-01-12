@@ -5,6 +5,7 @@ source "$HOME/.winegame/env.sh"
 
 games=(
   "The Punisher:$HOME/Games/The Punisher/pun.exe"
+  "GTA SA:$HOME/Games/Gta San Andreas/gta-sa.exe"
   "Need For Speed:$HOME/Games/Need for Speed - Most Wanted/speed.exe"
   "Blur:$HOME/Games/Blur_Win_EN_Full-Rip/BLUR/Blur.exe"
   "Darkest Of Days:$HOME/Games/Darkest of Days/darkestofdays.exe"
