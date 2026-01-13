@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+rofi_cmd="rofi -dmenu -i -p Bluetooth"
+notify="notify-send -a Bluetooth"
+
+power=$(bluetoothctl show | awk '/Powered:/ {print $2}')
+
+[[ "$power" != "yes" ]] && {
+    bluetoothctl power on
+    $notify "Bluetooth Enabled"
+}
+
+# Scan briefly and capture devices
+$notify "Scanning for devices…" -t 2000
+bluetoothctl scan on >/tmp/bt_scan.log 2>&1 &
+scan_pid=$!
+sleep 6
+kill $scan_pid
+bluetoothctl scan off >/dev/null 2>&1
+
+# Known devices
+known=$(bluetoothctl devices | sed 's/^Device /[KNOWN] /')
+
+# Scanned devices (deduplicated)
+scanned=$(grep "Device" /tmp/bt_scan.log \
+    | sed 's/^.*Device /[NEW] /' \
+    | sort -u)
+
+options="Toggle Power\n$known\n$scanned"
+
+choice=$(echo -e "$options" | $rofi_cmd)
+[[ -z "$choice" ]] && exit 0
+
+case "$choice" in
+    "Toggle Power")
+        bluetoothctl power off
+        $notify "Bluetooth Disabled"
+        exit 0
+        ;;
+esac
+
+mac=$(echo "$choice" | awk '{print $2}')
+name=$(echo "$choice" | cut -d' ' -f3-)
+
+info=$(bluetoothctl info "$mac")
+paired=$(echo "$info" | awk '/Paired:/ {print $2}')
+connected=$(echo "$info" | awk '/Connected:/ {print $2}')
+
+if [[ "$paired" != "yes" ]]; then
+    $notify "Pairing" "$name"
+    bluetoothctl pair "$mac" || exit 1
+    bluetoothctl trust "$mac"
+fi
+
+if [[ "$connected" == "yes" ]]; then
+    bluetoothctl disconnect "$mac" && \
+        $notify "Disconnected" "$name"
+else
+    bluetoothctl connect "$mac" && \
+        $notify "Connected" "$name"
+fi
