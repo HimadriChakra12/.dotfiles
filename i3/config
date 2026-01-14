@@ -7,7 +7,8 @@ font pango:JetbrainsMono Nerd Font 16
 
 # KEYBIND BRIGHTNESS AND VOLUME
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id bash $HOME/.config/i3/scripts/volume_raise && $refresh_i3status
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 140% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% && bash $HOME/.config/i3/scripts/brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && bash $HOME/.config/i3/scripts/brightness

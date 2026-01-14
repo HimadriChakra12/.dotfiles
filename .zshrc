@@ -3,10 +3,25 @@ setopt KSH_ARRAYS
 setopt SH_WORD_SPLIT
 setopt PROMPT_SUBST
 
+# Increase the history size and avoid duplicates
+HISTSIZE=10000
+SAVEHIST=10000
+HISTIGNORE="&:ls:ps:cd:pwd:exit"
+setopt hist_ignore_dups  # Don't store duplicate entries in history
+setopt hist_save_no_dups  # Don't save duplicates in the history file
+setopt hist_reduce_blanks  # Remove redundant blanks from history
+setopt append_history  # Append to history rather than overwriting
+setopt share_history  # Share history between all sessions
+
 # --- Completion system ---
 autoload -Uz compinit
 compinit
 setopt nonomatch
+# Enable history completion
+bindkey "^R" history-incremental-search-backward
+# Use history for command-line autocomplete
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
 
 # Completion UX (clean, powerful)
 zstyle ':completion:*' menu select
@@ -38,6 +53,7 @@ export PATH="$HOME/sayarchi/scripts:$HOME/sayarchi/bin:$HOME/.dotfiles:$HOME/Mus
 # zoxide
 if command -v zoxide &> /dev/null; then
     eval "$(zoxide init zsh)"
+    alias cd='z'
 fi
 
 # Starship prompt
@@ -102,20 +118,6 @@ pb() {
     vim "$file"
 }
 
-# zd: smart cd / zoxide wrapper
-zd() {
-    if [ $# -eq 0 ]; then
-        cd ~ || return
-    elif [ -d "$1" ]; then
-        cd "$1" || return
-    else
-        if command -v z &>/dev/null && z "$@" &>/dev/null; then
-            print -P "\uF17A9 %~"
-        else
-            echo "Error: Directory not found"
-        fi
-    fi
-}
 
 # zo: recursive fuzzy directory picker
 zo() {
@@ -170,7 +172,7 @@ cx() {
 gcl() {
     local repo
     repo=$(gh repo list --limit 100 --json name --jq '.[].name' | fzf) || return
-    cd ~/.git || return
+    cd ~/git || return
     git clone "https://github.com/HimadriChakra12/$repo"
     cd "$repo" || return
 }
