@@ -23,6 +23,7 @@ dotfiles=(
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
 
     "$HOME/.dotfiles/.bashrc:$HOME/.bashrc"
+    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc"
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"
     "$HOME/.dotfiles/.vimrc:$HOME/.vimrc"
 )
