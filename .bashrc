@@ -1,10 +1,11 @@
-#
+fastfetch
 # ~/.bashrc
 export FZF_COMPLETION_TRIGGER='..'
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
 fi
 
+APP=$HOME/.local/share/applications
 export PATH="$HOME/sayarchi/scripts:$PATH"
 export PATH="$HOME/sayarchi/bin:$PATH"
 export PATH="$HOME/.dotfiles:$PATH"
@@ -22,6 +23,27 @@ pb(){
     vim $(fzf)
 }
 
+replace-word() {
+  find . -type f -exec sed -i "s/$1/$2/g" {} +
+}
+
+cp() {
+  if [ "$#" -eq 2 ] && [ "$2" = "$clipboard" ] && [ -e "$1" ]; then
+    if command -v xclip >/dev/null 2>&1; then
+      # Copy file URI to clipboard
+      echo -n "file://$PWD/$1" | xclip -selection clipboard
+      return 0
+    elif command -v wl-copy >/dev/null 2>&1; then
+      echo -n "file://$PWD/$1" | wl-copy
+      return 0
+    else
+      echo "cp: no clipboard tool available for file copy"
+      return 1
+    fi
+  fi
+  command cp "$@"
+}
+
 # File system
 if command -v eza &> /dev/null; then
   alias ls='eza -lh --group-directories-first --icons=auto'
@@ -35,15 +57,6 @@ alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
 if command -v zoxide &> /dev/null; then
     alias cd="zd"
-    zd() {
-        if [ $# -eq 0 ]; then
-            builtin cd ~ && return
-        elif [ -d "$1" ]; then
-            builtin cd "$1"
-        else
-            z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
-        fi
-    }
 zo(){
     local items
     items=("..")
@@ -61,6 +74,15 @@ zo(){
         fi
     fi
 }
+zd() {
+    if [ $# -eq 0 ]; then
+        builtin cd ~ && return
+    elif [ -d "$1" ]; then
+        builtin cd "$1"
+    else
+        z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
+    fi
+}
 fi
 clean_packages(){
     read -p "Wanna Clean Packages With config? [y/n]" $opt
@@ -74,7 +96,7 @@ clean_packages(){
     sudo pacman -Scc
 }
 open() {
-  xdg-open "$@" >/dev/null 2>&1 &
+    xdg-open "$@" >/dev/null 2>&1 &
 }
 alias cmus='cmus-init'
 
@@ -277,33 +299,33 @@ ez() {
         \( -iname "*.zip" -o -iname "*.7z" -o -iname "*.rar" -o -iname "*.tar" -o -iname "*.tar.gz" -o -iname "*.tgz" \) \
         | fzf)
 
-    # Exit if no file selected
-    [ -z "$archive" ] && return
+        # Exit if no file selected
+        [ -z "$archive" ] && return
 
-    # Make output directory named after archive (without extension)
-    dir="${archive%.*}"
-    mkdir -p "$dir"
+        # Make output directory named after archive (without extension)
+        dir="${archive%.*}"
+        mkdir -p "$dir"
 
-    # Extract using 7z
-    7z x "$archive" -o"$dir"
-}
+        # Extract using 7z
+        7z x "$archive" -o"$dir"
+    }
 
 mkcd(){
-  location="$1"
-  if [ -z "$location" ]; then
-    echo "Usage: $0 <url>"
-    exit 1
-  fi
-  mkdir $location && cd $location
-  # Output anchored regex
-  pwd
+    location="$1"
+    if [ -z "$location" ]; then
+        echo "Usage: $0 <url>"
+        exit 1
+    fi
+    mkdir $location && cd $location
+    # Output anchored regex
+    pwd
 }
 
 gc() {
-  name="$1"
-  email="$2"
-  git config --global user.name "$1"
-  git config --global user.email "$2"
+    name="$1"
+    email="$2"
+    git config --global user.name "$1"
+    git config --global user.email "$2"
 }
 export PATH="$HOME/.local/bin:$PATH"
 
