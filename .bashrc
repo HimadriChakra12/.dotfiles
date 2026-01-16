@@ -27,23 +27,6 @@ replace-word() {
   find . -type f -exec sed -i "s/$1/$2/g" {} +
 }
 
-cp() {
-  if [ "$#" -eq 2 ] && [ "$2" = "$clipboard" ] && [ -e "$1" ]; then
-    if command -v xclip >/dev/null 2>&1; then
-      # Copy file URI to clipboard
-      echo -n "file://$PWD/$1" | xclip -selection clipboard
-      return 0
-    elif command -v wl-copy >/dev/null 2>&1; then
-      echo -n "file://$PWD/$1" | wl-copy
-      return 0
-    else
-      echo "cp: no clipboard tool available for file copy"
-      return 1
-    fi
-  fi
-  command cp "$@"
-}
-
 # File system
 if command -v eza &> /dev/null; then
   alias ls='eza -lh --group-directories-first --icons=auto'
