@@ -25,6 +25,7 @@ exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
 exec --no-startup-id bash -c 'pgrep -x cmus-init > /dev/null || ~/sayarchi/scripts/cmus-init'
 exec --no-startup-id greenclip daemon
 exec --no-startup-id bash $HOME/.config/i3/scripts/nightlight
+exec --no-startup-id bash $HOME/sayarchi/BentoPDF/bento-startup.sh
 exec --no-startup-id ibus start
 
 # Basic background run
@@ -51,6 +52,7 @@ bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
 bindsym $super+Shift+d exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 
+bindsym $mod+p exec ~/.dotfiles/i3/scripts/browser http://localhost:3000
 bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
 bindsym $super+f exec ~/.dotfiles/i3/scripts/browser https://messenger.com
 bindsym $super+y exec ~/.dotfiles/i3/scripts/browser https://youtube.com
