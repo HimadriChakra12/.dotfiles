@@ -48,6 +48,44 @@ export PATH="$HOME/sayarchi/scripts:$HOME/sayarchi/bin:$HOME/.dotfiles:$HOME/Mus
 [[ $- != *i* ]] && return  # exit if not interactive
 
 # ============================
+# Vi
+# ============================
+bindkey -v
+export KEYTIMEOUT=1
+
+export EDITOR='nvim'
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+export VI_MODE_SET_CURSOR=true
+
+function zle-keymap-select {
+    if [[ ${KEYMAP} = vicmd ]]; then
+        echo -ne '\e[2 q'
+    else
+        echo -ne '\e[6 q'
+    fi
+}
+
+zle -N zle-keymap-select
+
+function zle-line-init() {
+    zle -K viins
+    echo -ne '\e[6 q'
+}
+
+zle -N zle-line-init
+
+function vi-yank-clipboard {
+    zle vi-yank
+    echo "$CUTBUFFER" | pbcopy -i
+}
+
+zle -N vi-yank-clipboard
+bindkey -M vicmd 'y' vi-yank-clipboard
+
+# ============================
 # Completions and prompt
 # ============================
 # zoxide
@@ -75,13 +113,16 @@ alias ....='cd ../../..'
 alias grep='grep --color=auto'
 alias paci="sudo pacman -S"
 alias pacs="sudo pacman -q"
+alias ?="man"
 alias yi="yay -S"
+alias Rr="sudo pacman -Rs"
+alias R="sudo pacman -R"
 alias pi="pikaur -S"
 alias ys="yay -q"
 alias pks="pikaur -q"
 alias update="yay"
-alias exp="nvim $PWD"
-alias Exp="pcmanfm $PWD & disown"
+alias exp="nvim ."
+alias Exp="pcmanfm . & disown"
 alias ep="nvim ~/.zshrc"
 alias sour="source ~/.zshrc"
 alias i="sudo pacman -S"
