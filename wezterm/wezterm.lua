@@ -11,7 +11,8 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 return {
-	default_prog = { "/bin/zsh" },
+	--default_prog = { "/bin/zsh" },
+
 	-- FONT CONFIGURATION
 	font = wezterm.font_with_fallback({
 		-- 1st choice: Your primary font
