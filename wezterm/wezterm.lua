@@ -24,8 +24,8 @@ return {
 		-- 3rd choice: Fallback for Nerd Font Icons
 		{ family = "Symbols Nerd Font Mono" },
 	}),
-	font_size = 8,
-	line_height = 1,
+	font_size = 10,
+	line_height = 1.1,
 
 	-- This suppresses the "No fonts contain glyphs" warning window
 	warn_about_missing_glyphs = false,
