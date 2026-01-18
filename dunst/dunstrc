@@ -106,6 +106,7 @@
 [brightness]
     appname = "Brightness"
     urgency = low
+    origin = bottom-center
 
     background = "#282828"
     foreground = "#d5c4a1"

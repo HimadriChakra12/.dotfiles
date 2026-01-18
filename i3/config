@@ -20,7 +20,6 @@ exec xsetroot -cursor_name left_ptr &
 exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id /usr/bin/xclip
-exec --no-strtup-id /usr/local/bin/volume-monitor
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
 exec --no-startup-id bash -c 'pgrep -x cmus-init > /dev/null || ~/sayarchi/scripts/cmus-init'
 exec --no-startup-id greenclip daemon
@@ -28,7 +27,12 @@ exec --no-startup-id bash $HOME/.config/i3/scripts/nightlight
 exec --no-startup-id bash $HOME/sayarchi/BentoPDF/bento-startup.sh
 exec --no-startup-id ibus start
 
-# Basic background run
+exec --no-startup-id sh -c "notify-send 'Syncing Repos' \
+yay -Sy \
+notify-send 'Synced Repos'"
+
+exec --no-strtup-id /usr/local/bin/volume-monitor
+
 #WALLPAPER
 exec_always --no-startup-id feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wallpaper
 
@@ -51,6 +55,8 @@ bindsym $super+Shift+t exec bash $HOME/.config/i3/scripts/rofi/focus
 bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
 bindsym $super+Shift+d exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
+bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
+bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
 
 bindsym $mod+p exec ~/.dotfiles/i3/scripts/browser http://localhost:3000
 bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
@@ -179,9 +185,6 @@ bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
 bindsym $mod+bracketright workspace next
 
-
-
-
 # Toggle floating for the focused window
 bindsym $mod+t floating toggle
 
@@ -199,5 +202,3 @@ set $ws7 "7:&"
 set $ws8 "8:*"
 set $ws9 "9:("
 set $ws10 "10:)"
-
-

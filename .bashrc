@@ -1,6 +1,5 @@
 fastfetch
 # ~/.bashrc
-export FZF_COMPLETION_TRIGGER='..'
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
 fi
@@ -24,7 +23,7 @@ pb(){
 }
 
 replace-word() {
-  find . -type f -exec sed -i "s/$1/$2/g" {} +
+  find . -type d -name .git -prune -o -type f -exec sed -i "s/$1/$2/g" {} +
 }
 
 # File system
@@ -104,8 +103,8 @@ PWD=$(pwd)
 alias exp="nvim $PWD"
 alias Exp="pcmanfm $PWD & disown"
 
-alias ep="nvim ~/.bashrc"
-alias sour="source $HOME/.bashrc"
+alias ep="$EDITOR ~/.bashrc"
+alias so="source $HOME/.bashrc"
 alias cd="z"
 
 alias i="sudo pacman -S"
@@ -126,7 +125,6 @@ cx(){
 
 gcl(){
     repo=$(gh repo list --limit 100 --json name --jq '.[].name' | fzf)
-    cd ~/.git
     git clone https://github.com/HimadriChakra12/$repo
     cd $repo
 
@@ -136,94 +134,6 @@ gogit(){
     cd ~/.git/$dir
     file=$(fzf)
     nvim $file
-}
-iinstalltar() {
-    local tarfile="$1"
-    local tempdir
-    tempdir="$(mktemp -d /tmp/aurbuild.XXXXXX)"
-
-    if [[ -z "$tarfile" ]]; then
-        echo "Usage: installtar <file.tar.gz|tar.xz|tar.zst|tar.bz2>"
-        return 1
-    fi
-
-    if [[ ! -f "$tarfile" ]]; then
-        echo "File not found: $tarfile"
-        return 1
-    fi
-
-    echo "Copying $tarfile to $tempdir"
-    cp "$tarfile" "$tempdir"
-    cd "$tempdir" || return 1
-
-    # Extract based on file type
-    case "$tarfile" in
-        *.tar.gz)  tar -xzf "$(basename "$tarfile")" ;;
-        *.tar.xz)  tar -xJf "$(basename "$tarfile")" ;;
-        *.tar.zst) tar --use-compress-program=unzstd -xf "$(basename "$tarfile")" ;;
-        *.tar.bz2) tar -xjf "$(basename "$tarfile")" ;;
-        *) echo "Unsupported file type."; rm -rf "$tempdir"; return 1 ;;
-    esac
-
-    # Enter extracted directory
-    cd */ || { echo "Could not enter extracted folder."; rm -rf "$tempdir"; return 1; }
-
-    if [[ -f PKGBUILD ]]; then
-        echo "Building and installing..."
-        makepkg -si --noconfirm
-        local result=$?
-        echo "Cleaning up..."
-        rm -rf "$tempdir"
-        return $result
-    else
-        echo "No PKGBUILD found. Cannot build."
-        rm -rf "$tempdir"
-        return 1
-    fi
-}
-installtar() {
-    local tarfile="$1"
-    local tempdir
-    tempdir="$(mktemp -d /tmp/aurbuild.XXXXXX)"
-
-    if [[ -z "$tarfile" ]]; then
-        echo "Usage: installtar <file.tar.gz|tar.xz|tar.zst|tar.bz2>"
-        return 1
-    fi
-
-    if [[ ! -f "$tarfile" ]]; then
-        echo "File not found: $tarfile"
-        return 1
-    fi
-
-    echo "Copying $tarfile to $tempdir"
-    cp "$tarfile" "$tempdir"
-    cd "$tempdir" || return 1
-
-    # Extract based on file type
-    case "$tarfile" in
-        *.tar.gz)  tar -xzf "$(basename "$tarfile")" ;;
-        *.tar.xz)  tar -xJf "$(basename "$tarfile")" ;;
-        *.tar.zst) tar --use-compress-program=unzstd -xf "$(basename "$tarfile")" ;;
-        *.tar.bz2) tar -xjf "$(basename "$tarfile")" ;;
-        *) echo "Unsupported file type."; rm -rf "$tempdir"; return 1 ;;
-    esac
-
-    # Enter extracted directory
-    cd */ || { echo "Could not enter extracted folder."; rm -rf "$tempdir"; return 1; }
-
-    if [[ -f PKGBUILD ]]; then
-        echo "Building and installing..."
-        makepkg -si --noconfirm
-        local result=$?
-        echo "Cleaning up..."
-        rm -rf "$tempdir"
-        return $result
-    else
-        echo "No PKGBUILD found. Cannot build."
-        rm -rf "$tempdir"
-        return 1
-    fi
 }
 flac(){
     read -p "Name of the song: " filename
@@ -239,30 +149,6 @@ alias gs="git status --short"
 # Optionally, you can run it directly by calling:
 # zo
 # Add this to ~/.bashrc
-mg() {
-    if [ -z "$1" ]; then
-        echo "Usage: makeglobal <script_path> [new_name]"
-        return 1
-    fi
-
-    SCRIPT="$1"
-    if [ ! -f "$SCRIPT" ]; then
-        echo "Error: File '$SCRIPT' does not exist."
-        return 1
-    fi
-
-    NAME="${2:-$(basename "$SCRIPT")}"
-    DEST="$HOME/bin/$NAME"
-
-    mkdir -p "$HOME/bin"
-    if cp "$SCRIPT" "$DEST"; then
-        chmod +x "$DEST"
-        echo "✅ Script is now global as: $NAME"
-    else
-        echo "❌ Failed to copy '$SCRIPT' to '$DEST'"
-        return 1
-    fi
-}
 reg(){
     url="$1"
     if [ -z "$url" ]; then

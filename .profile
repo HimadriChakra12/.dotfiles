@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
+APP=$HOME/.local/share/applications
+export PATH="$HOME/sayarchi/scripts:$PATH"
+export PATH="$HOME/sayarchi/bin:$PATH"
+export PATH="$HOME/.dotfiles:$PATH"
+export PATH="$HOME/Music:$PATH"
 
-gc() {
-    name="$1"
-    email="$2"
-    git config --global user.name "$1"
-    git config --global user.email "$2"
-}
 mountit(){
     name="$1"
     mount="$2"
@@ -34,4 +33,12 @@ mkcd(){
     mkdir $location && cd $location
     # Output anchored regex
     pwd
+}
+replace-word() {
+  find . -type d -name .git -prune -o -type f -exec sed -i "s/$1/$2/g" {} +
+}
+alias cmus='cmus-init'
+
+fs() {
+    ls | grep "$@"
 }
