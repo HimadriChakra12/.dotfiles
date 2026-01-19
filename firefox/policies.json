@@ -160,6 +160,13 @@
 					"Alias": "gg",
 					"Method": "GET",
 					"URLTemplate": "https://github.com/HimadriChakra12/{searchTerms}"
+				},
+				{
+					"Name": "Instagram Inbox",
+					"Description": "Search Into Instagram Inbox",
+					"Alias": "it",
+					"Method": "GET",
+					"URLTemplate": "https://www.instagram.com/direct/t/{searchTerms}"
 				}
 			]
 		}
