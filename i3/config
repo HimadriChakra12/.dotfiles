@@ -40,6 +40,7 @@ exec_always --no-startup-id feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wal
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
 bindsym $mod+m exec bash $HOME/.config/i3/scripts/rofi/cmus-control
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
+bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
 
 bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
 bindsym $super+Tab exec rofi -show window
@@ -56,7 +57,7 @@ bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
 bindsym $super+Shift+d exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
-bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
+bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
 
 bindsym $mod+p exec ~/.dotfiles/i3/scripts/browser http://localhost:3000
 bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
