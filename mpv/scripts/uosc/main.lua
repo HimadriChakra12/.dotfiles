@@ -2,6 +2,7 @@
 local uosc_version = "5.12.0"
 
 mp.commandv("script-message", "uosc-version", uosc_version)
+mp.set_property_bool("save-position-on-quit", true)
 
 mp.set_property("osc", "no")
 
