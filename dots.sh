@@ -22,8 +22,9 @@ dotfiles=(
     "$HOME/.dotfiles/starship.toml:$HOME/.config/starship.toml"
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
 
-    "$HOME/.dotfiles/.bashrc:$HOME/.bashrc"
-    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc"
+    "$HOME/.dotfiles/.profile:$HOME/.profile"
+#    "$HOME/.dotfiles/.bashrc:$HOME/.bashrc" I shifted to my config of ohmybash
+#    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc" Might not be using zsh now
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"
     "$HOME/.dotfiles/.vimrc:$HOME/.vimrc"
 )

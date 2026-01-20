@@ -1,14 +1,17 @@
-#!/usr/bin/env bash
-APP=$HOME/.local/share/applications
+command -v fastfetch >/dev/null 2>&1 && fastfetch
 export PATH="$HOME/sayarchi/scripts:$PATH"
 export PATH="$HOME/sayarchi/bin:$PATH"
+APP=$HOME/.local/share/applications
 export PATH="$HOME/.dotfiles:$PATH"
 export PATH="$HOME/Music:$PATH"
 
+if [[ -f $HOME/wprfrc ]]; then
+    source $HOME/wprfrc
+fi
 mountit(){
     name="$1"
     mount="$2"
-    mkdir -p "/mnt/$2"
+    sudo mkdir -p "/mnt/$2"
     sudo mount -o loop,ro "$1" "/mnt/$2"
 }
 reg(){
