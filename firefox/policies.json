@@ -162,6 +162,20 @@
 					"URLTemplate": "https://github.com/HimadriChakra12/{searchTerms}"
 				},
 				{
+					"Name": "Github Search User",
+					"Description": "Search Github Users",
+					"Alias": "gu",
+					"Method": "GET",
+					"URLTemplate": "https://github.com/search?q={searchTerms}&type=users"
+				},
+				{
+					"Name": "Github Search Repo",
+					"Description": "Search Github Repos",
+					"Alias": "gr",
+					"Method": "GET",
+					"URLTemplate": "https://github.com/search?q={searchTerms}&type=repositories"
+				},
+				{
 					"Name": "Instagram Inbox",
 					"Description": "Search Into Instagram Inbox",
 					"Alias": "it",

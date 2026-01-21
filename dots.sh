@@ -23,8 +23,8 @@ dotfiles=(
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
 
     "$HOME/.dotfiles/.profile:$HOME/.profile"
-#    "$HOME/.dotfiles/.bashrc:$HOME/.bashrc" I shifted to my config of ohmybash
-#    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc" Might not be using zsh now
+    #    "$HOME/.dotfiles/.bashrc:$HOME/.bashrc" I shifted to my config of ohmybash
+    #    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc" Might not be using zsh now
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"
     "$HOME/.dotfiles/.vimrc:$HOME/.vimrc"
 )
@@ -37,4 +37,3 @@ for entry in "${dotfiles[@]}"; do
     rm -rf $tgt
     ln -sf "$src" "$tgt"
 done
-

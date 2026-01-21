@@ -123,11 +123,21 @@ cx(){
     chmod +x $(fzf)
 }
 
-gcl(){
-    repo=$(gh repo list --limit 100 --json name --jq '.[].name' | fzf)
-    git clone https://github.com/HimadriChakra12/$repo
-    cd $repo
-
+gitcl(){
+    repo="$1"
+    path="$2"
+    if [[ $1 ]]; then
+        if [[ $2 ]]; then
+            git clone https://github.com/$repo $2
+            cd $2
+        else
+            git clone https://github.com/$repo
+        fi
+    else
+        repos=$(gh repo list --limit 100 --json name --jq '.[].name' | fzf)
+        git clone https://github.com/HimadriChakra12/$repos
+        cd $repo
+    fi
 }
 gogit(){
     dir=$(ls ~/.git| fzf)
@@ -190,7 +200,7 @@ mkcd(){
     pwd
 }
 
-gc() {
+gcn() {
     name="$1"
     email="$2"
     git config --global user.name "$1"

@@ -7,14 +7,17 @@ export PATH="$HOME/Music:$PATH"
 
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
+else
+    alias game="$HOME/.winegame/run-game"
+    alias photo="$HOME/wine_profiles/photoshop/run-photoshop"
 fi
-mountit(){
+mountit() {
     name="$1"
     mount="$2"
     sudo mkdir -p "/mnt/$2"
     sudo mount -o loop,ro "$1" "/mnt/$2"
 }
-reg(){
+reg() {
     url="$1"
     if [ -z "$url" ]; then
         echo "Usage: $0 <url>"
@@ -27,7 +30,7 @@ reg(){
     # Output anchored regex
     echo "^${escaped}\$"
 }
-mkcd(){
+mkcd() {
     location="$1"
     if [ -z "$location" ]; then
         echo "Usage: $0 <url>"
@@ -38,10 +41,40 @@ mkcd(){
     pwd
 }
 replace-word() {
-  find . -type d -name .git -prune -o -type f -exec sed -i "s/$1/$2/g" {} +
+    find . -type d -name .git -prune -o -type f -exec sed -i "s/$1/$2/g" {} +
 }
 alias cmus='cmus-init'
 
 fs() {
     ls | grep "$@"
+}
+gcn() {
+    name="$1"
+    email="$2"
+    git config --global user.name "$1"
+    git config --global user.email "$2"
+}
+export PATH="$HOME/.local/bin:$PATH"
+gitcl() {
+    repo="$1"
+    path="$2"
+    if [[ $1 ]]; then
+        if [[ $2 ]]; then
+            git clone https://github.com/$repo $2
+            cd $2
+        else
+            git clone https://github.com/$repo
+        fi
+    else
+        repos=$(gh repo list --limit 100 --json name --jq '.[].name' | fzf)
+        git clone https://github.com/HimadriChakra12/$repos
+        cd $repo
+    fi
+}
+get-age() {
+    birth_install=$(stat -c %W /)
+    current=$(date +%s)
+    time_progression=$((current - birth_install))
+    days_difference=$((time_progression / 86400))
+    echo Only $days_difference days!
 }
