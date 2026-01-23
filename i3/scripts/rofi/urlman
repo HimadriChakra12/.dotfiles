@@ -33,10 +33,10 @@ HISTORY=$(tac "$HISTORY_FILE" 2>/dev/null | awk '!seen[$0]++ && $0!=""' | head -
 
 # Build the menu
 MENU_ITEMS=()
-MENU_ITEMS+=("📋 Paste from clipboard") # clipboard first
 for w in "${WEBSITES[@]}"; do
     MENU_ITEMS+=("${w%%|*}") # scripted websites first
 done
+MENU_ITEMS+=("📋 Paste from clipboard") # clipboard first
 for h in $HISTORY; do
     MENU_ITEMS+=("$h") # then history
 done
