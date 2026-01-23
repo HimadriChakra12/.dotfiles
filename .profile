@@ -17,6 +17,10 @@ else
     exit 1
 fi
 
+stpush() {
+    cd $STICKER_DIR1 && bash git.sh
+    cd $STICKER_DIR2 && bash git.sh
+}
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
 else
@@ -56,6 +60,7 @@ replace-word() {
     find . -type d -name .git -prune -o -type f -exec sed -i "s/$1/$2/g" {} +
 }
 alias cmus='cmus-init'
+alias i3dx='$HOME/sayarchi/bin/dx'
 
 fs() {
     ls | grep "$@"
