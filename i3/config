@@ -26,6 +26,8 @@ exec --no-startup-id greenclip daemon
 exec --no-startup-id bash $HOME/.config/i3/scripts/nightlight
 exec --no-startup-id bash $HOME/sayarchi/BentoPDF/bento-startup.sh
 exec --no-startup-id ibus start
+exec --no-startup-id ~/sayarchi/bin/dx ollama serve
+exec --no-startup-id ~/sayarchi/bin/appimgctl run ~/Applications/Beeper.AppImage
 
 exec --no-startup-id sh -c "notify-send 'Syncing Repos' \
 yay -Sy \
@@ -45,7 +47,7 @@ bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
 bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
 bindsym $super+Tab exec rofi -show window
 bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
-bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
+#bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
 bindsym $super+b exec bash $HOME/.config/i3/scripts/rofi/bluetooth
 bindsym $super+m exec bash $HOME/.config/i3/scripts/rofi/musicpicker
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powermenu
@@ -172,15 +174,15 @@ bar {
 }
 ## WINDOW RULE
 for_window [class=".*"] border pixel 0
-for_window [class="obs"] move to workspace $ws9
+## for_window [class="obs"] move to workspace $ws9
 for_window [class="nvim"] move to workspace $ws3, fullscreen enable
 for_window [class="firefox"] move to workspace $ws2
-for_window [class="wallpaper"] move to workspace $ws1
+## for_window [class="wallpaper"] move to workspace $ws1
 
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
-bindsym $super+e workspace $ws4; , exec pcmanfm
+bindsym $super+e workspace $ws4; , exec Thunar
 bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
