@@ -2,7 +2,6 @@ command -v fastfetch >/dev/null 2>&1 && fastfetch
 export PATH="$HOME/sayarchi/scripts:$PATH"
 export PATH="$HOME/sayarchi/bin:$PATH"
 APP=$HOME/.local/share/applications
-$=$HOME/.local/share/applications
 export PATH="$HOME/.dotfiles:$PATH"
 export PATH="$HOME/Music:$PATH"
 
