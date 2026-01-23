@@ -2,8 +2,21 @@ command -v fastfetch >/dev/null 2>&1 && fastfetch
 export PATH="$HOME/sayarchi/scripts:$PATH"
 export PATH="$HOME/sayarchi/bin:$PATH"
 APP=$HOME/.local/share/applications
+$=$HOME/.local/share/applications
 export PATH="$HOME/.dotfiles:$PATH"
 export PATH="$HOME/Music:$PATH"
+
+STICKER_DIR1="$HOME/stickers-hspe/"
+STICKER_DIR2="$HOME/stickers"
+
+if [[ -d "$STICKER_DIR1" ]]; then
+    st="$STICKER_DIR1"
+elif [[ -d "$STICKER_DIR2" ]]; then
+    st="$STICKER_DIR2"
+else
+    echo "❌ No sticker directory found"
+    exit 1
+fi
 
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
