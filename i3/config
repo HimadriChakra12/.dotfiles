@@ -47,7 +47,7 @@ bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
 bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
 bindsym $super+Tab exec rofi -show window
 bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
-#bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
+bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
 bindsym $super+b exec bash $HOME/.config/i3/scripts/rofi/bluetooth
 bindsym $super+m exec bash $HOME/.config/i3/scripts/rofi/musicpicker
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powermenu
