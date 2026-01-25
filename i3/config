@@ -28,6 +28,8 @@ exec --no-startup-id bash $HOME/sayarchi/BentoPDF/bento-startup.sh
 exec --no-startup-id ibus start
 exec --no-startup-id ~/sayarchi/bin/dx ollama serve
 exec --no-startup-id ~/sayarchi/bin/appimgctl run ~/Applications/Beeper.AppImage
+exec --no-startup-id libinput-gestures
+
 
 exec --no-startup-id sh -c "notify-send 'Syncing Repos' \
 yay -Sy \
@@ -37,6 +39,9 @@ exec --no-strtup-id /usr/local/bin/volume-monitor
 
 #WALLPAPER
 exec_always --no-startup-id feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wallpaper
+bindsym $super+l exec i3lock \
+  --image "$HOME/.dotfiles/i3/Wallpaper/Riya hands.png" \
+  --fill
 
 ## CUSTOM SCRIPTS
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
@@ -67,7 +72,6 @@ bindsym $super+f exec ~/.dotfiles/i3/scripts/browser https://messenger.com
 bindsym $super+y exec ~/.dotfiles/i3/scripts/browser https://youtube.com
 bindsym $super+Shift+m exec ~/.dotfiles/i3/scripts/browser https://open.spotify.com
 
-bindsym $super+l exec i3lock -i "$HOME/.dotfiles/i3/Wallpaper/Standing.png"
 
 
 ## SCREENSHOTS
