@@ -4,7 +4,6 @@
 	email = himadrichakrabortydip@gmail.com
 
 [core]
-    	pager = delta
 	compression = 9
 	whitespace = trailing-space,space-before-tab
 	preloadindex = true
