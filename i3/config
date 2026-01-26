@@ -187,7 +187,7 @@ for_window [class="firefox"] move to workspace $ws2
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
-bindsym $super+e workspace $ws4; , exec Thunar
+bindsym $super+e workspace $ws4; , exec pcmanfm
 bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
