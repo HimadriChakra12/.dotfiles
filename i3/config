@@ -17,7 +17,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 #STARTUP
 exec xsetroot -cursor_name left_ptr &         
-exec --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Escape"
 exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id /usr/bin/xclip
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
@@ -29,6 +28,7 @@ exec --no-startup-id ibus start
 exec --no-startup-id ~/sayarchi/bin/dx ollama serve
 exec --no-startup-id ~/sayarchi/bin/appimgctl run ~/Applications/Beeper.AppImage
 exec --no-startup-id libinput-gestures
+exec --no-startup-id xdman-beta
 
 
 exec --no-startup-id sh -c "notify-send 'Syncing Repos' \
@@ -53,15 +53,14 @@ bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicke
 bindsym $super+Tab exec rofi -show window
 bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
 bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
-bindsym $super+b exec bash $HOME/.config/i3/scripts/rofi/bluetooth
+bindsym $mod+shift+b exec bash $HOME/.config/i3/scripts/rofi/bluetooth
 bindsym $super+m exec bash $HOME/.config/i3/scripts/rofi/musicpicker
 bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powermenu
 bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
-bindsym $super+t exec bash $HOME/.config/i3/scripts/rofi/timer
-bindsym $super+Shift+t exec bash $HOME/.config/i3/scripts/rofi/focus
+bindsym $mod+shift+t exec bash $HOME/.config/i3/scripts/rofi/timer
 bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
-bindsym $super+Shift+d exec bash $HOME/.config/i3/scripts/rofi/audioswitch
+bindsym $super+Shift+w exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
 bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
@@ -71,8 +70,6 @@ bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
 bindsym $super+f exec ~/.dotfiles/i3/scripts/browser https://messenger.com
 bindsym $super+y exec ~/.dotfiles/i3/scripts/browser https://youtube.com
 bindsym $super+Shift+m exec ~/.dotfiles/i3/scripts/browser https://open.spotify.com
-
-
 
 ## SCREENSHOTS
 bindsym $super+Shift+s exec flameshot gui
@@ -91,12 +88,16 @@ notify-send -a flameshot -i "$img" "Screenshot taken" "Copied to clipboard" \
 
 bindsym shift+space exec --no-startup-id rofi -show drun
 
+## RESIZING
 bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
 for_window [class="btop"] floating enable
 for_window [class="btop"] resize set 1200 800, move position center
 
 for_window [class="qimgv"] floating enable
 for_window [class="qimgv"] resize set 1200 800, move position center
+
+for_window [class="xdm-app"] floating enable
+for_window [class="xdm-app"] move position center
 
 ## WINDOW NAVIGATION 
 floating_modifier $mod
