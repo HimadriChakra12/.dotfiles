@@ -1,17 +1,16 @@
 #!/bin/bash
-
 # Enhanced Rofi script for i3-timer
-# Features: Presets, custom time, start/stop controls
+# Features: Presets, custom time, till specific time, start/stop controls
 
 # Configuration
-TIMER_BIN="$HOME/.dotfiles/i3/scripts/i3blocks/timer"  # Change this to the full path of your i3-timer binary
-ROFI_THEME=""           # Add your rofi theme here if you want (e.g., -theme ~/.config/rofi/timer.rasi)
+TIMER_BIN="$HOME/.dotfiles/i3/scripts/i3blocks/timer" # Change this to the full path of your i3-timer binary
+ROFI_THEME=""                                         # Add your rofi theme here if you want (e.g., -theme ~/.config/rofi/timer.rasi)
 
 # Function to set timer with error handling
 set_timer() {
     local duration="$1"
     local label="$2"
-    
+
     if $TIMER_BIN --set "$duration" 2>/dev/null; then
         notify-send "⏱️ Timer" "Set to $label" -t 2000
         return 0
@@ -21,8 +20,23 @@ set_timer() {
     fi
 }
 
+# Function to set timer till specific time
+set_timer_till() {
+    local time="$1"
+    local label="$2"
+
+    if $TIMER_BIN --till "$time" 2>/dev/null; then
+        notify-send "⏱️ Timer" "Set until $label" -t 2000
+        return 0
+    else
+        notify-send "❌ Timer Error" "Failed to set timer" -u critical -t 3000
+        return 1
+    fi
+}
+
 # Build the menu
-menu=$(cat <<EOF
+menu=$(
+    cat <<EOF
 ▶️  Start timer
 ⏹️  Stop timer
 ⏱️  5 seconds
@@ -42,13 +56,39 @@ menu=$(cat <<EOF
 🕐  2 hours
 🕐  3 hours
 ⌨️  Custom time...
+─────────────────
+🕐  Till 00:00 (midnight)
+🕐  Till 01:00 (1 AM)
+🕐  Till 02:00 (2 AM)
+🕐  Till 03:00 (3 AM)
+🕐  Till 04:00 (4 AM)
+🕐  Till 05:00 (5 AM)
+🕐  Till 06:00 (6 AM)
+🕐  Till 07:00 (7 AM)
+🕐  Till 08:00 (8 AM)
+🕐  Till 09:00 (9 AM)
+🕐  Till 10:00 (10 AM)
+🕐  Till 11:00 (11 AM)
+🕐  Till 12:00 (noon)
+🕐  Till 13:00 (1 PM)
+🕐  Till 14:00 (2 PM)
+🕐  Till 15:00 (3 PM)
+🕐  Till 16:00 (4 PM)
+🕐  Till 17:00 (5 PM)
+🕐  Till 18:00 (6 PM)
+🕐  Till 19:00 (7 PM)
+🕐  Till 20:00 (8 PM)
+🕐  Till 21:00 (9 PM)
+🕐  Till 22:00 (10 PM)
+🕐  Till 23:00 (11 PM)
+⌨️  Custom till time...
 EOF
 )
 
 # Show menu
 selected=$(echo "$menu" | rofi -dmenu -i -p "⏲️ Timer" \
     -theme-str 'window {width: 450px;}' \
-    -theme-str 'listview {lines: 20;}' \
+    -theme-str 'listview {lines: 25;}' \
     $ROFI_THEME)
 
 # Exit if cancelled
@@ -56,49 +96,94 @@ selected=$(echo "$menu" | rofi -dmenu -i -p "⏲️ Timer" \
 
 # Handle selection
 case "$selected" in
-    "⏱️  5 seconds")           set_timer "5s" "5 seconds" ;;
-    "⏱️  10 seconds")          set_timer "10s" "10 seconds" ;;
-    "⏱️  30 seconds")          set_timer "30s" "30 seconds" ;;
-    "⏱️  1 minute")            set_timer "1m" "1 minute" ;;
-    "⏱️  2 minutes")           set_timer "2m" "2 minutes" ;;
-    "⏱️  5 minutes")           set_timer "5m" "5 minutes" ;;
-    "⏱️  10 minutes")          set_timer "10m" "10 minutes" ;;
-    "⏱️  15 minutes")          set_timer "15m" "15 minutes" ;;
-    "⏱️  20 minutes")          set_timer "20m" "20 minutes" ;;
-    "🍅  25 minutes (Pomodoro)") set_timer "25m" "25 minutes (Pomodoro)" ;;
-    "⏱️  30 minutes")          set_timer "30m" "30 minutes" ;;
-    "⏱️  45 minutes")          set_timer "45m" "45 minutes" ;;
-    "🕐  1 hour")              set_timer "1h" "1 hour" ;;
-    "🕐  1 hour 30 minutes")   set_timer "1h30m" "1 hour 30 minutes" ;;
-    "🕐  2 hours")             set_timer "2h" "2 hours" ;;
-    "🕐  3 hours")             set_timer "3h" "3 hours" ;;
-    
-    "⌨️  Custom time...")
-        custom=$(echo "" | rofi -dmenu -p "Enter time (e.g., 1h30m45s)" \
-            -theme-str 'window {width: 450px;}' \
-            -mesg "Examples: 1h30m, 90m, 45s, 2h15m30s" \
-            $ROFI_THEME)
-        
-        if [[ -n "$custom" ]]; then
-            if $TIMER_BIN --set "$custom" 2>/dev/null; then
-                notify-send "⏱️ Timer" "Set to $custom" -t 2000
-            else
-                notify-send "❌ Timer Error" "Invalid format: $custom" -u critical -t 3000
-            fi
+# Duration presets
+"⏱️  5 seconds") set_timer "5s" "5 seconds" ;;
+"⏱️  10 seconds") set_timer "10s" "10 seconds" ;;
+"⏱️  30 seconds") set_timer "30s" "30 seconds" ;;
+"⏱️  1 minute") set_timer "1m" "1 minute" ;;
+"⏱️  2 minutes") set_timer "2m" "2 minutes" ;;
+"⏱️  5 minutes") set_timer "5m" "5 minutes" ;;
+"⏱️  10 minutes") set_timer "10m" "10 minutes" ;;
+"⏱️  15 minutes") set_timer "15m" "15 minutes" ;;
+"⏱️  20 minutes") set_timer "20m" "20 minutes" ;;
+"🍅  25 minutes (Pomodoro)") set_timer "25m" "25 minutes (Pomodoro)" ;;
+"⏱️  30 minutes") set_timer "30m" "30 minutes" ;;
+"⏱️  45 minutes") set_timer "45m" "45 minutes" ;;
+"🕐  1 hour") set_timer "1h" "1 hour" ;;
+"🕐  1 hour 30 minutes") set_timer "1h30m" "1 hour 30 minutes" ;;
+"🕐  2 hours") set_timer "2h" "2 hours" ;;
+"🕐  3 hours") set_timer "3h" "3 hours" ;;
+
+# Till specific time presets
+"🕐  Till 00:00 (midnight)") set_timer_till "00:00" "00:00 (midnight)" ;;
+"🕐  Till 01:00 (1 AM)") set_timer_till "01:00" "01:00 (1 AM)" ;;
+"🕐  Till 02:00 (2 AM)") set_timer_till "02:00" "02:00 (2 AM)" ;;
+"🕐  Till 03:00 (3 AM)") set_timer_till "03:00" "03:00 (3 AM)" ;;
+"🕐  Till 04:00 (4 AM)") set_timer_till "04:00" "04:00 (4 AM)" ;;
+"🕐  Till 05:00 (5 AM)") set_timer_till "05:00" "05:00 (5 AM)" ;;
+"🕐  Till 06:00 (6 AM)") set_timer_till "06:00" "06:00 (6 AM)" ;;
+"🕐  Till 07:00 (7 AM)") set_timer_till "07:00" "07:00 (7 AM)" ;;
+"🕐  Till 08:00 (8 AM)") set_timer_till "08:00" "08:00 (8 AM)" ;;
+"🕐  Till 09:00 (9 AM)") set_timer_till "09:00" "09:00 (9 AM)" ;;
+"🕐  Till 10:00 (10 AM)") set_timer_till "10:00" "10:00 (10 AM)" ;;
+"🕐  Till 11:00 (11 AM)") set_timer_till "11:00" "11:00 (11 AM)" ;;
+"🕐  Till 12:00 (noon)") set_timer_till "12:00" "12:00 (noon)" ;;
+"🕐  Till 13:00 (1 PM)") set_timer_till "13:00" "13:00 (1 PM)" ;;
+"🕐  Till 14:00 (2 PM)") set_timer_till "14:00" "14:00 (2 PM)" ;;
+"🕐  Till 15:00 (3 PM)") set_timer_till "15:00" "15:00 (3 PM)" ;;
+"🕐  Till 16:00 (4 PM)") set_timer_till "16:00" "16:00 (4 PM)" ;;
+"🕐  Till 17:00 (5 PM)") set_timer_till "17:00" "17:00 (5 PM)" ;;
+"🕐  Till 18:00 (6 PM)") set_timer_till "18:00" "18:00 (6 PM)" ;;
+"🕐  Till 19:00 (7 PM)") set_timer_till "19:00" "19:00 (7 PM)" ;;
+"🕐  Till 20:00 (8 PM)") set_timer_till "20:00" "20:00 (8 PM)" ;;
+"🕐  Till 21:00 (9 PM)") set_timer_till "21:00" "21:00 (9 PM)" ;;
+"🕐  Till 22:00 (10 PM)") set_timer_till "22:00" "22:00 (10 PM)" ;;
+"🕐  Till 23:00 (11 PM)") set_timer_till "23:00" "23:00 (11 PM)" ;;
+
+# Custom time input
+"⌨️  Custom time...")
+    custom=$(echo "" | rofi -dmenu -p "Enter time (e.g., 1h30m45s)" \
+        -theme-str 'window {width: 450px;}' \
+        -mesg "Examples: 1h30m, 90m, 45s, 2h15m30s" \
+        $ROFI_THEME)
+
+    if [[ -n "$custom" ]]; then
+        if $TIMER_BIN --set "$custom" 2>/dev/null; then
+            notify-send "⏱️ Timer" "Set to $custom" -t 2000
+        else
+            notify-send "❌ Timer Error" "Invalid format: $custom" -u critical -t 3000
         fi
-        ;;
-    
-    "▶️  Start timer")
-        $TIMER_BIN --exec-start 2>/dev/null
-        notify-send "▶️ Timer" "Started" -t 2000
-        ;;
-    
-    "⏹️  Stop timer")
-        $TIMER_BIN --exec-stop 2>/dev/null
-        notify-send "⏹️ Timer" "Stopped and reset" -t 2000
-        ;;
-    
-    "─────────────────")
-        # Separator selected, do nothing
-        ;;
+    fi
+    ;;
+
+# Custom till time input
+"⌨️  Custom till time...")
+    custom_time=$(echo "" | rofi -dmenu -p "Enter time (24-hour format)" \
+        -theme-str 'window {width: 450px;}' \
+        -mesg "Examples: 14:30, 09:00, 23:45" \
+        $ROFI_THEME)
+
+    if [[ -n "$custom_time" ]]; then
+        if $TIMER_BIN --till "$custom_time" 2>/dev/null; then
+            notify-send "⏱️ Timer" "Set until $custom_time" -t 2000
+        else
+            notify-send "❌ Timer Error" "Invalid time format: $custom_time" -u critical -t 3000
+        fi
+    fi
+    ;;
+
+# Start/Stop controls
+"▶️  Start timer")
+    $TIMER_BIN --exec-start 2>/dev/null
+    notify-send "▶️ Timer" "Started" -t 2000
+    ;;
+
+"⏹️  Stop timer")
+    $TIMER_BIN --exec-stop 2>/dev/null
+    notify-send "⏹️ Timer" "Stopped and reset" -t 2000
+    ;;
+
+"─────────────────")
+    # Separator selected, do nothing
+    ;;
 esac
