@@ -99,12 +99,13 @@ for_window [class="qimgv"] resize set 1200 800, move position center
 for_window [class="xdm-app"] floating enable
 for_window [class="xdm-app"] move position center
 
+for_window [class="mpv"] move to workspace $ws3
+
 ## WINDOW NAVIGATION 
 floating_modifier $mod
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
 
 # MOVEMENT WINDOW
 bindsym $mod+Shift+h move left
