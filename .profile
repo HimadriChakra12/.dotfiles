@@ -5,8 +5,12 @@ APP=$HOME/.local/share/applications
 export PATH="$HOME/.dotfiles:$PATH"
 export PATH="$HOME/Music:$PATH"
 
+FIREFOX="$HOME/.mozilla/firefox/8qj1h3mj.default-release"
 STICKER_DIR1="$HOME/stickers-hspe/"
 STICKER_DIR2="$HOME/stickers"
+
+alias gg="nvim -c Git"
+#alias gg="lazygit"
 
 if [[ -d "$STICKER_DIR1" ]]; then
     st="$STICKER_DIR1"

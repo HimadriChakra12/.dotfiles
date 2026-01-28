@@ -21,6 +21,7 @@ dotfiles=(
     "$HOME/.dotfiles/okularpartrc:$HOME/.config/okularpartrc"
     "$HOME/.dotfiles/starship.toml:$HOME/.config/starship.toml"
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
+    "$HOME/.dotfiles/libinput-gestures.conf:$HOME/.config/libinput-gestures.conf"
 
     "$HOME/.dotfiles/.profile:$HOME/.profile"
     #    "$HOME/.dotfiles/.bashrc:$HOME/.bashrc" I shifted to my config of ohmybash
