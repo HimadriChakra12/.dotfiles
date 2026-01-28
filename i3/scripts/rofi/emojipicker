@@ -11,6 +11,7 @@ export LC_ALL=en_US.UTF-8
 mylist() {
     cat <<'EOF'
 speak |🗣📣 
+angry |😡 
 hehe |😀 
 lmfao |🤣 
 melting |🫠 
