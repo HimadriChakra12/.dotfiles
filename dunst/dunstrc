@@ -11,7 +11,7 @@
     width = (350, 400)
     height = (0, 300)
     origin = top
-    offset = (20, 70)
+    offset = (20, 20)
     notification_limit = 5
 
     enable_recursive_icon_lookup = true
