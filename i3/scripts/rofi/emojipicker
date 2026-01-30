@@ -12,6 +12,7 @@ mylist() {
     cat <<'EOF'
 speak |🗣📣 
 angry |😡 
+geek |☝🏼🤓 
 hehe |😀 
 lmfao |🤣 
 melting |🫠 
