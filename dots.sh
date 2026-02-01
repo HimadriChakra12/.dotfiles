@@ -38,3 +38,9 @@ for entry in "${dotfiles[@]}"; do
     rm -rf $tgt
     ln -sf "$src" "$tgt"
 done
+
+echo "use 
+
+xrdb -merge ~/.Xresources
+
+to use the config"
