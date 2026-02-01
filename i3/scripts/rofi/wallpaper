@@ -22,12 +22,13 @@ done < <(
 )
 
 # Show rofi menu
-SELECTED=$(printf "%b" "$ENTRIES" | rofi \
-    -dmenu \
-    -i \
-    -p "Select Wallpaper: " \
-    -theme "$ROFI_THEME" \
-    -show-icons
+SELECTED=$(
+    printf "%b" "$ENTRIES" | rofi \
+        -dmenu \
+        -i \
+        -p "Select Wallpaper: " \
+        -theme "$ROFI_THEME" \
+        -show-icons
 )
 
 [[ -z "$SELECTED" ]] && exit 0
@@ -39,7 +40,7 @@ ln -sf "$WALLPAPER_PATH" "$SYMLINK"
 
 # Apply wallpaper (X11)
 if command -v feh >/dev/null 2>&1; then
-    feh --bg-scale "$SYMLINK"
+    feh --bg-fill "$SYMLINK"
 
 # Apply wallpaper (Wayland / sway)
 elif command -v swaymsg >/dev/null 2>&1; then

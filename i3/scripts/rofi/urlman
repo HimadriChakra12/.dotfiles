@@ -9,6 +9,8 @@ ROFI_CMD="rofi -dmenu -i -p URL"
 WEBSITES=(
     "Monkeytype|http://localhost:8080|https://monkeytype.com"
     "BentoPDF|https://localhost:3000"
+    "Discord|https://discord.com/channels/@me"
+    "Chatgpt|https://chatgpt.com"
 )
 
 # ==================================================
