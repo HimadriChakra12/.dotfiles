@@ -10,7 +10,7 @@ configuration {
    ====================== */
 * {
     bg: #282828;
-bgt: #28282895;
+    bgt: #28282895;
     fg: #d4be98;
 
   selected-bg: @fg;
@@ -24,7 +24,7 @@ bgt: #28282895;
    ====================== */
 window {
     fullscreen: true;
-    padding: 14% 15%;
+    padding: 13% 15%;
     transparency: "real";
     background-color: @bgt;
 }
@@ -39,7 +39,7 @@ mainbox {
 listview {
     columns: 4;
     lines: 5;
-    spacing: 0px;
+    spacing: 10px;
     fixed-height: true;
     background-color: @transparent;
 }
