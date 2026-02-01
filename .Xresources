@@ -1,0 +1,15 @@
+! sxiv gruvbox dark
+Sxiv.background:  #282828
+Sxiv.foreground:  #ebdbb2
+
+Sxiv.marked:      #fabd2f
+Sxiv.markedFG:    #282828
+
+Sxiv.active:      #458588
+Sxiv.activeFG:    #ebdbb2
+
+Sxiv.inactive:    #3c3836
+Sxiv.inactiveFG:  #a89984
+
+Sxiv.font: xft:JetBrainsMono Nerd Font:size=10
+
