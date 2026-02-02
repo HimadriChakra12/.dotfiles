@@ -6,11 +6,11 @@ RecolorForeground=207,185,149
 EnableCompositing=false
 
 [Document]
-ChangeColors=true
 PaperColor=114,114,114
 RenderMode=Recolor
 
 [Main View]
+ShowBottomBar=true
 ShowLeftPanel=false
 
 [PageView]

@@ -1,5 +1,5 @@
 [Desktop Entry]
-FullScreen=true
+FullScreen=false
 shouldShowMenuBarComingFromFullScreen=false
 shouldShowToolBarComingFromFullScreen=false
 
@@ -11,14 +11,26 @@ ShowSidebar=false
 MenuBar=Disabled
 
 [Recent Files]
-File1[$e]=$HOME/docs.md/chem-1-4.md
-File2[$e]=$HOME/Downloads/pdf/The C Programming Language (Kernighan Ritchie).pdf
-File3[$e]=$HOME/Downloads/Books/epub/C Programming - A Modern Approach - 2nd_Ed(C89, c99) - King by .epub
-File4[$e]=$HOME/Downloads/ABDM/Documents/The C Programming Language (Kernighan Ritchie).pdf
-Name1[$e]=chem-1-4.md
-Name2[$e]=The C Programming Language (Kernighan Ritchie).pdf
-Name3[$e]=C Programming - A Modern Approach - 2nd_Ed(C89, c99) - King by .epub
-Name4[$e]=The C Programming Language (Kernighan Ritchie).pdf
+File1[$e]=$HOME/Downloads/pdf/English%20Exam%2004%20CQ%20Solution%20%2810%29.pdf
+File10[$e]=$HOME/Downloads/rofi-youtube.rasi
+File2[$e]=$HOME/Downloads/pdf/English-CQ-Exam-05-Unit-1-Education-and-Life.pdf
+File3[$e]=$HOME/git/HSC/Reports(Riya).pdf
+File4[$e]=$HOME/Downloads/Oneshotmath/1.1 Matrix & Determinant Whole Chapter Note.pdf
+File5[$e]=$HOME/Downloads/Oneshotmath/2.3 Complex Number One-shot Revision Note.pdf
+File6[$e]=$HOME/Downloads/Oneshotmath/1.5 Permutation & Combination Oneshot Class.pdf
+File7[$e]=$HOME/Downloads/Oneshotmath/1.9 Differentiation One-shot Revision Note.pdf
+File8[$e]=$HOME/Downloads/Oneshotmath/1.4 Circle One-shot Revision Note.pdf
+File9[$e]=$HOME/Downloads/Oneshotmath/1.7 Trigonometry One-shot Revision Note.pdf
+Name1[$e]=English%20Exam%2004%20CQ%20Solution%20%2810%29.pdf
+Name10[$e]=rofi-youtube.rasi
+Name2[$e]=English-CQ-Exam-05-Unit-1-Education-and-Life.pdf
+Name3[$e]=Reports(Riya).pdf
+Name4[$e]=1.1 Matrix & Determinant Whole Chapter Note.pdf
+Name5[$e]=2.3 Complex Number One-shot Revision Note.pdf
+Name6[$e]=1.5 Permutation & Combination Oneshot Class.pdf
+Name7[$e]=1.9 Differentiation One-shot Revision Note.pdf
+Name8[$e]=1.4 Circle One-shot Revision Note.pdf
+Name9[$e]=1.7 Trigonometry One-shot Revision Note.pdf
 
 [Shortcut Schemes]
 Current Scheme=Default

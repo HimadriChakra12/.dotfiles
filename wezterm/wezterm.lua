@@ -18,6 +18,8 @@ return {
 		-- 1st choice: Your primary font
 		{ family = "JetBrainsMono Nerd Font", weight = "Medium" },
 
+		{ family = "Noto Sans Bengali" },
+
 		-- 2nd choice: Fallback for Emojis
 		{ family = "Noto Color Emoji" },
 
@@ -26,6 +28,7 @@ return {
 	}),
 	font_size = 10,
 	line_height = 1.1,
+	use_ime = true,
 
 	-- This suppresses the "No fonts contain glyphs" warning window
 	warn_about_missing_glyphs = false,
