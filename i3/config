@@ -29,6 +29,7 @@ exec --no-startup-id ~/sayarchi/bin/dx ollama serve
 exec --no-startup-id ~/sayarchi/bin/appimgctl run ~/Applications/Beeper.AppImage
 exec --no-startup-id libinput-gestures
 exec --no-startup-id xdman-beta
+exec --no-startup-id bash $HOME/sayarchi/bin/powermgr cpu set-turbo
 
 
 exec --no-startup-id sh -c "notify-send 'Syncing Repos' \
@@ -64,11 +65,11 @@ bindsym $super+Shift+w exec bash $HOME/.config/i3/scripts/rofi/audioswitch
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
 bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
+bindsym $super+y exec sh ~/.dotfiles/i3/scripts/rofi/yt
 
 bindsym $mod+p exec ~/.dotfiles/i3/scripts/browser http://localhost:3000
 bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
 bindsym $super+f exec ~/.dotfiles/i3/scripts/browser https://messenger.com
-bindsym $super+y exec ~/.dotfiles/i3/scripts/browser https://youtube.com
 bindsym $super+Shift+m exec ~/.dotfiles/i3/scripts/browser https://open.spotify.com
 
 ## SCREENSHOTS
