@@ -1,3 +1,5 @@
+name="$1"
+
 dotfiles=(
     "$HOME/.dotfiles/GIMP:$HOME/.config/GIMP"
     "$HOME/.dotfiles/btop:$HOME/.config/btop"
@@ -23,9 +25,9 @@ dotfiles=(
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
     "$HOME/.dotfiles/libinput-gestures.conf:$HOME/.config/libinput-gestures.conf"
 
-    "$HOME/.dotfiles/.profile:$HOME/.profile"
-    #    "$HOME/.dotfiles/.bashrc:$HOME/.bashrc" I shifted to my config of ohmybash
-    #    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc" Might not be using zsh now
+    #   "$HOME/.dotfiles/.profile:$HOME/.profile"
+    "$HOME/.dotfiles/.bashrc:$HOME/.bashrc" # I shifted to my config of ohmybash
+    #    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc" # Might not be using zsh now
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"
     "$HOME/.dotfiles/.vimrc:$HOME/.vimrc"
 )
@@ -34,13 +36,16 @@ echo "Linking dotfiles..."
 for entry in "${dotfiles[@]}"; do
     src="${entry%%:*}"
     tgt="${entry##*:}"
+    base="$(basename "$src")"
+
+    # If a name is provided, skip non-matching entries
+    if [[ -n "$name" && "$base" != "$name" ]]; then
+        continue
+    fi
+
     echo "Linking $src → $tgt"
-    rm -rf $tgt
+    rm -rf "$tgt"
     ln -sf "$src" "$tgt"
 done
 
-echo "use 
-
-xrdb -merge ~/.Xresources
-
-to use the config"
+# xrdb -merge ~/.Xresources
