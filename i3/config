@@ -29,7 +29,7 @@ exec --no-startup-id ~/sayarchi/bin/dx ollama serve
 exec --no-startup-id ~/sayarchi/bin/appimgctl run ~/Applications/Beeper.AppImage
 exec --no-startup-id libinput-gestures
 exec --no-startup-id xdman-beta
-exec --no-startup-id bash $HOME/sayarchi/bin/powermgr cpu set-turbo
+exec --no-startup-id xclip
 
 
 exec --no-startup-id sh -c "notify-send 'Syncing Repos' \
