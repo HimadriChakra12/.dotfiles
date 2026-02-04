@@ -39,7 +39,9 @@ notify-send 'Synced Repos'"
 exec --no-strtup-id /usr/local/bin/volume-monitor
 
 #WALLPAPER
-exec_always --no-startup-id feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wallpaper
+exec_always --no-startup-id bash ~/.config/i3/Wallpaper/randomize.sh
+
+# exec_always --no-startup-id feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wallpaper
 bindsym $super+l exec i3lock \
   --image "$HOME/.dotfiles/i3/Wallpaper/Lock/Untitled.jpg" \
   --fill
