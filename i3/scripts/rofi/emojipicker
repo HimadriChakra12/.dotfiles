@@ -9,6 +9,7 @@ export LC_ALL=en_US.UTF-8
 # {{{ emoji list
 mylist() {
     cat <<'EOF'
+speak |🗣📣
 dead skull |💀
 crying screaming throwing up |😭
 laughing but losing it |😂
@@ -93,7 +94,6 @@ cross |❌
 sparkles |✨
 star |⭐
 rose |🌹
-speak |🗣📣
 cool |😎
 party time |🥳
 angel |😇
@@ -104,6 +104,7 @@ yummy |😋
 shhhh |🤫
 flex |💪
 waving |👋
+moai sigma |🗿
 EOF
 }
 # }}}
