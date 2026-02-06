@@ -7,74 +7,119 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # {{{ emoji list
-# {{{ emoji list
 mylist() {
     cat <<'EOF'
-speak |🗣📣 
-angry |😡 
-geek |☝🏼🤓 
-monkeyblush | 🙈
-hehe |😀 
-lmfao |🤣 
-melting |🫠 
-angel innocent |😇 
-happy heart |🥰 
-heart-eyes |😍 
-star-eyes |🤩 
-blowing flying kiss |😘 
-Party partying face |🥳 
-cool sunglass glass |😎 
-skull |💀 
-fire |🔥 
-sparkles stars |✨ 
-star |⭐ 
-red heart |❤️ 
-thumbs up |👍 
-waving hand |👋 
-greet sorry nomoshkar |🙏 
-flexed biceps |💪 
-brain |🧠 
-Animals dog face |🐶 
-Animals cat face |🐱 
-Animals penguin |🐧 
-Animals turtle |🐢 
-Animals whale |🐳 
-Food pizza |🍕 
-Food burger |🍔 
-Food taco |🌮 
-Food sushi |🍣 
-Drink beer mug |🍺 
-Drink hot beverage |☕ 
-Object light bulb |💡 
-Object laptop |💻 
-Object closed lock |🔒 
-Object file folder |📂 
-Symbols check right mark button |✅ 
-Symbols cross mark |❌ 
-Yummy |😋 
-shhhhhhh |🤫 
-sus |🤨 
-slay |💅 
-rose |🌹 
-blush |☺️ 
-tooblush |😊 
-finger pookie |👉👈 
+dead skull |💀
+crying screaming throwing up |😭
+laughing but losing it |😂
+side eye huh|😒
+bombastic side eye |👀
+sus |🤨
+caught in 4k camera shot |📸
+nah bro what|😐
+mid tf huh |😑
+unhinged jolly|🤪
+brain fried mind blowing |🤯
+mentally gone melting |🫠
+help me oh |🥲
+holding back tears |🥹
+please bro |🥺
+villain era flirty smirk |😏
+evil laugh |😈
+main character |😌
+npc mode no words speech |😶
+nah that’s wild wow |😮
+panik whaaat|😱
+sleep deprived |😴
+tired of it |😮‍💨
+gaslighting myself thinking |🤔
+absolutely not hmm hmph duh |🙄
+embarrassed blushed with astonished and shocked|😳
+slay period nail polish |💅
+bet |🤝
+say less |🤙
+this you |👉
+finger pookie |👉👈
+up only |👆
+down bad |👇
+W |👍
+L |👎
+on god |🙏
+manifesting |🙌
+respectfully |✋
+love fr |❤️
+bestie |💖
+soft launch |💕
+toxic but cute |💔
+situationship |🖤
+healing era |🤍
+lowkey in love |🩷
+obsessed |💘
+clown moment |🤡
+red flag |🚩
+green flag |🟩
+beige flag |🟨
+tea |☕
+spill the tea |🫖
+facts |📠
+cap |🧢
+no cap |🚫🧢
+fire |🔥
+dumpster fire |🗑️🔥
+money moves |💸
+golden retriever energy |🐶
+black cat energy |🐈‍⬛
+feral |🦝
+just a lil guy |🐣
+emotional support animal |🐱
+unserious frog |🐸
+brain rot |🧠
+chronically online |🌐
+touch grass |🌱
+algorithm got me |📱
+irl jump scare |🚪
+pizza time |🍕
+burger moment |🍔
+taco tuesday |🌮
+sushi vibes |🍣
+beer oclock |🍺
+light bulb moment |💡
+locked in |🔒
+work mode |💻
+receipt |🧾
+folder moment |📂
+check |✅
+cross |❌
+sparkles |✨
+star |⭐
+rose |🌹
+speak |🗣📣
+cool |😎
+party time |🥳
+angel |😇
+heart eyes |😍
+star eyes |🤩
+blowing kiss |😘
+yummy |😋
+shhhh |🤫
+flex |💪
+waving |👋
 EOF
 }
 # }}}
-# }}}
 
-# 1. Pipe only the NAMES (everything before the '|') to Rofi
-selected_name="$(mylist | cut -d'|' -f1 | rofi -dmenu -i -p "Search Emoji Name" \
-    -font "JetBrains Mono 15" \
+# 1. Show FULL lines (name | emoji) in rofi
+selected_line="$(mylist | rofi -dmenu -i -p "Search Emoji" \
     -theme-str 'window {width: 40%;} listview {lines: 15;}')"
 
 # Exit if nothing selected
-[[ -z "$selected_name" ]] && exit
+[[ -z "$selected_line" ]] && exit
 
-# 2. Find the selected name in the original list and extract the emoji
-# We trim whitespace to ensure a clean match
-emoji=$(mylist | grep "^$selected_name" | cut -d'|' -f2 | tr -d ' ')
+# 2. Extract emoji (everything after '|'), trim spaces
+emoji="$(printf "%s" "$selected_line" | cut -d'|' -f2 | tr -d ' ')"
+
+# Optional: extract name too (for notify-send)
+selected_name="$(printf "%s" "$selected_line" | cut -d'|' -f1 | sed 's/[[:space:]]*$//')"
 
 # 3. Copy to clipboard
 if command -v wl-copy >/dev/null 2>&1; then
