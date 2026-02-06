@@ -72,11 +72,6 @@
                 "Title": "Mastikhor Riya",
                 "URL": "https://www.instagram.com/direct/t/17843088840319857/",
                 "Keyword": "Mastikhor"
-            },
-            {
-                "Title": "Ealach Borno",
-                "URL": "https://www.instagram.com/direct/t/17843842563400587/",
-                "Keyword": "ealach-borno"
             }
         ],
 		"SearchEngines": {
@@ -178,7 +173,7 @@
 				{
 					"Name": "Instagram Inbox",
 					"Description": "Search Into Instagram Inbox",
-					"Alias": "it",
+					"Alias": "ii",
 					"Method": "GET",
 					"URLTemplate": "https://www.instagram.com/direct/t/{searchTerms}"
 				}
