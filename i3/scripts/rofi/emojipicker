@@ -11,7 +11,10 @@ mylist() {
     cat <<'EOF'
 speak |🗣📣
 dead skull |💀
+mokey blush |🙈
 crying screaming throwing up |😭
+angry |😠
+angrier |😡
 laughing but losing it |😂
 side eye huh|😒
 bombastic side eye |👀
