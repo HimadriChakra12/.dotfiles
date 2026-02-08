@@ -1,0 +1,29 @@
+[default]
+# Default Path to where we'll use all the '.traineddata' models.
+ocr-path = "/usr/share/tessdata/"
+
+# Default OCR model.
+ocr-model = "asr"
+
+# Delay the app before acquiring a screenshot (in milliseconds)
+# Doesn't affect if opening external image (i.e. -f flag)
+delay = 200
+
+# Default from language codename translate
+lang-from = "auto"
+
+# Default to language codename translate
+lang-to = "en-us"
+
+# Allow the extracted output to be editable
+allow-edit = false
+
+# Default font (absolute path or just name) for the whole application.
+# Leave/Make it empty, or commment it, to use ImGUI default font.
+font = "arial.ttf"
+
+# These sections are dedicated for being able to display languages with their appropriated fonts.
+# based on the language code, you can write a table (e.g [lang.en-us]) and
+# put a variable called "font" which can be an absolute path or just the name of the font.
+#[lang.en-us]
+#font = "DejaVuSans.ttf" # Or C:\\Windows\\Fonts\\DejaVuSans.ttf or ~/.fonts/DejaVuSans.ttf
