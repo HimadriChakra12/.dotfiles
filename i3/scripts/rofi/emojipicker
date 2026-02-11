@@ -11,7 +11,7 @@ mylist() {
     cat <<'EOF'
 speak |🗣📣
 dead skull |💀
-mokey blush |🙈
+monkey blush |🙈
 crying screaming throwing up |😭
 angry |😠
 angrier |😡
