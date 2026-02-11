@@ -110,7 +110,7 @@
 				{
 					"Name": "StartPage",
 					"Description": "The world's most private search engine",
-					"Alias": "sp",
+					"Alias": "st",
 					"Method": "GET",
 					"URLTemplate": "https://www.startpage.com/sp/search?query={searchTerms}"
 				},
@@ -176,6 +176,27 @@
 					"Alias": "ii",
 					"Method": "GET",
 					"URLTemplate": "https://www.instagram.com/direct/t/{searchTerms}"
+				},
+				{
+					"Name": "Spotify",
+					"Description": "Spotify Search",
+					"Alias": "sp",
+					"Method": "GET",
+					"URLTemplate": "https://open.spotify.com/search/{searchTerms}"
+				},
+				{
+					"Name": "Spotify Tracks",
+					"Description": "Spotify Tracks Search",
+					"Alias": "spt",
+					"Method": "GET",
+					"URLTemplate": "https://open.spotify.com/search/{searchTerms}/tracks"
+				},
+				{
+					"Name": "Spotify Albums",
+					"Description": "Spotify Albums Search",
+					"Alias": "spa",
+					"Method": "GET",
+					"URLTemplate": "https://open.spotify.com/search/{searchTerms}/albums"
 				}
 			]
 		}
