@@ -9,6 +9,7 @@ BASE_CMD=$(printf "%s\n" \
   "brightnessctl" \
   "redshift" \
   "volume (pactl)" \
+  "ffplay" \
   "custom command" \
   | $ROFI "Command")
 
@@ -107,6 +108,10 @@ if [[ "$BASE_CMD" == "volume (pactl)" ]]; then
     esac
 fi
 
+if [[ "$BASE_CMD" == "ffplay" ]]; then
+    CMD="ffplay /dev/video0"
+    [[ -n "$CMD" ]] && bash -c "$CMD"
+fi
 # =============================
 # CUSTOM COMMAND
 # =============================
