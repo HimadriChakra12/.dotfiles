@@ -104,7 +104,9 @@ for_window [class="qimgv"] floating enable
 for_window [class="qimgv"] resize set 1200 800, move position center
 
 for_window [class="xdm-app"] floating enable
+for_window [class="Xdm-app"] floating enable
 for_window [class="xdm-app"] move position center
+for_window [class="Xdm-app"] move position center
 
 for_window [class="mpv"] move to workspace $ws3
 
