@@ -20,7 +20,8 @@ exec xsetroot -cursor_name left_ptr &
 exec --no-strtup-id /usr/bin/dunst
 exec --no-strtup-id /usr/bin/xclip
 exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
-exec --no-startup-id bash -c 'pgrep -x cmus-init > /dev/null || ~/sayarchi/scripts/cmus-init'
+#exec --no-startup-id bash -c 'pgrep -x cmus-init > /dev/null || ~/sayarchi/scripts/cmus-init'
+exec --no-startup-id deadbeef
 exec --no-startup-id greenclip daemon
 exec --no-startup-id bash $HOME/.config/i3/scripts/nightlight
 exec --no-startup-id bash $HOME/sayarchi/BentoPDF/bento-startup.sh
@@ -48,7 +49,7 @@ bindsym $super+l exec i3lock \
 
 ## CUSTOM SCRIPTS
 bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
-bindsym $mod+m exec bash $HOME/.config/i3/scripts/rofi/cmus-control
+bindsym $mod+m exec bash $HOME/.config/i3/scripts/rofi/deadbeef-control
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
 bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
 
@@ -69,6 +70,8 @@ bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
 bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
 bindsym $super+y exec sh ~/.dotfiles/i3/scripts/rofi/yt
 bindsym $super+shift+t exec ~/.dotfiles/i3/scripts/oshot
+
+bindsym $super+e workspace $ws4; , exec nemo
 
 bindsym $mod+p exec ~/.dotfiles/i3/scripts/browser http://localhost:3000
 bindsym $super+i exec ~/.dotfiles/i3/scripts/browser https://instagram.com
@@ -197,7 +200,6 @@ for_window [class="firefox"] move to workspace $ws2
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
-bindsym $super+e workspace $ws4; , exec pcmanfm
 bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next

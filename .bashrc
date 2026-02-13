@@ -215,3 +215,8 @@ mountit(){
     mkdir -p "/mnt/$2"
     sudo mount -o loop,ro "$1" "/mnt/$2"
 }
+compress(){
+    folder="$1"
+    archive="$2"
+    7z a $archive $folder -t7z -mx=9 -m0=lzma2 -md=1024m -mfb=273 -ms=on
+}
