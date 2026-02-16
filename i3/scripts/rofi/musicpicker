@@ -12,10 +12,12 @@ selected=$(find "$MUSIC_DIR" -type f \( \
 
 [ -z "$selected" ] && exit 0
 
-if command -v deadbeef >/dev/null; then
-    FILE="$MUSIC_DIR/$selected"
-    deadbeef --queue "$FILE"
-    deadbeef --play
-else
+#if command -v deadbeef >/dev/null; then
+#    FILE="$MUSIC_DIR/$selected"
+#    deadbeef --queue "$FILE"
+#    deadbeef --play
+#else
+#    cmus-remote -f "$MUSIC_DIR/$selected"
+#fi
+
     cmus-remote -f "$MUSIC_DIR/$selected"
-fi
