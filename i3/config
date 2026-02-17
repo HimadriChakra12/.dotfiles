@@ -63,7 +63,7 @@ bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
 bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
 bindsym $mod+shift+t exec bash $HOME/.config/i3/scripts/rofi/timer
 bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
-bindsym $super+Shift+w exec bash $HOME/.config/i3/scripts/rofi/audioswitch
+bindsym $super+Shift+w exec bash $HOME/.config/i3/scripts/recog.sh
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
 bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
