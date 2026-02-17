@@ -3,6 +3,9 @@ fastfetch
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
 fi
+if [[ -d $HOME/bashconf ]]; then
+    source $HOME/bashconf/*
+fi
 
 APP=$HOME/.local/share/applications
 export PATH="$HOME/sayarchi/scripts:$PATH"
@@ -220,3 +223,8 @@ compress(){
     archive="$2"
     7z a $archive $folder -t7z -mx=9 -m0=lzma2 -md=1024m -mfb=273 -ms=on
 }
+
+# pkgback - Automatic package tracking
+if [[ -f "$HOME/.local/bin/pkgback" ]]; then
+    source "$HOME/.local/bin/pkgback"
+fi
