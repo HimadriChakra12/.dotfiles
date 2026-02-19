@@ -8,6 +8,7 @@ if [[ -d $HOME/bashconf ]]; then
 fi
 
 APP=$HOME/.local/share/applications
+
 export PATH="$HOME/sayarchi/scripts:$PATH"
 export PATH="$HOME/sayarchi/bin:$PATH"
 export PATH="$HOME/.dotfiles:$PATH"
@@ -101,6 +102,7 @@ alias pi="pikaur -S"
 alias ys="yay -q"
 alias pks="pikaur -q"
 alias update="yay"
+alias sx="sxiv"
 
 PWD=$(pwd)
 alias exp="nvim $PWD"
