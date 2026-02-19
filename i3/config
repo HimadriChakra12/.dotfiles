@@ -68,7 +68,7 @@ bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
 bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
 bindsym $super+y exec sh ~/.dotfiles/i3/scripts/rofi/yt
-bindsym $super+shift+t exec ~/.dotfiles/i3/scripts/oshot
+bindsym $super+shift+t exec bash ~/.dotfiles/i3/scripts/rofi/bookman
 
 bindsym $super+e workspace $ws4; , exec nemo
 
@@ -105,6 +105,9 @@ for_window [class="ffplay"] resize set 600 340, move position right bottom
 
 for_window [class="qimgv"] floating enable
 for_window [class="qimgv"] resize set 1200 800, move position center
+
+for_window [class="Sxiv"] floating enable
+for_window [class="Sxiv"] resize set 1200 800, move position center
 
 for_window [class="xdm-app"] floating enable
 for_window [class="Xdm-app"] floating enable
