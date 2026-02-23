@@ -89,6 +89,13 @@ alias cmus='cmus-init'
 fs() {
     ls | grep "$@"
 }
+
+update() {
+    notify-send "System Update!" "Started system Update"
+    sudo pacman -Syyu
+    notify-send "System Update!" "System Update Completed"
+}
+
 # Directories
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -101,7 +108,6 @@ alias yi="yay -S"
 alias pi="pikaur -S"
 alias ys="yay -q"
 alias pks="pikaur -q"
-alias update="yay"
 alias sx="sxiv"
 
 PWD=$(pwd)
@@ -230,3 +236,7 @@ compress(){
 if [[ -f "$HOME/.local/bin/pkgback" ]]; then
     source "$HOME/.local/bin/pkgback"
 fi
+
+mp42mp3() {
+    ffmpeg -i "$1" -vn -acodec libmp3lame -ab 192k "$2"
+}
