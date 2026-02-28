@@ -38,11 +38,10 @@ WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED"
 # Update symlink
 ln -sf "$WALLPAPER_PATH" "$SYMLINK"
 
-# Apply wallpaper (X11)
-if command -v feh >/dev/null 2>&1; then
+if command -v sxiv >/dev/null 2>&1; then
+    sxiv -B "$SYMLINK"
+elif command -v feh >/dev/null 2>&1; then
     feh --bg-fill "$SYMLINK"
-
-# Apply wallpaper (Wayland / sway)
 elif command -v swaymsg >/dev/null 2>&1; then
     swaymsg output "*" bg "$SYMLINK" fill
 else

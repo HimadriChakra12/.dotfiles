@@ -26,6 +26,13 @@ pb(){
     vim $(fzf)
 }
 
+dk() {
+    docker ps
+    read -p "Kill: " h
+    docker stop $h
+    docker kill $h
+}
+
 replace-word() {
   find . -type d -name .git -prune -o -type f -exec sed -i "s/$1/$2/g" {} +
 }
@@ -37,6 +44,10 @@ if command -v eza &> /dev/null; then
   alias lt='eza --tree --level=2 --long --icons --git'
   alias lta='lt -a'
   alias l='lt -lh -T -L 2'
+fi
+
+if command -v noice &> /dev/null; then
+    alias n="noice"
 fi
 
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"

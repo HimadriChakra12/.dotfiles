@@ -17,9 +17,10 @@ dotfiles=(
     "$HOME/.dotfiles/pikaur:$HOME/.config/pikaur"
     "$HOME/.dotfiles/qimgv:$HOME/.config/qimgv"
     "$HOME/.dotfiles/rofi:$HOME/.config/rofi"
-    "$HOME/.dotfiles/wezterm:$HOME/.config/wezterm"
+    # "$HOME/.dotfiles/wezterm:$HOME/.config/wezterm"
 
     "$HOME/.dotfiles/okularrc:$HOME/.config/okularrc"
+    "$HOME/.dotfiles/alacritty.toml:$HOME/.config/alacritty.toml"
     "$HOME/.dotfiles/okularpartrc:$HOME/.config/okularpartrc"
     "$HOME/.dotfiles/starship.toml:$HOME/.config/starship.toml"
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
