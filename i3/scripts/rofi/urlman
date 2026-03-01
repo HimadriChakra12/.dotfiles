@@ -7,6 +7,10 @@ ROFI_CMD="rofi -dmenu -i -p URL"
 
 # Define website list (Name|Url1|Url2...)
 WEBSITES=(
+    "unixporn|https://reddit.com/r/unixporn"
+    "startpages|https://reddit.com/r/startpages"
+    "commandline|https://reddit.com/r/commandline"
+    "archlinux|https://reddit.com/r/archlinux"
     "Monkeytype|http://localhost:8080|https://monkeytype.com"
     "BentoPDF|https://localhost:3000"
     "Discord|https://discord.com/channels/@me"
