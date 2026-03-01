@@ -1,5 +1,6 @@
 set $mod Mod1
 set $super Mod4
+set $term alacritty
 
 #FONT
 font pango:JetbrainsMono Nerd Font 16
@@ -41,7 +42,7 @@ exec --no-strtup-id /usr/local/bin/volume-monitor
 #WALLPAPER
 # exec_always --no-startup-id bash ~/.config/i3/Wallpaper/randomize.sh
 
-exec_always --no-startup-id feh --bg-fill /home/himadri/.config/i3/Wallpaper/Wallpaper
+exec_always --no-startup-id sxiv -B /home/himadri/.config/i3/Wallpaper/Wallpaper
 bindsym $super+l exec i3lock \
   --image "$HOME/.dotfiles/i3/Wallpaper/Lock/Untitled.jpg" \
   --fill
@@ -51,6 +52,8 @@ bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
 bindsym $mod+m exec bash $HOME/.config/i3/scripts/rofi/cmus-control
 bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
 bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
+
+bindsym $mod+Return ; exec $term
 
 bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
 bindsym $super+Tab exec rofi -show window
@@ -95,7 +98,9 @@ notify-send -a flameshot -i "$img" "Screenshot taken" "Copied to clipboard" \
 bindsym shift+space exec --no-startup-id rofi -show drun
 
 ## RESIZING
-bindsym Ctrl+Shift+Escape exec wezterm start --class btop btop
+set $weztop wezterm start --class btop
+set $altop alacritty --title btop --class btop -e
+bindsym Ctrl+Shift+Escape exec $altop btop
 for_window [class="btop"] floating enable
 for_window [class="btop"] resize set 1200 800, move position center
 
@@ -203,7 +208,6 @@ for_window [class="firefox"] move to workspace $ws2
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
-bindsym $mod+Return ; exec wezterm
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+Tab focus next
 bindsym $mod+bracketright workspace next
@@ -215,13 +219,13 @@ bindsym $mod+t floating toggle
 gaps inner 6
 gaps outer 3
 
-set $ws1 "1:~"
-set $ws2 "2:@"
-set $ws3 "3:#"
-set $ws4 "4:$"
-set $ws5 "5:%"
-set $ws6 "6:^"
-set $ws7 "7:&"
-set $ws8 "8:*"
-set $ws9 "9:("
-set $ws10 "10:)"
+set $ws1 "1:one"
+set $ws2 "2:two"
+set $ws3 "3:three"
+set $ws4 "4:four"
+set $ws5 "5:five"
+set $ws6 "6:sis"
+set $ws7 "7:seven"
+set $ws8 "8:eight"
+set $ws9 "9:nine"
+set $ws10 "10:ten"
