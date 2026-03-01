@@ -12,6 +12,9 @@ truncation_symbol = "…/"
 substitutions = {
   "~/Downloads" = "󰉍 ",
   "~/Music" = " ",
+  "~/git" = "GIT ",
+  "~/.dotfiles" = ".",
+  "~/.config" = "cnf",
 }
 repo_root_style = "bold cyan"
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
