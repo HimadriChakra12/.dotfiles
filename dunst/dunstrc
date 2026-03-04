@@ -1,136 +1,214 @@
-# =========================
-# Gruvbox Dunst Configuration
-# =========================
+# ╔══════════════════════════════════════════════════════╗
+# ║           GRUVBOX DUNST — REFINED EDITION            ║
+# ╚══════════════════════════════════════════════════════╝
 
 [global]
-    ### Display ###
-    monitor = 0
-    follow = none
 
-    ### Geometry ###
-    width = (350, 400)
-    height = (0, 300)
-    origin = top
-    offset = (20, 20)
+    # ── Display ───────────────────────────────────────────
+    monitor        = 0
+    follow         = none
+
+    # ── Geometry ──────────────────────────────────────────
+    width          = (300, 420)
+    height         = (0, 300)
+    origin         = top-right
+    offset         = (24, 32)
     notification_limit = 5
+    gap_size       = 0
 
-    enable_recursive_icon_lookup = true
+    # ── Borders & Corners ─────────────────────────────────
+    frame_width    = 2
+    frame_color    = "#665c54"
+    corner_radius  = 0
+    corners        = all
 
-    ### Borders & Corners ###
-    frame_width = 2
-    frame_color = "#504945"
-    corner_radius = 0
-    corners = all
+    # ── Progress Bar ──────────────────────────────────────
+    progress_bar               = true
+    progress_bar_height        = 6
+    progress_bar_frame_width   = 0
+    progress_bar_min_width     = 200
+    progress_bar_max_width     = 380
+    progress_bar_corner_radius = 3
+    progress_bar_corners       = all
 
-    progress_bar = true
-    progress_bar_height = 8
-    progress_bar_frame_width = 0
-    progress_bar_min_width = 150
-    progress_bar_max_width = 300
-    progress_bar_corner_radius = 0
-    progress_bar_corners = all
+    # ── Visual ────────────────────────────────────────────
+    transparency       = 8
+    separator_height   = 1
+    padding            = 14
+    horizontal_padding = 14
+    text_icon_padding  = 10
+    separator_color    = "#504945"
+    sort               = yes
+    idle_threshold     = 120
 
-    ### Visual ###
-    transparency = 10
-    separator_height = 2
-    padding = 12
-    horizontal_padding = 12
-    text_icon_padding = 8
-    gap_size = 0
-    separator_color = frame
-    sort = yes
-    idle_threshold = 120
-
-    ### Text ###
-    font = Noto Sans Regular 10
-    markup = full
-    format = "<b>%s</b>\n%b"
-    alignment = left
+    # ── Text ──────────────────────────────────────────────
+    font               = Noto Sans 10
+    line_height        = 2
+    markup             = full
+    format             = "<b>%s</b>\n%b"
+    alignment          = left
     vertical_alignment = center
-    ellipsize = middle
+    ellipsize          = end
+    word_wrap          = yes
+    ignore_newline     = no
 
-    ### Icons ###
-    icon_position = left
-    min_icon_size = 32
-    max_icon_size = 64
+    # ── Icons ─────────────────────────────────────────────
+    icon_position             = left
+    min_icon_size             = 32
+    max_icon_size             = 48
+    enable_recursive_icon_lookup = true
     icon_path = /usr/share/icons/Qogir/16/status:/usr/share/icons/Qogir/16/devices:/usr/share/icons/Qogir/24/panel:/usr/share/pixmaps
 
-    ### History ###
+    # ── History ───────────────────────────────────────────
     sticky_history = true
-    history_length = 50
+    history_length = 100
 
-    ### Misc ###
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/xdg-open
-    always_run_script = true
+    # ── Misc ──────────────────────────────────────────────
+    dmenu              = /usr/bin/dmenu -p dunst:
+    browser            = /usr/bin/xdg-open
+    always_run_script  = true
+    title              = Dunst
+    class              = Dunst
 
-    ### Mouse ###
-    mouse_left_click = do_action, close_current
+    # ── Mouse ─────────────────────────────────────────────
+    mouse_left_click   = do_action, close_current
     mouse_middle_click = close_current
-    mouse_right_click = close_all
+    mouse_right_click  = close_all
 
+    # ── Scripting ─────────────────────────────────────────
+    # script = ~/.config/dunst/notify.sh
 
 [experimental]
     per_monitor_dpi = false
 
-# =========================
-# URGENCY STYLES
-# =========================
 
-# Low urgency
+# ╔══════════════════════════════════════════════════════╗
+# ║                   URGENCY STYLES                     ║
+# ╚══════════════════════════════════════════════════════╝
+
+# Low — subtle, muted warm tone
 [urgency_low]
-    background = "#282828"
-    foreground = "#ebdbb2"
-    frame_color = "#504945"
-    timeout = 4
+    background  = "#1d2021"
+    foreground  = "#a89984"
+    frame_color = "#3c3836"
+    highlight   = "#a89984"
+    timeout     = 4
+    default_icon = dialog-information
 
-# Normal urgency
+# Normal — classic gruvbox warm
 [urgency_normal]
-    background = "#282828"
-    foreground = "#ebdbb2"
-    frame_color = "#504945"
-    timeout = 6
+    background  = "#282828"
+    foreground  = "#ebdbb2"
+    frame_color = "#665c54"
+    highlight   = "#d79921"
+    timeout     = 6
+    default_icon = dialog-information
 
-# Critical urgency
+# Critical — bold amber accent, stands out
 [urgency_critical]
-    background = "#282828"
-    foreground = "#ebdbb2"
-    frame_color = "#504945"
-    timeout = 0
+    background  = "#282828"
+    foreground  = "#fbf1c7"
+    frame_color = "#d65d0e"
+    highlight   = "#fe8019"
+    timeout     = 0
+    default_icon = dialog-warning
 
 
-# =========================
-# BRIGHTNESS PROGRESS BAR
-# ONLY HERE — NOT GLOBAL
-# =========================
+# ╔══════════════════════════════════════════════════════╗
+# ║                  APP-SPECIFIC RULES                  ║
+# ╚══════════════════════════════════════════════════════╝
+
+# ── Brightness ────────────────────────────────────────────
 [brightness]
-    appname = "Brightness"
-    urgency = low
-    origin = bottom-center
-
-    background = "#282828"
-    foreground = "#d5c4a1"
-    frame_color = "#504945"
-
-    timeout = 1
+    appname       = "Brightness"
+    urgency       = low
+    origin        = bottom-center
+    offset        = (0, 32)
+    background    = "#282828"
+    foreground    = "#d5c4a1"
+    frame_color   = "#d79921"
+    highlight     = "#d79921"
+    timeout       = 1500
     set_stack_tag = "brightness"
 
-
-# =========================
-# VOLUME STACKING (optional)
-# =========================
-[stack-volumes]
-    appname = "some_volume_notifiers"
+# ── Volume ────────────────────────────────────────────────
+[volume]
+    appname       = "Volume"
+    urgency       = low
+    origin        = bottom-center
+    offset        = (0, 32)
+    background    = "#1d2021"
+    foreground    = "#d5c4a1"
+    frame_color   = "#504945"
+    highlight     = "#689d6a"
+    timeout       = 1500
     set_stack_tag = "volume"
 
+# ── Volume (wpctl / pamixer / pactl stacking) ─────────────
+[stack-volumes]
+    appname       = "some_volume_notifiers"
+    set_stack_tag = "volume"
 
-# =========================
-# FLAMESHOT
-# =========================
+# ── Music (MPD / cmus / playerctl) ───────────────────────
+[music]
+    appname       = "Music"
+    summary       = "*Now Playing*"
+    background    = "#282828"
+    foreground    = "#ebdbb2"
+    frame_color   = "#689d6a"
+    highlight     = "#b8bb26"
+    timeout       = 4
+
+# ── Screenshots (Flameshot) ───────────────────────────────
 [flameshot]
-    appname = "flameshot"
-    urgency = normal
-    timeout = 10
-    background = "#282828"
-    foreground = "#ebdbb2"
-    frame_color = "#504945"
+    appname       = "flameshot"
+    urgency       = normal
+    background    = "#282828"
+    foreground    = "#ebdbb2"
+    frame_color   = "#458588"
+    highlight     = "#83a598"
+    timeout       = 4
+
+# ── Network (NetworkManager) ─────────────────────────────
+[network-up]
+    appname       = "NetworkManager"
+    summary       = "*Connected*"
+    background    = "#282828"
+    foreground    = "#ebdbb2"
+    frame_color   = "#689d6a"
+    timeout       = 4
+
+[network-down]
+    appname       = "NetworkManager"
+    summary       = "*Disconnected*"
+    background    = "#282828"
+    foreground    = "#ebdbb2"
+    frame_color   = "#cc241d"
+    timeout       = 8
+
+# ── Battery ───────────────────────────────────────────────
+[battery-low]
+    appname       = "Battery"
+    summary       = "*Low*"
+    background    = "#282828"
+    foreground    = "#fbf1c7"
+    frame_color   = "#d65d0e"
+    highlight     = "#fe8019"
+    urgency       = critical
+
+[battery-charging]
+    appname       = "Battery"
+    summary       = "*Charging*"
+    background    = "#282828"
+    foreground    = "#ebdbb2"
+    frame_color   = "#689d6a"
+    timeout       = 3
+
+# ── System Notifications ──────────────────────────────────
+[dunst-history-pop]
+    appname       = "dunst"
+    summary       = "History"
+    background    = "#32302f"
+    foreground    = "#a89984"
+    frame_color   = "#504945"
+    timeout       = 2
