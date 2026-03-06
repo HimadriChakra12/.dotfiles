@@ -61,3 +61,6 @@ unfocused_hollow = false
 blinking = "On"
 shape = "Block"
 # Alt Cursor Beam\Underline
+
+[terminal.shell]
+program = "/bin/tmux"
