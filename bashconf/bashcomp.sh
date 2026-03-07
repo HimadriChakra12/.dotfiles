@@ -81,21 +81,59 @@ _fzf_tab_complete() {
     local cmd
     cmd=$(echo "$cur" | awk '{print $1}')
 
-    # ── cd → zoxide + find dirs ───────────────────────────────
+    # ── cd → local dirs first, zoxide only if no local match ────
     if [[ "$cmd" == "cd" ]]; then
-        local chosen
-        chosen=$(
-          {
-            zoxide query -l 2>/dev/null
-            find "${word:-.}" -maxdepth 4 -type d 2>/dev/null
-          } \
-          | awk '!seen[$0]++' \
-          | _fzf_pick "📁 cd" "$word"
+        # Determine base dir and prefix to filter on
+        local search_base search_prefix
+        if [[ "$word" == */* ]]; then
+            search_base="${word%/*}/"
+            search_prefix="${word##*/}"
+        else
+            search_base="./"
+            search_prefix="$word"
+        fi
+
+        # Find local subdirs matching typed prefix (case-insensitive)
+        local local_dirs
+        local_dirs=$(
+            find "$search_base" -maxdepth 1 -mindepth 1 -type d 2>/dev/null \
+            | sed 's|^\./||' \
+            | grep -i "^${search_prefix}" \
+            | sort
         )
-        if [[ -n "$chosen" ]]; then
+
+        local count=0
+        [[ -n "$local_dirs" ]] && count=$(echo "$local_dirs" | grep -c .)
+
+        local chosen
+        if [[ $count -eq 1 ]]; then
+            # Only one local match — complete immediately, no fzf
+            chosen="$local_dirs"
             chosen="${chosen%/}/"
             READLINE_LINE="${prefix}${chosen}${after}"
             READLINE_POINT=$(( ${#prefix} + ${#chosen} ))
+
+        elif [[ $count -gt 1 ]]; then
+            # Multiple local matches — fzf over just those
+            chosen=$(echo "$local_dirs" | _fzf_pick "📁 cd" "$search_prefix")
+            if [[ -n "$chosen" ]]; then
+                chosen="${chosen%/}/"
+                READLINE_LINE="${prefix}${chosen}${after}"
+                READLINE_POINT=$(( ${#prefix} + ${#chosen} ))
+            fi
+
+        else
+            # No local match — fall back to zoxide frecency list
+            chosen=$(
+                zoxide query -l 2>/dev/null \
+                | grep -i "$word" \
+                | _fzf_pick "📁 z" "$word"
+            )
+            if [[ -n "$chosen" ]]; then
+                chosen="${chosen%/}/"
+                READLINE_LINE="${prefix}${chosen}${after}"
+                READLINE_POINT=$(( ${#prefix} + ${#chosen} ))
+            fi
         fi
         return
     fi
@@ -143,8 +181,7 @@ _fzf_tab_complete() {
     if [[ -z "$prefix" || "$prefix" =~ ^[[:space:]]+$ ]]; then
         candidates=$(compgen -A function -A alias -A builtin -A command -- "$word" 2>/dev/null | sort -u)
     else
-        # Use find for file completion to handle spaces in names
-        candidates=$(find "${word:-.}" -maxdepth 1 2>/dev/null | sed 's|^\./||' | sort -u)
+        candidates=$(compgen -f -- "$word" 2>/dev/null | sort -u)
     fi
 
     # Count lines safely
