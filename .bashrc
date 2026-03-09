@@ -3,9 +3,6 @@ fastfetch
 if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
 fi
-if [[ -d $HOME/bashconf ]]; then
-    source $HOME/bashconf/*
-fi
 
 APP=$HOME/.local/share/applications
 
@@ -14,6 +11,7 @@ export PATH="$HOME/sayarchi/bin:$PATH"
 export PATH="$HOME/.dotfiles:$PATH"
 export PATH="$HOME/Music:$PATH"
 
+source $HOME/bashconf/bashcomp.sh
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -231,13 +229,23 @@ gcn() {
 }
 export PATH="$HOME/.local/bin:$PATH"
 
-mountit(){
-    name="$1"
-    mount="$2"
-    mkdir -p "/mnt/$2"
-    sudo mount -o loop,ro "$1" "/mnt/$2"
+mountit() {
+    if [ -z "$1" ]; then
+        echo "Usage: mountit <iso-file> [mount-name]"
+        return 1
+    fi
+
+    iso="$1"
+    name="${2:-$(basename "$iso" .iso)}"
+    dir="/mnt/$name"
+
+    sudo mkdir -p "$dir" || return 1
+
+    sudo mount -o loop,ro "$iso" "$dir" && \
+    echo "Mounted $iso at $dir"
 }
 compress(){
+    echo "compress [folder] [archive]"
     folder="$1"
     archive="$2"
     7z a $archive $folder -t7z -mx=9 -m0=lzma2 -md=1024m -mfb=273 -ms=on
@@ -251,3 +259,7 @@ fi
 mp42mp3() {
     ffmpeg -i "$1" -vn -acodec libmp3lame -ab 192k "$2"
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
