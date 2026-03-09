@@ -73,7 +73,6 @@ bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
 bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
 bindsym $super+y exec sh ~/.dotfiles/i3/scripts/rofi/yt
 bindsym $super+b exec sh ~/.dotfiles/i3/scripts/pdf
-bindsym $super+shift+t exec bash ~/.dotfiles/i3/scripts/rofi/bookman
 
 bindsym $super+e workspace $ws4; , exec nemo
 
@@ -93,8 +92,7 @@ bindsym $super+Shift+s exec flameshot gui
 
 bindsym Print exec sh -c '\
 img="$HOME/Pictures/$(date +%F_%T).png" && \
-flameshot full --clipboard --path "$img" && \
-notify-send -a flameshot -i "$img" "Screenshot taken" "Copied to clipboard" \
+flameshot full --clipboard --path "$img" \
 '
 
 bindsym shift+space exec --no-startup-id rofi -show drun
@@ -183,13 +181,14 @@ client.background        $grey_unfocused
 
 
 bar {
-    font pango: JetBrains Mono 8
+    font pango: JetBrainsMono Nerd Font 8
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     position bottom
-    tray_padding 5
+    tray_padding 4
     strip_workspace_numbers yes
     strip_workspace_name no
     tray_output primary
+    i3bar_command i3bar --bar_id bar-0
 
     colors {
         background #282828      # gruvbox dark bg

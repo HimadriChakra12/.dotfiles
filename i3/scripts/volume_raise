@@ -9,7 +9,7 @@ if [[ "$current_volume" =~ ^[0-9]+$ ]]; then
         pactl set-sink-volume @DEFAULT_SINK@ +10%
     else
         # If the volume is 120% or more, notify the user
-        notify-send "Volume is already at 120%" -t 350
+        notify-send "Volume is already at 150%" -t 350
     fi
 else
     echo "Error: Couldn't retrieve valid volume."

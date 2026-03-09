@@ -1,28 +1,5 @@
 #!/bin/bash
 
 BOOKDIR="$HOME/books"
-TMPDIR=$(mktemp -d)
 
-# Generate first-page thumbnails for all PDFs in ~/books
-for file in "$BOOKDIR"/*.pdf; do
-    [ -f "$file" ] || continue
-    name=$(basename "$file" .pdf)
-    mutool draw -w 300 -o "$TMPDIR/$name.png" "$file" 1 >/dev/null 2>&1
-done
-
-# Open thumbnails in sxiv (thumbnail mode, output selected file)
-SELECTED=$(sxiv -t -o "$TMPDIR"/*.png)
-
-if [ -n "$SELECTED" ]; then
-    SELNAME=$(basename "$SELECTED" .png)
-    PDF="$BOOKDIR/$SELNAME.pdf"
-
-    # Clean up thumbnails
-    rm -rf "$TMPDIR"
-
-    # Open selected PDF in sxbv
-    exec sxbv "$PDF"
-else
-    # Clean up if nothing selected
-    rm -rf "$TMPDIR"
-fi
+sxbv $BOOKDIR
