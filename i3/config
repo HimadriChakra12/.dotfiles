@@ -1,6 +1,7 @@
 set $mod Mod1
 set $super Mod4
-set $term alacritty
+# set $term alacritty
+set $term st -e tmux new-session -A -s main
 
 #FONT
 font pango:JetbrainsMono Nerd Font 16
