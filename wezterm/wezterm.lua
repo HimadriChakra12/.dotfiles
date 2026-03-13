@@ -11,7 +11,7 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 return {
-	--default_prog = { "/bin/zsh" },
+	default_prog = { "/bin/tmux" },
 
 	-- FONT CONFIGURATION
 	font = wezterm.font_with_fallback({
