@@ -102,7 +102,8 @@ bindsym shift+space exec --no-startup-id rofi -show drun
 ## RESIZING
 set $weztop wezterm start --class btop
 set $altop alacritty --title btop --class btop -e
-bindsym Ctrl+Shift+Escape exec $altop btop
+set $stop st -t btop -c btop
+bindsym Ctrl+Shift+Escape exec $stop btop
 for_window [class="btop"] floating enable
 for_window [class="btop"] resize set 1200 800, move position center
 
