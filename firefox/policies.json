@@ -197,6 +197,13 @@
 					"Alias": "spa",
 					"Method": "GET",
 					"URLTemplate": "https://open.spotify.com/search/{searchTerms}/albums"
+				},
+				{
+					"Name": "Mega",
+					"Description": "Mega Search",
+					"Alias": "mg",
+					"Method": "GET",
+					"URLTemplate": "https://mega.nz/fm/{searchTerms}"
 				}
 			]
 		}
