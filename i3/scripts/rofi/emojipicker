@@ -9,6 +9,7 @@ export LC_ALL=en_US.UTF-8
 # {{{ emoji list
 mylist() {
     cat <<'EOF'
+manigga blush |🫪
 speak |🗣📣
 dead skull |💀
 monkey blush |🙈
