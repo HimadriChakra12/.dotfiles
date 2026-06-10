@@ -1,3 +1,14 @@
+*{
+	border-radius: 0px !important;
+	font-family: 'Jetbrains Mono' !important;
+}
+/* Hide icons in context menus */
+menupopup menuitem, menupopup menu {
+    list-style-image: none !important;
+    -moz-image-region: auto !important;
+    -moz-appearance: none !important;
+    padding-inline-start: 0 !important; /* Remove extra space where icon was */
+}
 #urlbar {
     opacity: 0;
     pointer-events: none !important;
@@ -28,4 +39,41 @@
 }
 #firefox-view-button{
 	display: none !important;
+}
+/* --- UNIFIED EXTENSIONS BUTTON ------------------------ */
+
+/* make extension icons smaller */
+#unified-extensions-view {
+    --uei-icon-size: 16px;
+}
+
+/* hide bloat */
+.unified-extensions-item-message-deck,
+#unified-extensions-view > .panel-header,
+#unified-extensions-view > toolbarseparator,
+#unified-extensions-manage-extensions {
+    display: none !important;
+}
+
+/* add 3px padding on the top and the bottom of the box */
+.panel-subview-body {
+    padding: 3px 0px !important;
+}
+
+#unified-extensions-view .toolbarbutton-icon {
+    padding: 0 !important;
+}
+
+.unified-extensions-item-contents {
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+#unified-extensions-panel .unified-extensions-item {
+    margin-block: 0 !important;
+}
+
+.toolbar-menupopup :is(menu, menuitem), .subview-subheader, panelview
+.toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
+    padding: 4px !important;
 }
