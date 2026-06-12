@@ -80,7 +80,8 @@
 				"Amazon.com",
 				"eBay",
                 "Bing",
-                "DuckDuckGo"
+                "DuckDuckGo",
+				"Google"
 			],
 			"Default": "Brave",
 			"Add": [
@@ -204,6 +205,13 @@
 					"Alias": "mg",
 					"Method": "GET",
 					"URLTemplate": "https://mega.nz/fm/{searchTerms}"
+				},
+				{
+					"Name": "gWeb",
+					"Description": "Google Web Search",
+					"Alias": "gg",
+					"Method": "GET",
+					"URLTemplate": "https://www.google.com/search?q={searchTerms}&udm=14"
 				}
 			]
 		}
