@@ -209,7 +209,7 @@
 				{
 					"Name": "gWeb",
 					"Description": "Google Web Search",
-					"Alias": "gg",
+					"Alias": "gw",
 					"Method": "GET",
 					"URLTemplate": "https://www.google.com/search?q={searchTerms}&udm=14"
 				}
