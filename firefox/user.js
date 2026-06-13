@@ -1,6 +1,13 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
+
+/** STYLE **/
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+/** SPLIT **/
+user_pref("browser.tabs.splitView.enabled", true);
+
 /** GENERAL ***/
 user_pref("gfx.content.skia-font-cache-size", 32);
 
@@ -207,4 +214,3 @@ user_pref("browser.uidensity", 1);
 user_pref("browser.gesture.pinch.in", "cmd_fullZoomEnlarge");
 user_pref("browser.gesture.pinch.out", "cmd_fullZoomReduce");
 user_pref("browser.gesture.pinch.end", "cmd_fullZoomReset");
-
