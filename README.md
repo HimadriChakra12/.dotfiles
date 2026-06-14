@@ -10,3 +10,4 @@
 |  [PCManFM](https://github.com/lxde/pcmanfm)                  |  [Xfm](https://github.com/HimadriChakra12/xfm) / [thunar](https://github.com/xfce-mirror/thunar)  |
 |  [btop](https://github.com/aristocratos/btop)                |  [dtop](https://github.com/HimadriChakra12/dtop)  |
 |  Alacritty | st |
+|  i3  |  sxwm  |
