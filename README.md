@@ -9,5 +9,5 @@
 |  [Dunst](https://github.com/Harshit-Dhanwalkar/dunst)        |  [Doi](https://github.com/HimadriChakra12/fetch) / [bnd](https://github.com/krnkktz/bnd) / [herbe](https://github.com/dudik/herbe) |
 |  [PCManFM](https://github.com/lxde/pcmanfm)                  |  [Xfm](https://github.com/HimadriChakra12/xfm) / [thunar](https://github.com/xfce-mirror/thunar)  |
 |  [btop](https://github.com/aristocratos/btop)                |  [dtop](https://github.com/HimadriChakra12/dtop)  |
-|  Alacritty | st |
+|  [Alacritty](https://github.com/alacritty/alacritty) | [rot](https://github.com/HimadriChakra12/rot) |
 |  i3  |  [sxwm](https://github.com/uint23/sxwm) / [nwm](https://github.com/Mr-Emacs/nwm) / dwm / [frankenWM](https://github.com/sulami/FrankenWM)  |
