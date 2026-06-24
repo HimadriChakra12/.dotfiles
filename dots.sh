@@ -19,9 +19,9 @@ dotfiles=(
     "$HOME/.dotfiles/rofi:$HOME/.config/rofi"
     # "$HOME/.dotfiles/wezterm:$HOME/.config/wezterm"
 
-    "$HOME/.dotfiles/okularrc:$HOME/.config/okularrc"
+    "$HOME/.dotfiles/Okular/okularrc:$HOME/.config/okularrc"
+    "$HOME/.dotfiles/Okular/okularpartrc:$HOME/.config/okularpartrc"
     "$HOME/.dotfiles/alacritty.toml:$HOME/.config/alacritty.toml"
-    "$HOME/.dotfiles/okularpartrc:$HOME/.config/okularpartrc"
     "$HOME/.dotfiles/starship.toml:$HOME/.config/starship.toml"
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
     "$HOME/.dotfiles/libinput-gestures.conf:$HOME/.config/libinput-gestures.conf"
