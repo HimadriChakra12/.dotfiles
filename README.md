@@ -9,6 +9,4 @@
 |  [Dunst](https://github.com/Harshit-Dhanwalkar/dunst)         |   [Doi](https://github.com/HimadriChakra12/fetch) / [bnd](https://github.com/krnkktz/bnd) / [herbe](https://github.com/dudik/herbe)           |   x               |
 |  [btop](https://github.com/aristocratos/btop)                 |   [dtop](https://github.com/HimadriChakra12/dtop)                                                                                             |   done            |
 |  [Alacritty](https://github.com/alacritty/alacritty)          |   [rot](https://github.com/HimadriChakra12/rot)                                                                                               |   done(partially) |
-|  i3                                                           |   [sxwm](https://github.com/uint23/sxwm)  
-                                                                /   [nwm](https://github.com/Mr-Emacs/nwm) / dwm 
-                                                                /   [frankenWM](https://github.com/sulami/FrankenWM)                                                                                            |   x               |
+|  i3                                                           |   [sxwm](https://github.com/uint23/sxwm) / [nwm](https://github.com/Mr-Emacs/nwm) / dwm / [frankenWM](https://github.com/sulami/FrankenWM)    |   x               |
