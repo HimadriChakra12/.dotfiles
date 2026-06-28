@@ -4,7 +4,7 @@
 
 |  App                                                          |   Target                                                                                                                                      |   Status          |
 |  -----                                                        |   ------                                                                                                                                      |   ------          |
-|  [Flameshot](https://github.com/flameshot-org/flameshot)      |   [shot](https://github.com/HimadriChakra12/shot) + [sxat](https://github.com/HimadriChakra12/sxat)                                           |   Done            |
+|  [Flameshot](https://github.com/flameshot-org/flameshot)      |   [shot](https://github.com/HimadriChakra12/shot) + [sxat](https://github.com/HimadriChakra12/sxat)  && [whot](https://github.com/HimadriChakra12/whot) + [swat](https://github.com/HimadriChakra12/swat)                                         |   Done            |
 |  [Fastfetch](https://github.com/fastfetch-cli/fastfetch)      |   [fetch](https://github.com/HimadriChakra12/fetch)                                                                                           |   Done            |
 |  [Dunst](https://github.com/Harshit-Dhanwalkar/dunst)         |   [Doi](https://github.com/HimadriChakra12/doi) / [bnd](https://github.com/krnkktz/bnd) / [herbe](https://github.com/dudik/herbe)             |   x               |
 |  [btop](https://github.com/aristocratos/btop)                 |   [dtop](https://github.com/HimadriChakra12/dtop)                                                                                             |   done            |
