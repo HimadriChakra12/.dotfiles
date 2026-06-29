@@ -64,14 +64,9 @@
 		},
         "Bookmarks": [
             {
-                "Title": "Shades of her, Riya",
-                "URL": "https://www.instagram.com/direct/t/17842703340524797/",
-                "Keyword": "Kitty"
-            },
-            {
-                "Title": "Mastikhor Riya",
-                "URL": "https://www.instagram.com/direct/t/17843088840319857/",
-                "Keyword": "Mastikhor"
+                "Title": "",
+                "URL": "",
+                "Keyword": ""
             }
         ],
 		"SearchEngines": {
@@ -80,15 +75,14 @@
 				"Amazon.com",
 				"eBay",
                 "Bing",
-                "DuckDuckGo",
-				"Google"
+                "DuckDuckGo"
 			],
 			"Default": "Brave",
 			"Add": [
 				{
 					"Name": "DuckDuckGo Lite",
 					"Description": "Minimal, ad-free version of DuckDuckGo",
-					"Alias": "",
+					"Alias": "ddg",
 					"Method": "POST",
 					"URLTemplate": "https://duckduckgo.com/lite/?q={searchTerms}",
 					"PostData": "q={searchTerms}"
@@ -96,7 +90,7 @@
 				{
 					"Name": "SearXNG",
 					"Description": "A privacy-respecting, hackable metasearch engine",
-					"Alias": "",
+					"Alias": "srx",
 					"Method": "POST",
 					"URLTemplate": "https://searx.be/?q={searchTerms}",
 					"PostData": "q={searchTerms}&time_range=&language=en-US&category_general=on"
@@ -104,7 +98,7 @@
 				{
 					"Name": "MetaGer",
 					"Description": "MetaGer: Privacy Protected Search & Find",
-					"Alias": "",
+					"Alias": "mg",
 					"Method": "GET",
 					"URLTemplate": "https://metager.org/meta/meta.ger3?eingabe={searchTerms}"
 				},
@@ -205,6 +199,13 @@
 					"Alias": "mg",
 					"Method": "GET",
 					"URLTemplate": "https://mega.nz/fm/{searchTerms}"
+				},
+				{
+					"Name": "RDG",
+					"Description": "Reddit Search",
+					"Alias": "rd",
+					"Method": "GET",
+					"URLTemplate": "https://www.google.com/search?q=site:reddit.com+{searchTerms}"
 				},
 				{
 					"Name": "gWeb",
