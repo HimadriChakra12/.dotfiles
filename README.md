@@ -1,6 +1,5 @@
 # .dotfiles
-
-|                                                                                                                                           Migration Plan                                                                                                                                          |
+### Migration Plan
 |   App                                                         |   X11                                                                                                 |   Wayland                                                                                             |   Status          |
 |   ------                                                      |   ----------------                                                                                    |   -----------------------                                                                             |   -----------     |
 |   [Flameshot](https://github.com/flameshot-org/flameshot)     |   [shot](https://github.com/HimadriChakra12/shot) + [sxat](https://github.com/HimadriChakra12/sxat)   |   [whot](https://github.com/HimadriChakra12/whot) + [swat](https://github.com/HimadriChakra12/swat)   |   Done            |
