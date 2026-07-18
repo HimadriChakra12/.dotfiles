@@ -49,8 +49,6 @@ source $HOME/bashconf/bashcomp.sh
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-eval "$(zoxide init bash)"
-eval "$(starship init bash)"
 eval "$(fzf --bash)"
 
 pb(){
@@ -85,6 +83,7 @@ fi
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
 if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init bash)"
     alias cd="zd"
 zo(){
     local items
