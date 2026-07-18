@@ -27,7 +27,6 @@ exec --no-startup-id greenclip daemon
 exec --no-startup-id bash $HOME/.config/i3/scripts/nightlight
 exec --no-startup-id bash $HOME/sayarchi/BentoPDF/bento-startup.sh
 exec --no-startup-id ibus start
-exec --no-startup-id ~/sayarchi/bin/dx ollama serve
 exec --no-startup-id ~/sayarchi/bin/appimgctl run ~/Applications/Beeper.AppImage
 exec --no-startup-id libinput-gestures
 exec --no-startup-id xdman-beta
@@ -84,7 +83,7 @@ bindsym $super+f exec bash ~/.dotfiles/i3/scripts/browser https://messenger.com
 bindsym $super+Shift+m exec bash ~/.dotfiles/i3/scripts/browser https://open.spotify.com
 
 ## SCREENSHOTS
-bindsym $super+Shift+s exec flameshot gui
+bindsym $super+Shift+s exec shot
 
 #bindsym $super+Shift+s exec sh -c '\
 #img="$HOME/Pictures/$(date +%F_%T).png" && \
