@@ -1,3 +1,5 @@
+MenuBar=Disabled
+
 [Desktop Entry]
 FullScreen=false
 shouldShowMenuBarComingFromFullScreen=false
@@ -9,6 +11,9 @@ ShowSidebar=false
 
 [MainWindow]
 MenuBar=Disabled
+
+[MainWindow][Toolbar annotationToolBar]
+ToolButtonStyle=TextBesideIcon
 
 [Recent Files]
 File1[$e]=$HOME/Downloads/pdf/English%20Exam%2004%20CQ%20Solution%20%2810%29.pdf
@@ -34,6 +39,14 @@ Name9[$e]=1.7 Trigonometry One-shot Revision Note.pdf
 
 [Shortcut Schemes]
 Current Scheme=Default
+
+[Shortcuts]
+annotationToolBar=A
+mainToolBar=none
+quickAnnotationToolBar=;\s
+
+[Toolbar annotationToolBar]
+ToolButtonStyle=TextBesideIcon
 
 [UiSettings]
 ColorScheme=BreezeDark
