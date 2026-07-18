@@ -38,8 +38,8 @@ WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED"
 # Update symlink
 ln -sf "$WALLPAPER_PATH" "$SYMLINK"
 
-if command -v sxiv >/dev/null 2>&1; then
-    sxiv -B "$SYMLINK"
+if command -v rsxiv >/dev/null 2>&1; then
+    rsxiv -B "$SYMLINK"
 elif command -v feh >/dev/null 2>&1; then
     feh --bg-fill "$SYMLINK"
 elif command -v swaymsg >/dev/null 2>&1; then
