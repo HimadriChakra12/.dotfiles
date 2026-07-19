@@ -7,7 +7,7 @@ shouldShowToolBarComingFromFullScreen=false
 
 [General]
 LockSidebar=true
-ShowSidebar=false
+ShowSidebar=true
 
 [MainWindow]
 MenuBar=Disabled
@@ -16,26 +16,26 @@ MenuBar=Disabled
 ToolButtonStyle=TextBesideIcon
 
 [Recent Files]
-File1[$e]=$HOME/Downloads/pdf/English%20Exam%2004%20CQ%20Solution%20%2810%29.pdf
-File10[$e]=$HOME/Downloads/rofi-youtube.rasi
-File2[$e]=$HOME/Downloads/pdf/English-CQ-Exam-05-Unit-1-Education-and-Life.pdf
-File3[$e]=$HOME/git/HSC/Reports(Riya).pdf
-File4[$e]=$HOME/Downloads/Oneshotmath/1.1 Matrix & Determinant Whole Chapter Note.pdf
-File5[$e]=$HOME/Downloads/Oneshotmath/2.3 Complex Number One-shot Revision Note.pdf
-File6[$e]=$HOME/Downloads/Oneshotmath/1.5 Permutation & Combination Oneshot Class.pdf
-File7[$e]=$HOME/Downloads/Oneshotmath/1.9 Differentiation One-shot Revision Note.pdf
-File8[$e]=$HOME/Downloads/Oneshotmath/1.4 Circle One-shot Revision Note.pdf
-File9[$e]=$HOME/Downloads/Oneshotmath/1.7 Trigonometry One-shot Revision Note.pdf
-Name1[$e]=English%20Exam%2004%20CQ%20Solution%20%2810%29.pdf
-Name10[$e]=rofi-youtube.rasi
-Name2[$e]=English-CQ-Exam-05-Unit-1-Education-and-Life.pdf
-Name3[$e]=Reports(Riya).pdf
-Name4[$e]=1.1 Matrix & Determinant Whole Chapter Note.pdf
-Name5[$e]=2.3 Complex Number One-shot Revision Note.pdf
-Name6[$e]=1.5 Permutation & Combination Oneshot Class.pdf
-Name7[$e]=1.9 Differentiation One-shot Revision Note.pdf
-Name8[$e]=1.4 Circle One-shot Revision Note.pdf
-Name9[$e]=1.7 Trigonometry One-shot Revision Note.pdf
+File1[$e]=$HOME/git/HSC/Reports(Riya).pdf
+File10[$e]=$HOME/Downloads/Documents/5th [Highlight].pdf
+File2[$e]=$HOME/Downloads/Oneshotmath/1.1 Matrix & Determinant Whole Chapter Note.pdf
+File3[$e]=$HOME/Downloads/Oneshotmath/2.3 Complex Number One-shot Revision Note.pdf
+File4[$e]=$HOME/Downloads/Oneshotmath/1.5 Permutation & Combination Oneshot Class.pdf
+File5[$e]=$HOME/Downloads/Oneshotmath/1.9 Differentiation One-shot Revision Note.pdf
+File6[$e]=$HOME/Downloads/Oneshotmath/1.4 Circle One-shot Revision Note.pdf
+File7[$e]=$HOME/Downloads/Oneshotmath/1.7 Trigonometry One-shot Revision Note.pdf
+File8[$e]=$HOME/Downloads/rofi-youtube.rasi
+File9[$e]=$HOME/Downloads/4th chapter 2.pdf
+Name1[$e]=Reports(Riya).pdf
+Name10[$e]=5th [Highlight].pdf
+Name2[$e]=1.1 Matrix & Determinant Whole Chapter Note.pdf
+Name3[$e]=2.3 Complex Number One-shot Revision Note.pdf
+Name4[$e]=1.5 Permutation & Combination Oneshot Class.pdf
+Name5[$e]=1.9 Differentiation One-shot Revision Note.pdf
+Name6[$e]=1.4 Circle One-shot Revision Note.pdf
+Name7[$e]=1.7 Trigonometry One-shot Revision Note.pdf
+Name8[$e]=rofi-youtube.rasi
+Name9[$e]=4th chapter 2.pdf
 
 [Shortcut Schemes]
 Current Scheme=Default
