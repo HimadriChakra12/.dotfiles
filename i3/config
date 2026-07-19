@@ -133,7 +133,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+s layout tabbed
 bindsym $mod+w layout stack
 bindsym $mod+s layout toggle split
-bindsym shift+space focus mode_toggle
+#bindsym shift+space focus mode_toggle
 bindsym $mod+a focus parent
 #bindsym ctrl+space exec --no-startup-id dmenu_run
 bindsym $mod+Shift+q kill
