@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ===================== CONFIG =====================
-BROWSER_SCRIPT="$HOME/sayarchi/bin/browser"
+BROWSER_SCRIPT="$HOME/riyarchi/bin/browser"
 HISTORY_FILE="$HOME/.cache/rofi-url-history"
 ROFI_CMD="rofi -dmenu -i -p URL"
 
@@ -13,7 +13,9 @@ WEBSITES=(
     "archlinux|https://reddit.com/r/archlinux"
     "Monkeytype|http://localhost:8080|https://monkeytype.com"
     "BentoPDF|https://localhost:3000"
+    "Photopea|https://localhost:8887"
     "Discord|https://discord.com/channels/@me"
+    "Instagram|https://instagram.com"
     "Chatgpt|https://chatgpt.com"
 )
 

@@ -32,3 +32,4 @@ audio/x-ms-wma=lollypop.desktop
 audio/webm=lollypop.desktop
 inode/directory=rdfm.desktop
 application/x-gnome-saved-search=rdfm.desktop
+x-scheme-handler/discord=legcord.desktop

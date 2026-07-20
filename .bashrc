@@ -34,8 +34,14 @@ git_prompt() {
 export PS1="\n${CYAN}\w ${BLUE}\$(git_prompt) ${RESET}\n${RED}❯ ${RESET}"
 fetch
 # ~/.bashrc
-if [[ -f $HOME/wprfrc ]]; then
-    source $HOME/wprfrc
+if [[ -d $HOME/winegames ]]; then
+    source $HOME/winegames/env.sh
+    alias game=$HOME/winegames/run-game
+fi
+
+if [[ -d $HOME/winest ]]; then
+    source $HOME/winegames/env.sh
+    alias app=$HOME/winest/run-photoshop
 fi
 
 APP=$HOME/.local/share/applications

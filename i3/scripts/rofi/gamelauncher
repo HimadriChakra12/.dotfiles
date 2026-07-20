@@ -13,7 +13,7 @@ games=(
   "Spider Man:$HOME/Games/Spider-Man Web of Shadows/image/pc/Spider-Man Web of Shadows.exe"
 )
 
-WINE_CMD="$HOME/.winegame/run-game"
+WINE_CMD="$HOME/winegames/run-game"
 ROFI_CMD="rofi -dmenu -i -p 'Games'"
 
 # -------- SCRIPT --------
