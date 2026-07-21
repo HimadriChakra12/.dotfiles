@@ -9,6 +9,8 @@ export LC_ALL=en_US.UTF-8
 # {{{ emoji list
 mylist() {
     cat <<'EOF'
+pregnant man |🫃
+lip bite |🫦
 manigga blush |🫪
 speak |🗣📣
 dead skull |💀
