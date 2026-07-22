@@ -40,8 +40,8 @@ if [[ -d $HOME/winegames ]]; then
 fi
 
 if [[ -d $HOME/winest ]]; then
-    source $HOME/winegames/env.sh
-    alias app=$HOME/winest/run-photoshop
+    source $HOME/winest/env.sh
+    alias app=$HOME/winest/run-app
 fi
 
 APP=$HOME/.local/share/applications
@@ -72,6 +72,10 @@ dk() {
 replace-word() {
   find . -type d -name .git -prune -o -type f -exec sed -i "s/$1/$2/g" {} +
 }
+
+if command -v x86_64-w64-mingw32-gcc >/dev/null 2>&1; then
+    alias wgcc='x86_64-w64-mingw32-gcc'
+fi
 
 # File system
 if command -v eza &> /dev/null; then
@@ -199,6 +203,7 @@ gitcl(){
         cd $repo
     fi
 }
+
 gogit(){
     dir=$(ls ~/.git| fzf)
     cd ~/.git/$dir
