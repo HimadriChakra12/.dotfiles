@@ -18,10 +18,7 @@ floating_on_top          : true
 new_win_master           : false
 
 # Windows that should always float (from your for_window floating rules)
-should_float             : "btop", "tk", "ffplay", "qimgv", "Sxiv", "xdm-app", "Xdm-app"
-
-# Windows that should start fullscreen (nvim was force-fullscreened in sxwm-conf)
-start_fullscreen         : "nvim"
+should_float             : "dtop", "tk", "xdm-app", "Xdm-app"
 
 # Terminal swallowing (roughly mirrors your btop/mpv floating-terminal setup)
 can_swallow              : st
