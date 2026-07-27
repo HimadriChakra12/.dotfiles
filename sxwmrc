@@ -7,7 +7,7 @@
 # ---------------------------------------------------------------------------
 mod_key                 : alt
 gaps                     : 6
-border_width             : 1
+border_width             : 0
 focused_border_colour    : #e2d2ab
 unfocused_border_colour  : #8d846f
 swap_border_colour       : #fff4c0
@@ -30,19 +30,18 @@ can_be_swallowed         : mpv, btop
 # ---------------------------------------------------------------------------
 # STARTUP (was your `exec` / `exec_always` block)
 # ---------------------------------------------------------------------------
-exec : xsetroot -cursor_name left_ptr &
-exec : /usr/bin/dunst &
-exec : env GTK_THEME=Adwaita:dark &
-exec : greenclip daemon &
-exec : bash $HOME/.config/sxwm-conf/scripts/nightlight &
-exec : bash $HOME/riyarchi/BentoPDF/bento-startup.sh &
-exec : ibus start &
-exec : libinput-gestures &
-exec : xdman-beta &
-exec : xclip &
-exec : doid &
-exec : /usr/local/bin/volume-monitor &
-exec_always : rsxiv -B /home/himadri/.config/Wallpaper/Wallpaper
+exec : "xsetroot -cursor_name left_ptr &"
+exec : "env GTK_THEME=Adwaita:dark &"
+exec : "greenclip daemon &"
+exec : "bash $HOME/.config/sxwm-conf/scripts/nightlight &"
+exec : "ibus start &"
+exec : "libinput-gestures &"
+exec : "xdman-beta &"
+exec : "xclip &"
+exec : "doid &"
+exec : "/usr/local/bin/volume-monitor &"
+exec : "rsxiv -B $HOME/.config/Wallpaper/Wallpaper"
+exec : "sxbar &"
 
 # ---------------------------------------------------------------------------
 # MEDIA / BRIGHTNESS KEYS

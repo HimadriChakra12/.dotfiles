@@ -21,6 +21,7 @@ dotfiles=(
     "$HOME/.dotfiles/sxwm-conf:$HOME/.config/sxwm-conf"
     # "$HOME/.dotfiles/wezterm:$HOME/.config/wezterm"
 
+    "$HOME/.dotfiles/sxbarc:$HOME/.config/sxbarc"
     "$HOME/.dotfiles/sxwmrc:$HOME/.config/sxwmrc"
     "$HOME/.dotfiles/Okular/okularrc:$HOME/.config/okularrc"
     "$HOME/.dotfiles/Okular/okularpartrc:$HOME/.config/okularpartrc"
