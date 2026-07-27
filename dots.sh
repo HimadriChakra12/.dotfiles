@@ -17,8 +17,10 @@ dotfiles=(
     "$HOME/.dotfiles/pikaur:$HOME/.config/pikaur"
     "$HOME/.dotfiles/qimgv:$HOME/.config/qimgv"
     "$HOME/.dotfiles/rofi:$HOME/.config/rofi"
+    "$HOME/.dotfiles/sxwm-conf:$HOME/.config/sxwm-conf"
     # "$HOME/.dotfiles/wezterm:$HOME/.config/wezterm"
 
+    "$HOME/.dotfiles/sxwmrc:$HOME/.config/sxwmrc"
     "$HOME/.dotfiles/Okular/okularrc:$HOME/.config/okularrc"
     "$HOME/.dotfiles/Okular/okularpartrc:$HOME/.config/okularpartrc"
     "$HOME/.dotfiles/alacritty.toml:$HOME/.config/alacritty.toml"
