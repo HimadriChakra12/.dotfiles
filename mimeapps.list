@@ -1,8 +1,9 @@
 [Added Associations]
-application/pdf=org.kde.okular.desktop;
+application/pdf=sxbv.desktop;
+text/html=firefox.desktop;
 
 [Default Applications]
-application/pdf=org.kde.okular.desktop
+application/pdf=sxbv.desktop
 image/jpeg=rsxiv.desktop
 image/png=rsxiv.desktop
 image/gif=rsxiv.desktop
@@ -33,3 +34,9 @@ audio/webm=lollypop.desktop
 inode/directory=rdfm.desktop
 application/x-gnome-saved-search=rdfm.desktop
 x-scheme-handler/discord=legcord.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+x-scheme-handler/rnio=raindrop.desktop
