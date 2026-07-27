@@ -19,7 +19,7 @@ case "$choice" in
         ;;
     Logout)
         # For example, if using i3
-        i3-msg exit
+        pkill sxwm
         ;;
     zzz)
         systemctl suspend

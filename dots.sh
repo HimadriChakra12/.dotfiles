@@ -17,6 +17,7 @@ dotfiles=(
     "$HOME/.dotfiles/pikaur:$HOME/.config/pikaur"
     "$HOME/.dotfiles/qimgv:$HOME/.config/qimgv"
     "$HOME/.dotfiles/rofi:$HOME/.config/rofi"
+    "$HOME/.dotfiles/Wallpaper:$HOME/.config/Wallpaper"
     "$HOME/.dotfiles/sxwm-conf:$HOME/.config/sxwm-conf"
     # "$HOME/.dotfiles/wezterm:$HOME/.config/wezterm"
 
