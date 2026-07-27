@@ -18,7 +18,7 @@ floating_on_top          : true
 new_win_master           : false
 
 # Windows that should always float (from your for_window floating rules)
-should_float             : "dtop", "tk", "xdm-app", "Xdm-app"
+should_float             : "dtop", "tk", "xdm-app", "Xdm-app", "localsend"
 
 # Terminal swallowing (roughly mirrors your btop/mpv floating-terminal setup)
 can_swallow              : st
@@ -43,14 +43,13 @@ exec : "sxbar &"
 # ---------------------------------------------------------------------------
 # MEDIA / BRIGHTNESS KEYS
 # ---------------------------------------------------------------------------
-bind : XF86AudioRaiseVolume       : "bash $HOME/.config/sxwm-conf/scripts/volume_raise"
+bind : XF86AudioRaiseVolume       : "bash $HOME/.dotfiles/sxwm-conf/scripts/volume_raise"
 bind : shift + XF86AudioRaiseVolume : "pactl set-sink-volume @DEFAULT_SINK@ 140%"
 bind : XF86AudioLowerVolume       : "pactl set-sink-volume @DEFAULT_SINK@ -10%"
-bind : XF86MonBrightnessUp        : "brightnessctl set +10% && bash $HOME/.config/sxwm-conf/scripts/brightness"
-bind : XF86MonBrightnessDown      : "brightnessctl set 10%- && bash $HOME/.config/sxwm-conf/scripts/brightness"
+bind : XF86MonBrightnessUp        : "brightnessctl set +10%"
+bind : XF86MonBrightnessDown      : "brightnessctl set 10%-"
 bind : XF86AudioMute              : "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bind : XF86AudioMicMute           : "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-bind : Print                      : "sh -c 'img=$HOME/Pictures/$(date +%F_%T).png && flameshot full --clipboard --path \"$img\"'"
 
 # ---------------------------------------------------------------------------
 # CUSTOM SCRIPTS / LAUNCHERS
