@@ -35,7 +35,7 @@ exec --no-strtup-id /usr/local/bin/volume-monitor
 #WALLPAPER
 # exec_always --no-startup-id bash ~/.config/i3/Wallpaper/randomize.sh
 
-exec_always --no-startup-id rsxiv -B /home/himadri/.config/Wallpaper/Wallpaper
+exec_always --no-startup-id rsxiv -B /home/himadri/.dotfiles/Wallpaper/Wallpaper
 bindsym $super+l exec i3lock \
   --image "$HOME/.dotfiles/Wallpaper/Lock/pinkedbutAfraig.jpeg" \
   --fill
