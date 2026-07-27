@@ -19,7 +19,7 @@ set $micmute XF86AudioMicMute
 set $i3status killall -SIGUSR1 i3status
 bindsym Shift+$volup exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 140% && $i3status
 bindsym $vollow exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $i3status
-bindsym $volup exec --no-startup-id $i3/scripts/volume_raise && $i3status
+bindsym $volup exec --no-startup-id $i3/volume_raise && $i3status
 bindsym $brightup exec --no-startup-id brightnessctl set +10% && $i3/scripts/brightness
 bindsym $brightdown exec --no-startup-id brightnessctl set 10%- && $i3/scripts/brightness
 bindsym $mute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $i3status
