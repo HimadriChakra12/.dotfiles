@@ -3,119 +3,97 @@ set $super Mod4
 # set $term alacritty
 set $term st
 
+set $i3 bash $HOME/.dotfiles/i3/scripts
+
 #FONT
 font pango:JetbrainsMono Nerd Font 16
 
+set $volup XF86AudioRaiseVolume
+set $vollow XF86AudioLowerVolume
+set $brightup XF86MonBrightnessUp
+set $brightdown XF86MonBrightnessDown
+set $mute XF86AudioMute
+set $micmute XF86AudioMicMute
 
 # KEYBIND BRIGHTNESS AND VOLUME
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id bash $HOME/.config/i3/scripts/volume_raise && $refresh_i3status
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 140% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% && bash $HOME/.config/i3/scripts/brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && bash $HOME/.config/i3/scripts/brightness
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+set $i3status killall -SIGUSR1 i3status
+bindsym Shift+$volup exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 140% && $i3status
+bindsym $vollow exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $i3status
+bindsym $volup exec --no-startup-id $i3/scripts/volume_raise && $i3status
+bindsym $brightup exec --no-startup-id brightnessctl set +10% && $i3/scripts/brightness
+bindsym $brightdown exec --no-startup-id brightnessctl set 10%- && $i3/scripts/brightness
+bindsym $mute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $i3status
+bindsym $micmute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $i3status
 
+set $noid --no-startup-id
 #STARTUP
 exec xsetroot -cursor_name left_ptr &         
-exec --no-strtup-id /usr/bin/dunst
-exec --no-startup-id /usr/bin/env GTK_THEME=Adwaita:dark
-exec --no-startup-id greenclip daemon
-exec --no-startup-id bash $HOME/.config/i3/scripts/nightlight
-exec --no-startup-id bash $HOME/riyarchi/BentoPDF/bento-startup.sh
-exec --no-startup-id ibus start
-exec --no-startup-id libinput-gestures
-exec --no-startup-id xdman-beta
-exec --no-startup-id xclip
-exec --no-startup-id doid
+exec $noid /usr/bin/env GTK_THEME=Adwaita:dark
+exec $noid greenclip daemon
+exec $noid $i3/scripts/nightlight
+exec $noid ibus start
+exec $noid libinput-gestures
+exec $noid xdman-beta
+exec $noid xclip
+exec $noid doid
 
-exec --no-strtup-id /usr/local/bin/volume-monitor
+exec $noid /usr/local/bin/volume-monitor
 
 #WALLPAPER
 # exec_always --no-startup-id bash ~/.config/i3/Wallpaper/randomize.sh
 
-exec_always --no-startup-id rsxiv -B /home/himadri/.dotfiles/Wallpaper/Wallpaper
+exec_always $noid rsxiv -B /home/himadri/.dotfiles/Wallpaper/Wallpaper
 bindsym $super+l exec i3lock \
   --image "$HOME/.dotfiles/Wallpaper/Lock/pinkedbutAfraig.jpeg" \
   --fill
 
 ## CUSTOM SCRIPTS
-bindsym $mod+Shift+p exec bash $HOME/.config/i3/scripts/rofi/powerrofi
-bindsym $mod+r exec bash $HOME/.config/i3/scripts/nightlight
-bindsym $mod+Shift+m exec bash $HOME/.config/i3/scripts/rofi/library
-
-bindsym $mod+Return ; exec $term
-
+bindsym $super+Shift+s exec shot
 bindsym $super+Shift+c exec px
-bindsym $super+Shift+period exec bash $HOME/.config/i3/scripts/rofi/stickerpicker
+bindsym $mod+Return ; exec $term
 bindsym $super+Tab exec rofi -show window
-bindsym $super+comma exec bash $HOME/.config/i3/scripts/rofi/wallpaper
-bindsym $super+g exec bash $HOME/.config/i3/scripts/rofi/gamelauncher
-bindsym $mod+shift+b exec bash $HOME/.config/i3/scripts/rofi/bluetooth
-bindsym $super+m exec bash $HOME/.config/i3/scripts/rofi/musicpicker
-bindsym $super+p exec bash $HOME/.config/i3/scripts/rofi/powermenu
-bindsym $super+period exec bash $HOME/.config/i3/scripts/rofi/emojipicker
-bindsym $super+r exec bash $HOME/.config/i3/scripts/rofi/screenrecorder
-bindsym $mod+shift+t exec bash $HOME/.config/i3/scripts/rofi/timer
-bindsym $super+s exec bash $HOME/.config/i3/scripts/empty_workspace
-bindsym $super+Shift+w exec bash $HOME/.config/i3/scripts/recog.sh
 bindsym $super+v exec rofi -modi "clipboard:greenclip print" -show clipboard
-bindsym $super+u exec bash $HOME/.config/i3/scripts/rofi/urlman
-bindsym $super+slash exec bash ~/.config/i3/scripts/rofi/cmd
-bindsym $super+y exec sh ~/.dotfiles/i3/scripts/rofi/yt
-
 bindsym $super+e workspace $ws4; , exec rdfm
 bindsym $super+w workspace $ws4; , exec chromium-bin
+bindsym $mod+space exec $noid rofi -show drun
 
-bindsym $mod+p exec bash ~/.dotfiles/i3/scripts/browser http://localhost:3000
-bindsym $super+i exec bash ~/.dotfiles/i3/scripts/browser https://instagram.com
-bindsym $super+f exec bash ~/.dotfiles/i3/scripts/browser https://messenger.com
-bindsym $super+Shift+m exec bash ~/.dotfiles/i3/scripts/browser https://open.spotify.com
+bindsym $mod+Shift+p exec $i3/rofi/powerrofi
+bindsym $mod+r exec $i3/nightlight
+bindsym $mod+Shift+m exec $i3/rofi/library
+bindsym $super+Shift+period exec $i3/rofi/stickerpicker
+bindsym $super+comma exec $i3/rofi/wallpaper
+bindsym $super+g exec $i3/rofi/gamelauncher
+bindsym $mod+shift+b exec $i3/rofi/bluetooth
+bindsym $super+m exec $i3/rofi/musicpicker
+bindsym $super+p exec $i3/rofi/powermenu
+bindsym $super+period exec $i3/rofi/emojipicker
+bindsym $super+r exec $i3/rofi/screenrecorder
+bindsym $mod+shift+t exec $i3/rofi/timer
+bindsym $super+s exec $i3/empty_workspace
+bindsym $super+Shift+w exec $i3/recog.sh
+bindsym $super+u exec $i3/rofi/urlman
+bindsym $super+slash exec $i3/rofi/cmd
+bindsym $super+y exec sh $i3/rofi/yt
 
-## SCREENSHOTS
-bindsym $super+Shift+s exec shot
-
-#bindsym $super+Shift+s exec sh -c '\
-#img="$HOME/Pictures/$(date +%F_%T).png" && \
-#flameshot full --clipboard --path "$img" && \
-#notify-send -a flameshot -i "$img" "Screenshot taken" "Copied to clipboard" \
-#'
-
-bindsym Print exec sh -c '\
-img="$HOME/Pictures/$(date +%F_%T).png" && \
-flameshot full --clipboard --path "$img" \
-'
-
-bindsym $mod+space exec --no-startup-id rofi -show drun
+bindsym $mod+p exec $i3/browser http://localhost:3000
+bindsym $super+i exec $i3/browser https://instagram.com
+bindsym $super+f exec $i3/browser https://messenger.com
+bindsym $super+Shift+m exec $i3/browser https://open.spotify.com
 
 ## RESIZING
 set $weztop wezterm start --class btop
 set $altop alacritty --title btop --class btop -e
-set $stop st -t btop -c btop
-bindsym Ctrl+Shift+Escape exec $stop btop
-for_window [class="btop"] floating enable
-for_window [class="btop"] resize set 1200 800, move position center
+set $stop st -t dtop -c dtop
 
-for_window [class="tk"] floating enable, sticky enable
-for_window [class="tk"] border none, focus off
+set $float floating enable, move position center
+set $resize resize set 1200 800
 
-for_window [class="ffplay"] floating enable
-for_window [class="ffplay"] sticky enable
-for_window [class="ffplay"] resize set 600 340, move position right bottom
+bindsym Ctrl+Shift+Escape exec $stop dtop
 
-for_window [class="qimgv"] floating enable
-for_window [class="qimgv"] resize set 1200 800, move position center
-
-for_window [class="Sxiv"] floating enable
-for_window [class="Sxiv"] resize set 1200 800, move position center
-
-for_window [class="xdm-app"] floating enable
-for_window [class="Xdm-app"] floating enable
-for_window [class="xdm-app"] move position center
-for_window [class="Xdm-app"] move position center
-
-for_window [class="mpv"] move to workspace $ws3
+for_window [class="qimgv"] $float, $resize
+for_window [class="dtop"] $float
+for_window [class="xdm-app"] $float
+for_window [class="Xdm-app"] $float
 
 ## WINDOW NAVIGATION 
 floating_modifier $mod
@@ -140,29 +118,33 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
+set $n workspace number
+
 ## SWITCH TO WORKSPACE
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 $n $ws1
+bindsym $mod+2 $n $ws2
+bindsym $mod+3 $n $ws3
+bindsym $mod+4 $n $ws4
+bindsym $mod+5 $n $ws5
+bindsym $mod+6 $n $ws6
+bindsym $mod+7 $n $ws7
+bindsym $mod+8 $n $ws8
+bindsym $mod+9 $n $ws9
+bindsym $mod+0 $n $ws10
+
+set $move move container to workspace number
 
 ## MOVE FOCUSED 
-bindsym $mod+Shift+1 move container to workspace number $ws1  , workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2  , workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3  , workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4  , workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5  , workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6  , workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7  , workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8  , workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9  , workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10 , workspace number $ws10
+bindsym $mod+Shift+1 $move $ws1  , $n $ws1
+bindsym $mod+Shift+2 $move $ws2  , $n $ws2
+bindsym $mod+Shift+3 $move $ws3  , $n $ws3
+bindsym $mod+Shift+4 $move $ws4  , $n $ws4
+bindsym $mod+Shift+5 $move $ws5  , $n $ws5
+bindsym $mod+Shift+6 $move $ws6  , $n $ws6
+bindsym $mod+Shift+7 $move $ws7  , $n $ws7
+bindsym $mod+Shift+8 $move $ws8  , $n $ws8
+bindsym $mod+Shift+9 $move $ws9  , $n $ws9
+bindsym $mod+Shift+0 $move $ws10 , $n $ws10
 
 ## BORDER RULE
 set $blue_focused #31748f     
@@ -197,11 +179,6 @@ bar {
 }
 ## WINDOW RULE
 for_window [class=".*"] border pixel 0
-## for_window [class="obs"] move to workspace $ws9
-for_window [class="nvim"] move to workspace $ws3, fullscreen enable
-for_window [class="firefox"] move to workspace $ws2
-## for_window [class="wallpaper"] move to workspace $ws1
-
 
 ## APPLICATION KEYBIND
 bindsym $mod+b workspace $ws2; , exec firefox
@@ -216,13 +193,13 @@ bindsym $mod+t floating toggle
 gaps inner 6
 gaps outer 3
 
-set $ws1 "1:one"
-set $ws2 "2:two"
-set $ws3 "3:three"
-set $ws4 "4:four"
-set $ws5 "5:five"
-set $ws6 "6:sis"
-set $ws7 "7:seven"
-set $ws8 "8:eight"
-set $ws9 "9:nine"
-set $ws10 "10:ten"
+set $ws1    "1:one"
+set $ws2    "2:two"
+set $ws3    "3:three"
+set $ws4    "4:four"
+set $ws5    "5:five"
+set $ws6    "6:sis"
+set $ws7    "7:seven"
+set $ws8    "8:eight"
+set $ws9    "9:nine"
+set $ws10   "10:ten"
