@@ -24,12 +24,12 @@ module.1.enabled    : true
 module.1.interval   : 60
 
 module.2.name       : battery
-module.2.cmd        : cat /sys/class/power_supply/BAT0/capacity 2>/dev/null | sed 's/$/%/' || echo 'N/A'
-module.2.enabled    : false
-module.2.interval   : 30
+module.2.cmd        : upower -i "$(upower -e | grep BAT)" | awk '/state:/ {s=$2} /percentage:/ {p=$2} END {if (s=="charging") print "; " p; else if (s=="fully-charged") print "|| " p; else print p}'
+module.2.enabled    : true
+module.2.interval   : 10
 
 module.3.name       : volume
-module.3.cmd        : amixer get Master | grep -o '[0-9]*%' | head -1 || echo 'N/A'
+module.3.cmd        : pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes && echo MUTE || echo "$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1)"
 module.3.enabled    : true
 module.3.interval   : 5
 
