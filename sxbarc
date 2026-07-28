@@ -31,7 +31,7 @@ module.2.interval   : 10
 module.3.name       : volume
 module.3.cmd        : pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes && echo MUTE || echo "$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1)"
 module.3.enabled    : true
-module.3.interval   : 5
+module.3.interval   : 1
 
 module.4.name       : cpu
 module.4.cmd        : top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\([0-9.]*\)%* id.*/\1/' | awk '{print 100-$1"%"}'
@@ -42,6 +42,11 @@ module.5.name       : mem
 module.5.cmd        : free -h | awk '/^Mem/ { print $3 }' | sed s/i//g
 module.5.enabled    : true
 module.5.interval   : 3
+
+module.6.name       : trayspace
+module.6.cmd        : tray
+module.6.enabled    : true
+module.6.interval   : 3
 
 workspaces.labels              : ! @ $ % ^ & * ( )
 workspaces.active_background   : #e2d2ab

@@ -29,16 +29,9 @@ can_be_swallowed         : mpv, btop
 # ---------------------------------------------------------------------------
 exec : "xsetroot -cursor_name left_ptr &"
 exec : "env GTK_THEME=Adwaita:dark &"
-exec : "greenclip daemon &"
-exec : "bash $HOME/.config/sxwm-conf/scripts/nightlight &"
-exec : "ibus start &"
-exec : "libinput-gestures &"
-exec : "xdman-beta &"
 exec : "xclip &"
-exec : "doid &"
-exec : "/usr/local/bin/volume-monitor &"
 exec : "rsxiv -B $HOME/.config/Wallpaper/Wallpaper"
-exec : "sxbar &"
+exec : "bash $HOME/.config/sxwm-conf/autostart"
 
 # ---------------------------------------------------------------------------
 # MEDIA / BRIGHTNESS KEYS
@@ -77,6 +70,7 @@ bind : super + u               : "bash $HOME/.config/sxwm-conf/scripts/rofi/urlm
 bind : super + slash           : "bash $HOME/.config/sxwm-conf/scripts/rofi/cmd"
 bind : super + y               : "sh $HOME/.dotfiles/sxwm-conf/scripts/rofi/yt"
 
+bind : super + l : "lock"
 bind : super + e : "rdfm"
 bind : super + w : "chromium-bin"
 
@@ -89,9 +83,6 @@ bind : super + shift + s : "shot"
 bind : alt + space        : "rofi -show drun"
 
 bind : ctrl + shift + Escape : "st -t btop -c btop -e btop"
-
-bind : super + l : "sxwm-conflock --image $HOME/.dotfiles/Wallpaper/Lock/pinkedbutAfraig.jpeg --fill"
-
 # ---------------------------------------------------------------------------
 # WINDOW / FOCUS MANAGEMENT
 # ---------------------------------------------------------------------------
