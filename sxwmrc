@@ -12,13 +12,13 @@ focused_border_colour    : #e2d2ab
 unfocused_border_colour  : #8d846f
 swap_border_colour       : #fff4c0
 master_width             : 60
-new_win_focus            : true
+new_win_focus            : false
 warp_cursor              : true
 floating_on_top          : true
 new_win_master           : false
 
 # Windows that should always float (from your for_window floating rules)
-should_float             : "dtop", "tk", "xdm-app", "Xdm-app", "localsend"
+should_float             : "dtop", "tk", "xdm-app", "Xdm-app", "localsend", "galculator"
 
 # Terminal swallowing (roughly mirrors your btop/mpv floating-terminal setup)
 can_swallow              : st
