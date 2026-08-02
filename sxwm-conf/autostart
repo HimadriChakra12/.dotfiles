@@ -1,8 +1,10 @@
 #!bin/bash
-sxbar &
+
+#sxbar &
 xdman-beta &
 doid &
 greenclip daemon &
 bash $HOME/.config/sxwm-conf/scripts/nightlight &
 libinput-gestures &
-stray &
+mustat &
+mustat-blocks &
