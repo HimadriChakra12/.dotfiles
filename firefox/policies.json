@@ -208,6 +208,13 @@
 					"URLTemplate": "https://www.google.com/search?q=site:reddit.com+{searchTerms}"
 				},
 				{
+					"Name": "Him",
+					"Description": "Him Host",
+					"Alias": "hi",
+					"Method": "GET",
+					"URLTemplate": "https://{searchTerms}.him.com"
+				},
+				{
 					"Name": "gWeb",
 					"Description": "Google Web Search",
 					"Alias": "gw",
