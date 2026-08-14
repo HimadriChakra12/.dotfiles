@@ -11,8 +11,8 @@ border_width             : 0
 focused_border_colour    : #e2d2ab
 unfocused_border_colour  : #8d846f
 swap_border_colour       : #fff4c0
-master_width             : 60
-new_win_focus            : false
+master_width             : 50
+new_win_focus            : true
 warp_cursor              : true
 floating_on_top          : true
 new_win_master           : false
@@ -68,6 +68,7 @@ bind : super + shift + w       : "bash $HOME/.config/sxwm-conf/scripts/recog.sh"
 bind : super + v               : "rofi -modi clipboard:greenclip print -show clipboard"
 bind : super + u               : "bash $HOME/.config/sxwm-conf/scripts/rofi/urlman"
 bind : super + slash           : "bash $HOME/.config/sxwm-conf/scripts/rofi/cmd"
+bind : super + shift + u       : "sh $HOME/.config/sxwm-conf/scripts/rofi/urlsurf"
 bind : super + y               : "sh $HOME/.dotfiles/sxwm-conf/scripts/rofi/yt"
 
 bind : super + l : "lock"

@@ -153,18 +153,17 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias sx="rsxiv"
 alias grep='grep --color=auto'
-alias paci="sudo pacman -S"
-alias pacs="sudo pacman -q"
-alias yi="yay -S"
-alias pi="pikaur -S"
-alias ys="yay -q"
-alias pks="pikaur -q"
-alias sx="sxiv"
+alias I="sudo pacman -S"
+alias F="sudo pacman -q"
+alias B="baph -in"
+alias U="update"
+alias S="sudo pacman -Sy"
 
 PWD=$(pwd)
 alias exp="nvim $PWD"
-alias Exp="pcmanfm $PWD & disown"
+alias Exp="rdfm $PWD & disown"
 
 alias ep="$EDITOR ~/.bashrc"
 alias so="source $HOME/.bashrc"
