@@ -28,16 +28,7 @@ bindsym $micmute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ tog
 set $noid --no-startup-id
 #STARTUP
 exec xsetroot -cursor_name left_ptr &         
-exec $noid /usr/bin/env GTK_THEME=Adwaita:dark
-exec $noid greenclip daemon
-exec $noid $i3/scripts/nightlight
-exec $noid ibus start
-exec $noid libinput-gestures
-exec $noid xdman-beta
-exec $noid xclip
-exec $noid doid
-
-exec $noid /usr/local/bin/volume-monitor
+exec $noid $i3/autostart
 
 #WALLPAPER
 # exec_always --no-startup-id bash ~/.config/i3/Wallpaper/randomize.sh

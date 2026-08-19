@@ -1,0 +1,10 @@
+#!bin/bash
+
+greenclip daemon &
+$i3/scripts/nightlight &
+ibus start &
+libinput-gestures &
+xdman-beta &
+xclip &
+doid &
+/usr/bin/env GTK_THEME=Adwaita:dark &
