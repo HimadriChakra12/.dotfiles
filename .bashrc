@@ -288,10 +288,22 @@ mountit() {
     echo "Mounted $iso at $dir"
 }
 compress(){
-    echo "compress [folder] [archive]"
+    if [[ -z "$1" ]]; then
+        echo "Usage: compress [folder] [ext]"
+        return 1
+    fi
     folder="$1"
-    archive="$2"
-    7z a $archive $folder -t7z -mx=9 -m0=lzma2 -md=1024m -mfb=273 -ms=on
+    ext="${2#\.}"
+    arc="$folder.$ext"
+    if [[ "$ext" == "zip" ]]; then
+        flags="-m0=deflate -mx=9"
+        type_flag="-tzip"
+    else
+        flags="-m0=lzma2 -mx=9 -md=32m -mfb=64 -ms=on"
+        type_flag="-t7z"
+    fi
+    echo "Compressing '$folder' to '$arc'..."
+    7z a $type_flag $flags "$arc" "$folder"
 }
 
 # pkgback - Automatic package tracking
