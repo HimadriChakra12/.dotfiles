@@ -65,7 +65,7 @@ bind : super + r               : "bash $HOME/.config/sxwm-conf/scripts/rofi/scre
 bind : alt + shift + t         : "bash $HOME/.config/sxwm-conf/scripts/rofi/timer"
 bind : super + s               : "bash $HOME/.config/sxwm-conf/scripts/empty_workspace"
 bind : super + shift + w       : "bash $HOME/.config/sxwm-conf/scripts/recog.sh"
-bind : super + v               : "rofi -modi clipboard:greenclip print -show clipboard"
+bind : super + v               : "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 bind : super + u               : "bash $HOME/.config/sxwm-conf/scripts/rofi/urlman"
 bind : super + slash           : "bash $HOME/.config/sxwm-conf/scripts/rofi/cmd"
 bind : super + shift + u       : "sh $HOME/.config/sxwm-conf/scripts/rofi/urlsurf"

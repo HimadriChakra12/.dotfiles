@@ -62,6 +62,20 @@ pb(){
     vim $(fzf)
 }
 
+ts2mp4() {
+    local input="$1"
+    local output="${2:-${input%.ts}.mp4}"
+
+    ffmpeg -hide_banner -y \
+        -fflags +genpts \
+        -i "$input" \
+        -map 0:v:0 -map 0:a? \
+        -c:v copy \
+        -c:a aac -b:a 192k \
+        -movflags +faststart \
+        "$output"
+}
+
 dk() {
     docker ps
     read -p "Kill: " h
