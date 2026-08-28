@@ -1,7 +1,7 @@
 #!/bin/bash
 # Simple Rofi menu for screen recording
 
-RECORD_SCRIPT="${SCREENRECORD_SCRIPT:-$HOME/.config/i3/scripts/screenrecord/screenrecord}"
+RECORD_SCRIPT="${SCREENRECORD_SCRIPT:-$HOME/.config/sxwm-conf/scripts/screenrecord/screenrecord}"
 
 # Check if recording is active
 is_recording() {
