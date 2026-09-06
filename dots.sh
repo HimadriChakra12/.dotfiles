@@ -29,6 +29,7 @@ dotfiles=(
     "$HOME/.dotfiles/alacritty.toml:$HOME/.config/alacritty.toml"
     "$HOME/.dotfiles/starship.toml:$HOME/.config/starship.toml"
     "$HOME/.dotfiles/greenclip.toml:$HOME/.config/greenclip.toml"
+    "$HOME/.dotfiles/mimeapps.list:$HOME/.config/mimeapps.list"
     "$HOME/.dotfiles/libinput-gestures.conf:$HOME/.config/libinput-gestures.conf"
 
     "$HOME/.dotfiles/bashconf:$HOME/bashconf" # I shifted to my config of ohmybash
