@@ -7,7 +7,7 @@ return {
     win_width          = 900,
     win_height         = 560,
     maximized          = false,
-    splitter_pos       = 0,       -- side-pane width in pixels
+    splitter_pos       = 200,       -- side-pane width in pixels
     always_show_tabs   = true,
     hide_close_btn     = false,
     max_tab_chars      = 32,
@@ -16,7 +16,7 @@ return {
     change_tab_on_drop = false,
     close_on_unmount   = true,
     focus_previous     = false,     -- focus previous tab on close
-    side_pane_mode     = "hidden",
+    side_pane_mode     = "places",
     view_mode          = "list",
     show_hidden        = false,
     sort               = "name;ascending;",
