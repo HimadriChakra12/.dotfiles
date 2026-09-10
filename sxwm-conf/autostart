@@ -6,5 +6,4 @@ doid &
 greenclip daemon &
 bash $HOME/.config/sxwm-conf/scripts/nightlight &
 libinput-gestures &
-mustat &
-mustat-blocks &
+sxbar &
