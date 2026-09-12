@@ -9,7 +9,7 @@ CONF_LINKS := GIMP btop darktable dunst fastfetch flameshot gh git i3 lazygit \
 
 OKULAR_LINKS := okularrc okularpartrc
 
-HOME_LINKS := bashconf .profile .bashrc .zshrc .tmux.conf .vimrc
+HOME_LINKS := bashconf .profile .bashrc .zshrc .tmux.conf .vimrc .yashrc .newsboat
 
 .PHONY: $(CONF_LINKS) $(OKULAR_LINKS) $(HOME_LINKS)
 

@@ -55,6 +55,7 @@ bind : alt + Return       : "st"
 bind : super + shift + c      : "px"
 bind : super + shift + period : "bash $HOME/.config/sxwm-conf/scripts/rofi/stickerpicker"
 bind : super + Tab            : "rofi -show window"
+bind : alt + Tab              : "twsk"
 bind : super + comma          : "bash $HOME/.config/sxwm-conf/scripts/rofi/wallpaper"
 bind : super + g               : "bash $HOME/.config/sxwm-conf/scripts/rofi/gamelauncher"
 bind : alt + shift + b         : "bash $HOME/.config/sxwm-conf/scripts/rofi/bluetooth"
@@ -87,9 +88,8 @@ bind : ctrl + shift + Escape : "st -t btop -c btop -e btop"
 # ---------------------------------------------------------------------------
 # WINDOW / FOCUS MANAGEMENT
 # ---------------------------------------------------------------------------
-bind : alt + Down  : focus_next
-bind : alt + Up    : focus_prev
-bind : alt + Tab   : focus_next
+bind : alt + l  : focus_next
+bind : alt + h    : focus_prev
 
 bind : alt + shift + h : move_win_left
 bind : alt + shift + j : move_win_down

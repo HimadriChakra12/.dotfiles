@@ -38,6 +38,9 @@ dotfiles=(
     #    "$HOME/.dotfiles/.zshrc:$HOME/.zshrc" # Might not be using zsh now
     "$HOME/.dotfiles/.tmux.conf:$HOME/.tmux.conf"
     #    "$HOME/.dotfiles/.vimrc:$HOME/.vimrc"  #I use nvim
+    "$HOME/.dotfiles/.newsboat:$HOME/.newsboat"
+    "$HOME/.dotfiles/.yashrc:$HOME/.yashrc"
+    "$HOME/.dotfiles/.sfeed:$HOME/.sfeed"
 )
 
 echo "Linking dotfiles..."
